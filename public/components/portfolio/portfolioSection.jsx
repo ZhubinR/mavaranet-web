@@ -56,7 +56,6 @@ const PortfolioSection = ({ data }) => {
                         />
                     </SwiperSlide>
                 ))}
-
             </Swiper>
         </div>
     )
