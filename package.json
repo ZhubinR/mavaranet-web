@@ -1,0 +1,31 @@
+{
+  "name": "mavaranet-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@fullpage/react-fullpage": "^0.1.42",
+    "bootstrap": "^5.3.2",
+    "fullpage.js": "^4.0.20",
+    "jalali-moment": "^3.3.11",
+    "lottie-web": "^5.12.2",
+    "next": "^13.5.6",
+    "react": "^18.2.0",
+    "react-dom": "^18",
+    "react-id-swiper": "^4.0.0",
+    "react-slick": "^0.30.2",
+    "sass": "^1.69.4",
+    "screen-size": "^1.0.0",
+    "sharp": "^0.33.3",
+    "swiper": "^9.4.1"
+  },
+  "devDependencies": {
+    "eslint": "^8",
+    "eslint-config-next": "13.5.6"
+  }
+}
