@@ -4277,7 +4277,7 @@ fp-nav ul,
         margin-top: -7rem !important;
         
         &_pic {
-            background-image: url(../../../public/images/drMain-copy.jpg);
+            background-image: url(../../../public/images/drMain-copy.webp);
             background-position: right top;
             background-size: cover;
             height: 600px;
@@ -4381,22 +4381,6 @@ fp-nav ul,
                 }
             }
         }
-    }
-}
-
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    /* Adjust the minimum image width as needed */
-    grid-gap: 1rem;
-
-    /* Adjust the gap between images as needed */
-    img {
-        width: 100%;
-        height: 250px;
-        object-fit: cover;
-        object-position: center;
-        border-radius: .5rem;
     }
 }
 
@@ -4618,7 +4602,6 @@ fp-nav ul,
 
 }
 
-
 .not-found {
     canvas {
         z-index: 1;
@@ -4777,4 +4760,27 @@ fp-nav ul,
     margin: 5rem auto;
     height: auto;
     max-width: 100%;
+}
+
+.cta {
+    position: fixed;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    background: rgba($dark_color, $alpha: .5);
+    border: 1px solid rgba(#CBCBCB, $alpha: .35);
+    border-radius: 50%;
+    transition: all .2s ease-in;
+    img {
+        width: 28px;
+        height: 28px;
+    }
+    &:hover {
+        scale: 1.1;
+    }
 }

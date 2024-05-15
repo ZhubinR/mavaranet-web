@@ -19,15 +19,14 @@ const PortfolioSection = ({ data }) => {
             </div>
             <Swiper
                 loop={true}
-                autoplay={{
-                    delay: 4000,
-                    disableOnInteraction: false,
-                    setTimeout: 4000,
-                }}
+                autoplay={{ delay: 3000 }}
                 centeredSlides={true}
                 modules={[Pagination, Autoplay]}
                 speed={750}
-                pagination={true}
+                navigation={false}
+                pagination={{
+                    clickable: true,
+                }}
                 spaceBetween={24}
                 breakpoints={{
                     0: {
