@@ -27,6 +27,7 @@ const PortfolioSection = ({ data }) => {
                 pagination={{
                     clickable: true,
                 }}
+                
                 spaceBetween={24}
                 breakpoints={{
                     0: {

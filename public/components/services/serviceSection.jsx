@@ -24,7 +24,7 @@ const ServiceSection = () => {
 
             <div className="container">
                 <div className="row justify-content-between align-items-center">
-                    <div className="col-xxl-6 col-xl-5 col-lg-4 d-flex align-items-center justify-content-center">
+                    <div className=" col-xl-5 col-lg-4 d-flex align-items-center justify-content-center">
                         <Image
                             priority 
                             className={`services-image`}
@@ -36,7 +36,7 @@ const ServiceSection = () => {
                             
                         />
                     </div>
-                    <div className="col-xxl-6 col-xl-7 col-lg-8 ">
+                    <div className=" col-xl-7 col-lg-8 ">
                         <div className="myWrapper row">
                             <div
                                 className={`col-sm-6 col-md-4 col-xxl-12 services_item ${selectedBox === 1 ? 'selected' : ''}`}

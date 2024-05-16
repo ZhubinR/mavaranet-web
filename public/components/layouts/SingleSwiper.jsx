@@ -32,7 +32,9 @@ const SingleSwiper = ({ imageUrls, noBack }) => {
                 observeParents={true}
                 navigation={false}
                 slidesPerView={1}
-                pagination={true}
+                pagination={{
+                    clickable: true,
+                }}
             >
                 {imageUrls.map((imageUrl, index) => (
 
