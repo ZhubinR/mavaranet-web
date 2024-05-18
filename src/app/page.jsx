@@ -27,7 +27,7 @@ export default function Home() {
     const [data4, setData4] = useState([])
     const [data5, setData5] = useState([])
     const [SmallScreen, setSmallScreen] = useState(false)
-
+    
     useEffect(() => {
         // fetching all datas
         const getDatas = async () => {
