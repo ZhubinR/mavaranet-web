@@ -38,8 +38,8 @@ export default function Home() {
                 fetch(`${reqUrl}/categories`, { next: { revalidate: 1800 } }),
                 fetch(`${reqUrl}/customers?acf_format=standard&per_page=100`, { next: { revalidate: 1800 } })])
 
-            const [data1, data2, data3, data4 , data5] = res
-
+                const [data1, data2, data3, data4 , data5] = res
+                
             setData1(await data1.json())
             setData2(await data2.json())
             setData3(await data3.json())
