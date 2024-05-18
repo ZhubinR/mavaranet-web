@@ -18,6 +18,7 @@ import Fullpage from '../../public/components/Fullpage'
 import Footer from '../../public/components/layouts/Footer'
 import CustomerSection from '../../public/components/customer/CustomerSection'
 import Cta from '../../public/components/layouts/Cta'
+import LoadingHome from './loading'
 
 export default function Home() {
     const [data1, setData1] = useState([])
@@ -82,15 +83,15 @@ export default function Home() {
     })
 
     return (
-
         <HomeLayout>
             <main className='homeMain'>
                 <Cta
                     slug={`tel:+989125441048`}
                     imgUrl={`/images/contact/phone.svg`}
-                />
+                    />
                 {SmallScreen ? (
                     <>
+                    <LoadingHome/>
                         <HeroSection />
                         <ServiceSection />
                         <AboutSection />
@@ -108,6 +109,8 @@ export default function Home() {
                 ) : (
 
                     <Fullpage>
+                    <LoadingHome/>
+
                         <HeroSection />
                         <ServiceSection />
                         <AboutSection />

@@ -1,4 +1,3 @@
-import DefaultLayout from "../../../public/components/layouts/DefaultLayout"
 import InsidePageTitle from "../../../public/components/shared/SharedPageTitle"
 import BlogItem from "../../../public/components/blog/blogItem"
 import '@/app/styles/styles.scss'
@@ -64,9 +63,7 @@ const blogArchive = async () => {
         };
     });
 
-    return (
-        <html lang="fa" dir="rtl">
-            <DefaultLayout>
+    return (        
                 <main className="pageMain">
                     <div className="container">
 
@@ -96,8 +93,6 @@ const blogArchive = async () => {
                       
                     </div>
                 </main>
-            </DefaultLayout>
-        </html>
     )
 }
 

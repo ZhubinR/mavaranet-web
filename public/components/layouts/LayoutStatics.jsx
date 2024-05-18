@@ -24,7 +24,7 @@ const LayoutStatics = () => {
 
             <header className="header-mobile">
 
-                <svg onClick={openSidemenu} xmlns="http://www.w3.org/2000/svg" width="19" height="14" viewBox="0 0 19 14" fill="none">
+                <svg className="burgerIcon" onClick={openSidemenu} xmlns="http://www.w3.org/2000/svg" width="19" height="14" viewBox="0 0 19 14" fill="none">
                     <path d="M4 0.25C3.58579 0.25 3.25 0.585786 3.25 1C3.25 1.41421 3.58579 1.75 4 1.75H18C18.4142 1.75 18.75 1.41421 18.75 1C18.75 0.585786 18.4142 0.25 18 0.25H4Z" fill="#FAFAFA" />
                     <path d="M4 6.25C3.58579 6.25 3.25 6.58579 3.25 7C3.25 7.41421 3.58579 7.75 4 7.75H18C18.4142 7.75 18.75 7.41421 18.75 7C18.75 6.58579 18.4142 6.25 18 6.25H4Z" fill="#FAFAFA" />
                     <path d="M4 12.25C3.58579 12.25 3.25 12.5858 3.25 13C3.25 13.4142 3.58579 13.75 4 13.75H18C18.4142 13.75 18.75 13.4142 18.75 13C18.75 12.5858 18.4142 12.25 18 12.25H4Z" fill="#FAFAFA" />

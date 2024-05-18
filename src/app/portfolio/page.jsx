@@ -1,11 +1,14 @@
 
 'use client'
 import React, { useState, useEffect } from 'react';
-import DefaultLayout from "../../../public/components/layouts/DefaultLayout"
+//import DefaultLayout from "../../../public/components/layouts/DefaultLayout"
 import '@/app/styles/styles.scss'
 import InsidePageTitle from "../../../public/components/shared/SharedPageTitle"
 import PortfolioArchiveItem from "../../../public/components/portfolio/portfolioArchiveItem"
 import { reqUrl } from "../config"
+import Loading from './loading';
+import { Suspense } from 'react';
+
 
 // export const metadata = {
 //     title: 'نمونه کار های ماورانت',
@@ -23,28 +26,33 @@ import { reqUrl } from "../config"
 const PortfolioArchive = () => {
 
     // Data fetching
+    const [loading, setLoading] = useState(true);
     const [portfolioData, setPortfolioData] = useState([])
     // const [filteredData, setFilteredData] = useState([])
     // const [selectedCategory, setSelectedCategory] = useState(null)
 
     useEffect(() => {
-        GetData();
-    }, []);
+        const GetData = async () => {
+            try {
+                setLoading(true);
+                const res = await fetch(`${reqUrl}/portfolios?acf_format=standard&per_page=100`, { next: { revalidate: 1800 } })
+                const portfoliosRes = await res.json()
+                
+                setPortfolioData(portfoliosRes)
+                // setFilteredData(portfoliosRes)
+            } catch (error) {
+    
+                console.error('Error fetching portfoliosRes:', error)
+            } finally {
+                setLoading(false)
+                }
+            }
+        GetData()
+    }, [])
+    if (loading) {
+        return <><Loading /></>
+      }
 
-    const GetData = async () => {
-        try {
-
-            const res = await fetch(`${reqUrl}/portfolios?acf_format=standard&per_page=100`, { next: { revalidate: 1800 } })
-            const portfoliosRes = await res.json()
-            setPortfolioData(portfoliosRes)
-            // setFilteredData(portfoliosRes)
-
-        } catch (error) {
-
-            console.error('Error fetching portfoliosRes:', error);
-
-        }
-    }
 
     // Handeling category Filter 
     // const Filter = (category) => {
@@ -66,9 +74,7 @@ const PortfolioArchive = () => {
 
    
     return (
-        <html lang="fa" dir="rtl">
 
-            <DefaultLayout>
                 <main className="pageMain">
                     <div className="container mt-0">
                         <InsidePageTitle
@@ -110,23 +116,23 @@ const PortfolioArchive = () => {
                                 سایر
                             </button>
                         </div> */}
+                        
+                            <div className="row align-item-center justify-content-center mb-4">
+                                {portfolioData.map(portfolio => (
+                                    <div key={portfolio.id} className="col-lg-4 col-md-6 mb-4">
+                                        <PortfolioArchiveItem
+                                            slug={`/portfolio/${portfolio.slug}`}
+                                            imageUrl={portfolio.acf.portfolio_thumbnail}
+                                            name={portfolio.title.rendered}
+                                        />
+                                    </div>
+                                ))}
+                            </div>
 
-                        <div className="row align-item-center justify-content-center mb-4">
-                            {portfolioData.map(portfolio => (
-                                <div key={portfolio.id} className="col-lg-4 col-md-6 mb-4">
-                                    <PortfolioArchiveItem
-                                        slug={`/portfolio/${portfolio.slug}`}
-                                        imageUrl={portfolio.acf.portfolio_thumbnail}
-                                        name={portfolio.title.rendered}
-                                    />
-                                </div>
-                            ))}
-                        </div>
+                       
+
                     </div>
                 </main>
-            </DefaultLayout>
-        </html>
-
     )
 
 }
