@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@fullpage/react-fullpage": "^0.1.42",
+    "@liara/cli": "^6.0.2",
     "bootstrap": "^5.3.2",
     "fullpage.js": "^4.0.20",
     "jalali-moment": "^3.3.11",

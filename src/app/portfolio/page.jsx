@@ -7,7 +7,6 @@ import InsidePageTitle from "../../../public/components/shared/SharedPageTitle"
 import PortfolioArchiveItem from "../../../public/components/portfolio/portfolioArchiveItem"
 import { reqUrl } from "../config"
 import Loading from './loading';
-import { Suspense } from 'react';
 
 
 // export const metadata = {

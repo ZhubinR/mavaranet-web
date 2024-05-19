@@ -34,13 +34,11 @@ export const metadata = {
 const HomeLayout = ({ children }) => {
    
     return (
-        <html lang="fa" dir="rtl">
+       <>
+            <LayoutStatics />
+            {children}
+       </>
 
-            <body>
-                <LayoutStatics />
-                {children}
-            </body>
-        </html>
     )
 }
 

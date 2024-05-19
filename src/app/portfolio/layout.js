@@ -24,7 +24,6 @@ const DefaultLayout = ({ children }) => {
     
     return (
         
-           
             <>
                 <PagesHeader />
                 <HeaderMenu />

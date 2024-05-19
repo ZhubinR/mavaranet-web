@@ -102,6 +102,7 @@ const BackgroundSlide = ({ rightClass }) => {
                             width={490}
                             height={370}
                             priority
+                            alt='slide image'
                         />
                     </SwiperSlide>
 

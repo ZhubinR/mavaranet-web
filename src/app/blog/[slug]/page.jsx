@@ -73,9 +73,9 @@ const blogSingle = async ({ params }) => {
     const gregorianDates = threeData.map(three => three.date)
     const jalaliDates = moment(gregorianDates, 'YYYY-MM-DDTHH:mm:ss').locale('fa').format('YYYY/MM/DD HH:mm:ss');
     return (
-        <html lang="fa" dir="rtl">
+        <>
 
-            <DefaultLayout>
+            
                 <SharedSinglePageTitle
                     title={blogPost.title.rendered}
                     date={jalaliDate.slice(0, 10)}
@@ -83,7 +83,7 @@ const blogSingle = async ({ params }) => {
                 />
                 <div className="container">
                     <div className="row align-items-center justify-content-center">
-                        <div className="col-lg-10">
+                        <div className="col-lg-11">
 
                             <HtmlRenderComponent
                                 htmlContent={blogPost.content.rendered}
@@ -110,8 +110,8 @@ const blogSingle = async ({ params }) => {
                     </div>
                 </div>
 
-            </DefaultLayout>
-        </html>
+            
+        </>
     )
 }
 

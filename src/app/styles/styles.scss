@@ -3306,6 +3306,7 @@ fp-nav ul,
             color: $white_color;
             margin-bottom: 2rem;
             font-weight: 900;
+            line-height: 1.7;
         }
 
         .detail {
@@ -3852,6 +3853,8 @@ fp-nav ul,
 
             h2 {
                 font-size: 1.25em !important;
+                line-height: 1.7;
+
             }
 
             h3,
@@ -3859,7 +3862,7 @@ fp-nav ul,
             h5,
             h6 {
                 font-size: 1.125em !important;
-
+                line-height: 1.7;
             }
 
             p {

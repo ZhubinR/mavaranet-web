@@ -1,9 +1,9 @@
+
 import InsidePageTitle from "../../../public/components/shared/SharedPageTitle"
 import BlogItem from "../../../public/components/blog/blogItem"
 import '@/app/styles/styles.scss'
 import moment from "jalali-moment"
 import { reqUrl } from "../config"
-
 
 export async function generateMetadata() {
     // optionally access and extend (rather than replace) parent metadata
@@ -63,36 +63,38 @@ const blogArchive = async () => {
         };
     });
 
-    return (        
-                <main className="pageMain">
-                    <div className="container">
+    return (    
+                    <main className="pageMain">
+                        <div className="container">
+                           
+                            <InsidePageTitle
+                                title={`اخبار و مقالات`}
+                                desc={`وبلاگ ماورانت به عنوان یک منبع برجسته در زمینه تبلیغات و برندینگ کسب و کارهای مختلف شناخته می‌شود. در اینجا، ما به طرح و بررسی موضوعات گوناگونی می‌پردازیم که مستقیماً به نیازها و مسائل مربوط به بیزینس ها در فضای آنلاین مربوط می‌شود.`}
+                                backText={`BLOG`}
+                            />
 
-                        <InsidePageTitle
-                            title={`اخبار و مقالات`}
-                            desc={`وبلاگ ماورانت به عنوان یک منبع برجسته در زمینه تبلیغات و برندینگ کسب و کارهای مختلف شناخته می‌شود. در اینجا، ما به طرح و بررسی موضوعات گوناگونی می‌پردازیم که مستقیماً به نیازها و مسائل مربوط به بیزینس ها در فضای آنلاین مربوط می‌شود.`}
-                            backText={`BLOG`}
-                        />
+                            <div className="row align-items-center justify-content-center">
 
-                        <div className="row align-items-center justify-content-center">
+                                {blogPostsWithCategories.map(post => (
+                                    <div key={post.id} className="col-lg-4 col-md-6 mb-4">
+                                        <BlogItem
+                                            slug={`/blog/${post.slug}`}
+                                            imageUrl={post.acf.thumbnail_url}
+                                            title={post.title.rendered}
+                                            description={post.acf.desc}
+                                            updatedAt={post.date}
+                                            readingTime={post.acf.readingtime}
+                                            tag={post.categoryName}
+                                        />
+                                    </div>
+                                ))}
 
-                            {blogPostsWithCategories.map(post => (
-                                <div key={post.id} className="col-lg-4 col-md-6 mb-4">
-                                    <BlogItem
-                                        slug={`/blog/${post.slug}`}
-                                        imageUrl={post.acf.thumbnail_url}
-                                        title={post.title.rendered}
-                                        description={post.acf.desc}
-                                        updatedAt={post.date}
-                                        readingTime={post.acf.readingtime}
-                                        tag={post.categoryName}
-                                    />
-                                </div>
-                            ))}
-
+                            </div>
+                        
                         </div>
-                      
-                    </div>
-                </main>
+                    </main>
+
+               
     )
 }
 

@@ -89,9 +89,9 @@ export default function Home() {
                     slug={`tel:+989125441048`}
                     imgUrl={`/images/contact/phone.svg`}
                     />
+                    
                 {SmallScreen ? (
                     <>
-                    <LoadingHome/>
                         <HeroSection />
                         <ServiceSection />
                         <AboutSection />
@@ -109,8 +109,8 @@ export default function Home() {
                 ) : (
 
                     <Fullpage>
-                    <LoadingHome/>
-
+                    
+                        <LoadingHome/>
                         <HeroSection />
                         <ServiceSection />
                         <AboutSection />
