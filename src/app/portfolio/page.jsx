@@ -34,7 +34,7 @@ const PortfolioArchive = () => {
         const GetData = async () => {
             try {
                 setLoading(true);
-                const res = await fetch(`${reqUrl}/portfolios?acf_format=standard&per_page=100`, { next: { revalidate: 1800 } })
+                const res = await fetch(`${reqUrl}/portfolios?acf_format=standard&per_page=100`, { next: { revalidate: 43200 } })
                 const portfoliosRes = await res.json()
                 
                 setPortfolioData(portfoliosRes)
