@@ -22,6 +22,7 @@ section {
 .homeMain {
     background: url(../../../public/images/sky-background-3.webp) center no-repeat;
     background-size: cover;
+    margin-right: 68px;
 }
 
 @mixin loaderDivMixin {
@@ -777,14 +778,13 @@ fp-nav ul,
             display: flex;
             align-items: center;
             gap: 1.25rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.75rem;
             transition: all 0.3s ease-in;
             cursor: pointer;
             opacity: .8;
-            scale: .9;
+            scale: .95;
 
             &.selected {
-                scale: 1;
                 opacity: 1;
 
                 .icon {
@@ -876,6 +876,8 @@ fp-nav ul,
             transform: translateX(400px);
             transition: all 1s ease-in;
             opacity: 0;
+            width: 100%;
+            height: auto;
         }
 
         &.active {
@@ -895,16 +897,18 @@ fp-nav ul,
                 opacity: 1;
             }
         }
+        @media (max-width: 1500px) {
+            .services_item {
+                margin-bottom: 1.35rem;
+                scale: .88;
+            }
+        }
 
         @media (max-width: 1400px) {
-            .services-image {
-                max-width: 360px;
-                height: 360px;
-            }
 
             .services_item {
                 padding: 0 1.75rem;
-                margin-bottom: 2rem;
+                margin-bottom: 1.5rem;
                 flex-direction: column;
                 gap: 1rem;
                 scale: 1;
@@ -1309,7 +1313,7 @@ fp-nav ul,
         }
 
         .roadmap-wrapper {
-            max-height: 600px;
+            max-height: 440px;
             overflow-y: scroll;
 
 
@@ -2768,7 +2772,6 @@ fp-nav ul,
     }
 
     &.customer {
-
         position: relative;
 
         .sectionTitle {
@@ -2804,6 +2807,31 @@ fp-nav ul,
                 span {
                     color: $text_color;
                     font-size: .8em;
+                }
+            }
+        }
+        @media (max-width: 1500px) {
+            .sectionTitle {
+                margin-bottom: 2.5rem;
+                .title {
+                    font-size: 1.8em;
+                }
+                span {
+                    font-size: 1em;
+                }
+            }
+            &_item {
+                img {
+                    width: 48px;
+                    height: 48px;
+                }
+                .text {
+                    .name {
+                        font-size: .9em;
+                    }
+                    span {
+                        font-size: .7em;
+                    }
                 }
             }
         }
@@ -4733,7 +4761,23 @@ fp-nav ul,
             }
         }
     }
-
+    @media (max-width: 1500px) {
+        &_item {
+            padding: 0.5rem 1rem;
+            img {
+                width: 48px;
+                height: 48px;
+            }
+            .text {
+                .name {
+                    font-size: .9em;
+                }
+                span {
+                    font-size: .7em;
+                }
+            }
+        }
+    }
 }
 
 .not-found {

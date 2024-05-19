@@ -126,6 +126,11 @@ const Footer = () => {
                                     تماس با ما
                                 </Link>
                             </li>
+                            <li>
+                                <Link href={`/blog`}>
+                                    مقالات
+                                </Link>
+                            </li>
                         </ul>
                     </div>
 

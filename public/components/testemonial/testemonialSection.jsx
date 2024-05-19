@@ -36,8 +36,9 @@ const TestemonialSection = ({ data }) => {
                             slidesPerView: 2,
                         }
                     }}
-
-                    pagination={true}
+                    pagination={{
+                        clickable: true,
+                    }}
                     modules={[Pagination, Autoplay]}
                     spaceBetween={30}
                     speed={750}
@@ -52,8 +53,6 @@ const TestemonialSection = ({ data }) => {
                             />
                         </SwiperSlide>
                     ))}
-
-
                 </Swiper>
             </div>
         </div>

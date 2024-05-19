@@ -18,8 +18,13 @@ const PortfolioSection = ({ data }) => {
                 />
             </div>
             <Swiper
+                initialSlide={0}
                 loop={true}
-                autoplay={{ delay: 3000 }}
+                autoplay={{
+                    delay: 4000,
+                    disableOnInteraction: false,
+                    setTimeout: 6000,
+                }}
                 centeredSlides={true}
                 modules={[Pagination, Autoplay]}
                 speed={750}
@@ -47,6 +52,14 @@ const PortfolioSection = ({ data }) => {
                     }
                 }}
             >
+                <SwiperSlide>
+                    <PortfolioItem
+                        url={`/portfolio/nilfouroush-clinic`}
+                        imageAlt={`وبسایت دکتر نیلفروش زاده`}
+                        imageUrl={`https://back.mavaranet.net/wp-content/uploads/2024/05/nilforoush.jpg`}
+                        title={`وبسایت دکتر نیلفروش زاده`}
+                    />
+                </SwiperSlide>
                 {data.map(portfolio => (
                     <SwiperSlide key={portfolio.id}>
                         <PortfolioItem

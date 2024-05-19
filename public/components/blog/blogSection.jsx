@@ -22,7 +22,6 @@ const BlogSection = ({data}) => {
                 loop={true}
                 autoplay={{
                     delay: 4000,
-                    disableOnInteraction: false,
                     setTimeout: 6000,
                 }}
                 centeredSlides={true}
