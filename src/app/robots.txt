@@ -1,6 +1,10 @@
 User-agent: *
 Disallow: /admin
-Disallow: /?page
-Disallow: /?page=
+Disallow: /portfolios/?page
+Disallow: /portfolios/?page=
+Disallow: /portfolios
+Disallow: /blog
 Disallow: /?
+Disallow: /?et_core_page_resource
+Disallow: /portfolios/test01
 Disallow: /wp-admin/

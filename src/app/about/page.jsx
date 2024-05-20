@@ -40,7 +40,7 @@ const About = () => {
         '/images/about/8.webp',
     ]
     return (
-        <html lang="fa" dir="rtl">
+      
             <DefaultLayout>
                 <main className="pageMain " style={{ backgroundColor: '#010c16' }}>
                     <section className="about_description wrapper section about">
@@ -295,7 +295,7 @@ const About = () => {
                     </section>
                 </main>
             </DefaultLayout>
-        </html>
+     
 
     )
 }

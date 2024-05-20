@@ -75,7 +75,7 @@ const blogSingle = async ({ params }) => {
     return (
         <>
 
-            
+    
                 <SharedSinglePageTitle
                     title={blogPost.title.rendered}
                     date={jalaliDate.slice(0, 10)}

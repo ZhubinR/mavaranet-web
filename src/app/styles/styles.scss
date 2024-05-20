@@ -398,7 +398,7 @@ fp-nav ul,
     border-left: 1px solid rgba(255, 255, 255, 0.60);
     display: flex;
 
-    .Link {
+    .link {
         cursor: pointer;
 
         height: fit-content;
@@ -4781,6 +4781,7 @@ fp-nav ul,
 }
 
 .not-found {
+    overflow: hidden;
     canvas {
         z-index: 1;
         position: absolute;
@@ -4842,6 +4843,7 @@ fp-nav ul,
     }
 
     .frame {
+        overflow: hidden;
         z-index: 3;
         position: absolute;
         left: 0;

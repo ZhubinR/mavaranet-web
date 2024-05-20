@@ -57,8 +57,7 @@ const PortfolioSingle = async ({ params }) => {
         }
     };
     return (
-        <html lang="fa" dir="rtl">
-            <DefaultLayout>
+            
                 <main>
                     <section className="portfolio_hero mb-4">
                         <div className="container">
@@ -102,8 +101,7 @@ const PortfolioSingle = async ({ params }) => {
                         </div>
                     </section>
                 </main>
-            </DefaultLayout>
-        </html>
+            
     )
 }
 
