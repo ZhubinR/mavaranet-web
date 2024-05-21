@@ -71,7 +71,7 @@ export default function Home() {
         // find the category
         const postCategory = data4.find(category => category.id === post.categories[0]) // Assuming only one category per post
         // coverting default date to jalali date
-        const gregorianDate = data3.map(post => post.date)
+        const gregorianDate =  post.date
         const jalaliDate = moment(gregorianDate, 'YYYY-MM-DDTHH:mm:ss').locale('fa').format('YYYY/MM/DD HH:mm:ss')
 
         // return the post object with the category name

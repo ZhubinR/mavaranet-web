@@ -22,7 +22,7 @@ const HeaderMenu = () => {
 
             <MenuOverlay onClick={closeSidemenu} isOpen={sidemenuOpen} />
 
-            <header className="header-mobile">
+            <div className="header-mobile">
 
                 <svg onClick={openSidemenu} xmlns="http://www.w3.org/2000/svg" width="19" height="14" viewBox="0 0 19 14" fill="none">
                     <path d="M4 0.25C3.58579 0.25 3.25 0.585786 3.25 1C3.25 1.41421 3.58579 1.75 4 1.75H18C18.4142 1.75 18.75 1.41421 18.75 1C18.75 0.585786 18.4142 0.25 18 0.25H4Z" fill="#FAFAFA" />
@@ -43,7 +43,7 @@ const HeaderMenu = () => {
                     />
 
                 </Link>
-            </header>
+            </div>
 
             <aside className={`menu ${sidemenuOpen ? 'active' : ''}`}>
                 <svg onClick={closeSidemenu} className='close' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" /></svg>

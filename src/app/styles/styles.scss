@@ -23,6 +23,9 @@ section {
     background: url(../../../public/images/sky-background-3.webp) center no-repeat;
     background-size: cover;
     margin-right: 68px;
+    @media (max-width:992px) {
+        margin-right: 0;
+    }
 }
 
 @mixin loaderDivMixin {

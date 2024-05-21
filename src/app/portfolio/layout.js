@@ -16,26 +16,24 @@ export const metadata = {
             'max-video-preview': -1,
             'max-image-preview': 'large',
             'max-snippet': -1,
-          },
+        },
     }
 }
 
-const DefaultLayout = ({ children }) => {
-    
+const Layout = ({ children }) => {
+
     return (
-        
         <html lang="fa" dir="rtl">
             <body>
                 <PagesHeader />
                 <HeaderMenu />
-                
+
                 {children}
                 <Footer />
             </body>
+        </html>
 
-            </html>
-        
     )
 }
 
-export default DefaultLayout
+export default Layout

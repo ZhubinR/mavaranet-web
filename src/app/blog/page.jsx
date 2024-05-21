@@ -52,7 +52,7 @@ const blogArchive = async () => {
         // Find the category object corresponding to the post's category ID
         const postCategory = categories.find(category => category.id === post.categories[0]); // Assuming only one category per post
 
-        const gregorianDate = blogPosts.map(post => post.date)
+        const gregorianDate =  post.date
         const jalaliDate = moment(gregorianDate, 'YYYY-MM-DDTHH:mm:ss').locale('fa').format('YYYY/MM/DD HH:mm:ss');
 
         // Return the post object with the category name added
@@ -64,8 +64,8 @@ const blogArchive = async () => {
     });
 
     return (    
-                    <main className="pageMain">
-                        <div className="container">
+        <main className="pageMain">
+            <div className="container">
                            
                             <InsidePageTitle
                                 title={`اخبار و مقالات`}
@@ -91,10 +91,8 @@ const blogArchive = async () => {
 
                             </div>
                         
-                        </div>
-                    </main>
-
-               
+            </div>
+        </main>
     )
 }
 

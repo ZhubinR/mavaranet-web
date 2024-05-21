@@ -29,6 +29,7 @@ const PortfolioArchive = () => {
     const [portfolioData, setPortfolioData] = useState([])
     // const [filteredData, setFilteredData] = useState([])
     // const [selectedCategory, setSelectedCategory] = useState(null)
+  
 
     useEffect(() => {
         const GetData = async () => {
@@ -73,8 +74,8 @@ const PortfolioArchive = () => {
 
    
     return (
-
-                <main className="pageMain">
+        // <DefaultLayout></DefaultLayout>
+        <main className="pageMain">
                     <div className="container mt-0">
                         <InsidePageTitle
                             title={`نمونه کار های ماورانت`}
@@ -131,7 +132,7 @@ const PortfolioArchive = () => {
                        
 
                     </div>
-                </main>
+        </main>
     )
 
 }

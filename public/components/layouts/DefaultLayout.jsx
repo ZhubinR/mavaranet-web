@@ -22,16 +22,15 @@ export const metadata = {
 const DefaultLayout = ({ children }) => {
     
     return (
-        <html lang="fa" dir="rtl">
            
-            <body>
+            <>
                 <PagesHeader />
                 <HeaderMenu />
                 {children}
                 <Footer />
 
-            </body>
-        </html >
+            </>
+        
     )
 }
 
