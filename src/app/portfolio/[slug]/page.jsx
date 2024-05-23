@@ -34,8 +34,10 @@ export async function generateMetadata({ params }) {
 }
 
 const PortfolioSingle = async ({ params }) => {
+    const { slug } = params
+    console.log(slug)
     // fetching api datas for page content
-    const req = await fetch(`${reqUrl}/portfolios?acf_format=standard&slug=${params.slug}`);
+    const req = await fetch(`${reqUrl}/portfolios?acf_format=standard&slug=${slug}`);
     const portfolios = await req.json();
     const portfolio = portfolios[0];
     const portfolioContent = portfolio.acf.files
@@ -105,5 +107,15 @@ const PortfolioSingle = async ({ params }) => {
     )
 }
 
+
+
+// Return a list of `params` to populate the [slug] dynamic segment
+export async function generateStaticParams() {
+    const posts = await fetch(`${reqUrl}/portfolios?_fields=slug`).then((res) => res.json())
+   
+    return posts.map((post) => ({
+      slug: post.slug,
+    }))
+}
 
 export default PortfolioSingle

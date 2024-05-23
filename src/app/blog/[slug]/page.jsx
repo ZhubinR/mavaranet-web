@@ -1,4 +1,3 @@
-import DefaultLayout from "../../../../public/components/layouts/DefaultLayout"
 import '@/app/styles/styles.scss'
 import SharedSinglePageTitle from "../../../../public/components/shared/sharedSinglePageTitle"
 import BlogMorePost from "../../../../public/components/blog/BlogMorePost"
@@ -7,21 +6,20 @@ import HtmlRenderComponent from "../../../../public/components/layouts/HtmlRende
 import moment from "jalali-moment"
 import BlogMorePostWrapper from "../../../../public/components/blog/BlogMorePostWrapper"
 
-async function getCategory() {
-    const categoryReq = await fetch(`${reqUrl}/categories`, { next: { revalidate: 43200 } })
-    if (!categoryReq.ok) {
-        throw new Error('Failed to fetch data')
-    }
-    return categoryReq.json()
-}
+// async function getCategory() {
+//     const categoryReq = await fetch(`${reqUrl}/categories`, { next: { revalidate: 43200 } })
+//     if (!categoryReq.ok) {
+//         throw new Error('Failed to fetch data')
+//     }
+//     return categoryReq.json()
+// }
 
 export async function generateMetadata({ params }) {
-
+    const { slug } = params
     // fetch data
-    const seoBlogs = await fetch(`${reqUrl}/posts?acf_format=standard&slug=${params.slug}`).then((res) => res.json())
+    const seoBlogs = await fetch(`${reqUrl}/posts?acf_format=standard&slug=${slug}`).then((res) => res.json())
     const seoBlog = seoBlogs[0]
     // optionally access and extend (rather than replace) parent metadata
-
 
     return {
         title: seoBlog.yoast_head_json.title,
@@ -48,8 +46,9 @@ export async function generateMetadata({ params }) {
 }
 
 const blogSingle = async ({ params }) => {
+    const { slug } = params
 
-    const req = await fetch(`${reqUrl}/posts?acf_format=standard&slug=${params.slug}`, { next: { revalidate: 43200 } });
+    const req = await fetch(`${reqUrl}/posts?acf_format=standard&slug=${slug}`, { next: { revalidate: 43200 } });
     const blogPosts = await req.json();
     const blogPost = blogPosts[0];
 
@@ -72,10 +71,9 @@ const blogSingle = async ({ params }) => {
 
     const gregorianDates = threeData.map(three => three.date)
     const jalaliDates = moment(gregorianDates, 'YYYY-MM-DDTHH:mm:ss').locale('fa').format('YYYY/MM/DD HH:mm:ss');
+    
     return (
-        <>
-
-        
+        <>     
                 <SharedSinglePageTitle
                     title={blogPost.title.rendered}
                     date={jalaliDate.slice(0, 10)}
@@ -111,6 +109,14 @@ const blogSingle = async ({ params }) => {
                 </div>            
         </>
     )
+}
+
+export async function generateStaticParams() {
+    const posts = await fetch(`${reqUrl}/portfolios?_fields=slug `, { next: { revalidate: 43200 } } ).then((res) => res.json())
+   
+    return posts.map((post) => ({
+      slug: post.slug,
+    }))
 }
 
 export default blogSingle

@@ -33,12 +33,15 @@ export const metadata = {
     },
   }
 }
-
+export const viewport = {
+  themeColor: '#e1b453',
+}
 export default function RootLayout({ children }) {
+  
   return (
     <html lang="fa" dir="rtl">
-      <body>
+      
       {children}
-      </body>
+      
     </html>
   )}

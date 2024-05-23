@@ -1,8 +1,9 @@
+
 const cspHeader = `
-    default-src 'self';
+    default-src 'self' back.mavaranet.net;
     script-src 'self' 'unsafe-eval' 'unsafe-inline';
     style-src 'self' 'unsafe-inline';
-    img-src 'self' blob: data:;
+    img-src 'self' back.mavaranet.net blob: data:;
     font-src 'self';
     object-src 'none';
     base-uri 'self';
@@ -10,7 +11,6 @@ const cspHeader = `
     frame-ancestors 'none';
     upgrade-insecure-requests;
     `
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
 
