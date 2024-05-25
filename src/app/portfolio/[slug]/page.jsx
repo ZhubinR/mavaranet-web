@@ -1,4 +1,3 @@
-import DefaultLayout from "../../../../public/components/layouts/DefaultLayout"
 import '@/app/styles/styles.scss'
 import { reqUrl } from "@/app/config"
 import PortfolioTitle from "../../../../public/components/portfolio/portfolioTitle"
@@ -107,15 +106,13 @@ const PortfolioSingle = async ({ params }) => {
     )
 }
 
-
-
 // Return a list of `params` to populate the [slug] dynamic segment
-export async function generateStaticParams() {
-    const posts = await fetch(`${reqUrl}/portfolios?_fields=slug`).then((res) => res.json())
+// export async function generateStaticParams() {
+//     const posts = await fetch(`${reqUrl}/portfolios?_fields=slug`).then((res) => res.json())
    
-    return posts.map((post) => ({
-      slug: post.slug,
-    }))
-}
+//     return posts.map((post) => ({
+//       slug: post.slug,
+//     }))
+// }
 
 export default PortfolioSingle

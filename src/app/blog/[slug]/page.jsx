@@ -15,10 +15,10 @@ import BlogMorePostWrapper from "../../../../public/components/blog/BlogMorePost
 // }
 
 export async function generateMetadata({ params }) {
-    const { slug } = params
     // fetch data
-    const seoBlogs = await fetch(`${reqUrl}/posts?acf_format=standard&slug=${slug}`).then((res) => res.json())
+    const seoBlogs = await fetch(`${reqUrl}/posts?acf_format=standard&slug=${params.slug}`).then((res) => res.json())
     const seoBlog = seoBlogs[0]
+
     // optionally access and extend (rather than replace) parent metadata
 
     return {
@@ -111,12 +111,12 @@ const blogSingle = async ({ params }) => {
     )
 }
 
-export async function generateStaticParams() {
-    const posts = await fetch(`${reqUrl}/portfolios?_fields=slug `, { next: { revalidate: 43200 } } ).then((res) => res.json())
+// export async function generateStaticParams() {
+//     const posts = await fetch(`${reqUrl}/portfolios?_fields=slug `, { next: { revalidate: 43200 } } ).then((res) => res.json())
    
-    return posts.map((post) => ({
-      slug: post.slug,
-    }))
-}
+//     return posts.map((post) => ({
+//       slug: post.slug,
+//     }))
+// }
 
 export default blogSingle
