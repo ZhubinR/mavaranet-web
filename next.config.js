@@ -4,7 +4,7 @@ const cspHeader = `
     script-src 'self' 'unsafe-eval' 'unsafe-inline';
     style-src 'self' 'unsafe-inline';
     img-src 'self' back.mavaranet.net blob: data:;
-    font-src 'self' back.mavaranet.net;
+    font-src 'self' data:;
     object-src 'none';
     base-uri 'self';
     form-action 'self';
