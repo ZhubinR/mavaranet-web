@@ -1,13 +1,11 @@
-
-'use client'
-import React, { useState, useEffect } from 'react';
+"use client";
+import React, { useState, useEffect } from "react";
 //import DefaultLayout from "../../../public/components/layouts/DefaultLayout"
-import '@/app/styles/styles.scss'
-import InsidePageTitle from "../../../public/components/shared/SharedPageTitle"
-import PortfolioArchiveItem from "../../../public/components/portfolio/portfolioArchiveItem"
-import { reqUrl } from "../config"
-import Loading from './loading';
-
+import "@/app/styles/styles.scss";
+import InsidePageTitle from "../../../public/components/shared/SharedPageTitle";
+import PortfolioArchiveItem from "../../../public/components/portfolio/portfolioArchiveItem";
+import { reqUrl } from "../config";
+import Loading from "./loading";
 
 // export const metadata = {
 //     title: 'نمونه کار های ماورانت',
@@ -23,38 +21,41 @@ import Loading from './loading';
 //     },
 // }
 const PortfolioArchive = () => {
-
     // Data fetching
     const [loading, setLoading] = useState(true);
-    const [portfolioData, setPortfolioData] = useState([])
+    const [portfolioData, setPortfolioData] = useState([]);
     // const [filteredData, setFilteredData] = useState([])
     // const [selectedCategory, setSelectedCategory] = useState(null)
-  
 
     useEffect(() => {
         const GetData = async () => {
             try {
                 setLoading(true);
-                const res = await fetch(`${reqUrl}/portfolios?acf_format=standard&per_page=100`, { next: { revalidate: 43200 } })
-                const portfoliosRes = await res.json()
-                
-                setPortfolioData(portfoliosRes)
+                const res = await fetch(
+                    `${reqUrl}/portfolios?acf_format=standard&per_page=100`,
+                    { next: { revalidate: 43200 } }
+                );
+                const portfoliosRes = await res.json();
+
+                setPortfolioData(portfoliosRes);
                 // setFilteredData(portfoliosRes)
             } catch (error) {
-    
-                console.error('Error fetching portfoliosRes:', error)
+                console.error("Error fetching portfoliosRes:", error);
             } finally {
-                setLoading(false)
-                }
+                setLoading(false);
             }
-        GetData()
-    }, [])
+        };
+        GetData();
+    }, []);
     if (loading) {
-        return <><Loading /></>
-      }
+        return (
+            <>
+                <Loading />
+            </>
+        );
+    }
 
-
-    // Handeling category Filter 
+    // Handeling category Filter
     // const Filter = (category) => {
     //     if (category === selectedCategory) {
     //         // If the same category is clicked again, reset the filter
@@ -72,18 +73,17 @@ const PortfolioArchive = () => {
     //     setFilteredData(portfolioData);
     // };
 
-   
     return (
         // <DefaultLayout></DefaultLayout>
         <main className="pageMain">
-                    <div className="container mt-0">
-                        <InsidePageTitle
-                            title={`نمونه کار های ماورانت`}
-                            desc={`ویترینی از نمونه کارهای مختلف ماوارنت، نمایان کننده ی اعتماد اشخاص، کسب و کارها، انجمن های پزشکی و.. به تجربه درازمدت ماورانت`}
-                            backText={`PORTFOLIO`}
-                        />
+            <div className="container mt-0">
+                <InsidePageTitle
+                    title={`نمونه کار های ماورانت`}
+                    desc={`ویترینی از نمونه کارهای مختلف ماوارنت، نمایان کننده ی اعتماد اشخاص، کسب و کارها، انجمن های پزشکی و.. به تجربه درازمدت ماورانت`}
+                    backText={`PORTFOLIO`}
+                />
 
-                        {/* <div className="filter-row py-3">
+                {/* <div className="filter-row py-3">
                             <button className={`filter-btn ${!selectedCategory ? 'active' : ''}`} onClick={handleShowAll}>
                                 همه
                             </button>
@@ -116,26 +116,21 @@ const PortfolioArchive = () => {
                                 سایر
                             </button>
                         </div> */}
-                        
-                            <div className="row align-item-center justify-content-center mb-4">
-                                {portfolioData.map(portfolio => (
-                                    <div key={portfolio.id} className="col-lg-4 col-md-6 mb-4">
-                                        <PortfolioArchiveItem
-                                            slug={`/portfolio/${portfolio.slug}`}
-                                            imageUrl={portfolio.acf.portfolio_thumbnail}
-                                            name={portfolio.title.rendered}
-                                        />
-                                    </div>
-                                ))}
-                            </div>
 
-                       
-
-                    </div>
+                <div className="row align-item-center justify-content-center mb-4">
+                    {portfolioData.map((portfolio) => (
+                        <div key={portfolio.id} className="col-lg-4 col-md-6 mb-4">
+                            <PortfolioArchiveItem
+                                slug={`/portfolio/${portfolio.slug}`}
+                                imageUrl={portfolio.acf.portfolio_thumbnail}
+                                name={portfolio.title.rendered}
+                            />
+                        </div>
+                    ))}
+                </div>
+            </div>
         </main>
-    )
+    );
+};
 
-}
-
-
-export default PortfolioArchive
+export default PortfolioArchive;

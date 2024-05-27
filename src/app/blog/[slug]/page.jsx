@@ -5,6 +5,7 @@ import { reqUrl } from "@/app/config"
 import HtmlRenderComponent from "../../../../public/components/layouts/HtmlRenderComponent"
 import moment from "jalali-moment"
 import BlogMorePostWrapper from "../../../../public/components/blog/BlogMorePostWrapper"
+import { fetchWithRetry } from '../../../../public/components/lib/fetchWithRetry'
 
 // async function getCategory() {
 //     const categoryReq = await fetch(`${reqUrl}/categories`, { next: { revalidate: 43200 } })
@@ -71,52 +72,67 @@ const blogSingle = async ({ params }) => {
 
     const gregorianDates = threeData.map(three => three.date)
     const jalaliDates = moment(gregorianDates, 'YYYY-MM-DDTHH:mm:ss').locale('fa').format('YYYY/MM/DD HH:mm:ss');
-    
-    return (
-        <>     
-                <SharedSinglePageTitle
-                    title={blogPost.title.rendered}
-                    date={jalaliDate.slice(0, 10)}
-                    tag={blogPost.categoriesData.map(category => category.name).join(', ')}
-                />
-                <div className="container">
-                    <div className="row align-items-center justify-content-center">
-                        <div className="col-lg-11">
 
-                            <HtmlRenderComponent
-                                htmlContent={blogPost.content.rendered}
+    return (
+        <>
+            <SharedSinglePageTitle
+                title={blogPost.title.rendered}
+                date={jalaliDate.slice(0, 10)}
+                tag={blogPost.categoriesData.map(category => category.name).join(', ')}
+            />
+            <div className="container">
+                <div className="row align-items-center justify-content-center">
+                    <div className="col-lg-11">
+
+                        <HtmlRenderComponent
+                            htmlContent={blogPost.content.rendered}
+                        />
+
+                        <BlogMorePostWrapper />
+                        {threeData.slice(0, 3).map(lastPosts => (
+                            <BlogMorePost
+                                key={lastPosts.id}
+                                slug={lastPosts.slug}
+                                imageUrl={lastPosts.acf.thumbnail_url}
+                                title={lastPosts.title.rendered}
+                                desc={lastPosts.acf.desc}
+                                date={jalaliDates.slice(0, 10)}
                             />
 
-                            <BlogMorePostWrapper />
-                            {threeData.slice(0, 3).map(lastPosts => (
-                                <BlogMorePost
-                                    key={lastPosts.id}
-                                    slug={lastPosts.slug}
-                                    imageUrl={lastPosts.acf.thumbnail_url}
-                                    title={lastPosts.title.rendered}
-                                    desc={lastPosts.acf.desc}
-                                    date={jalaliDates.slice(0, 10)}
-                                />
-
-                            ))}
-
-                        </div>
-                        {/* <div className="col-lg-3 mb-4">
-                        <BlogSingleSide />
-                    </div> */}
-
+                        ))}
                     </div>
-                </div>            
+                </div>
+            </div>
         </>
     )
 }
 
-// export async function generateStaticParams() {
-//     const posts = await fetch(`${reqUrl}/portfolios?_fields=slug `, { next: { revalidate: 43200 } } ).then((res) => res.json())
-   
-//     return posts.map((post) => ({
-//       slug: post.slug,
-//     }))
+// export async function getStaticPaths() {
+//     const req = await fetch(`${reqUrl}/posts?_fields=slug&per_page=100`);
+//     const blogs = await req.json();
+//     const paths = blogs.map(post => ({ params: { slug: post.slug } }));
+//     return {
+//         paths,
+//         fallback: false // or 'blocking' if you want to enable incremental static regeneration
+//     };
 // }
+
+export async function generateStaticParams() {
+
+    const posts = await fetchWithRetry(`${reqUrl}/posts?_fields=slug&per_page=100`);
+
+    if (!posts) {
+        console.error('Failed to fetch portfolio data');
+        return []; // Return an empty array to avoid build errors
+    }
+
+    // Filter out invalid or ignored portfolios
+    const validPosts = posts.filter(post => post && post.slug)
+
+    return validPosts.map((post) => ({
+        slug: decodeURIComponent(post.slug),
+    }));
+}
+
 
 export default blogSingle

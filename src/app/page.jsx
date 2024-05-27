@@ -27,7 +27,7 @@ export default function Home() {
     const [data4, setData4] = useState([])
     const [data5, setData5] = useState([])
     const [SmallScreen, setSmallScreen] = useState(false)
-    
+
     useEffect(() => {
         // fetching all datas
         const getDatas = async () => {
@@ -38,8 +38,8 @@ export default function Home() {
                 fetch(`${reqUrl}/categories`, { next: { revalidate: 43200 } }),
                 fetch(`${reqUrl}/customers?acf_format=standard&per_page=100`, { next: { revalidate: 43200 } })])
 
-                const [data1, data2, data3, data4 , data5] = res
-                
+            const [data1, data2, data3, data4, data5] = res
+
             setData1(await data1.json())
             setData2(await data2.json())
             setData3(await data3.json())
@@ -71,7 +71,7 @@ export default function Home() {
         // find the category
         const postCategory = data4.find(category => category.id === post.categories[0]) // Assuming only one category per post
         // coverting default date to jalali date
-        const gregorianDate =  post.date
+        const gregorianDate = post.date
         const jalaliDate = moment(gregorianDate, 'YYYY-MM-DDTHH:mm:ss').locale('fa').format('YYYY/MM/DD HH:mm:ss')
 
         // return the post object with the category name
@@ -88,15 +88,15 @@ export default function Home() {
                 <Cta
                     slug={`tel:+989125441048`}
                     imgUrl={`/images/contact/phone.svg`}
-                    />
-                    
+                />
+
                 {SmallScreen ? (
                     <>
                         <HeroSection />
                         <ServiceSection />
                         <AboutSection />
                         <RoadmapSection />
-                        <CustomerSection data={data5.slice(0,20)}/>
+                        <CustomerSection data={data5.slice(0, 20)} />
                         <TestemonialSection data={data1} />
                         <PortfolioSection data={data2.slice(0, 12)} />
                         <MavaratebSection />
@@ -109,13 +109,13 @@ export default function Home() {
                 ) : (
 
                     <Fullpage>
-                    
-                        <LoadingHome/>
+
+                        <LoadingHome />
                         <HeroSection />
                         <ServiceSection />
                         <AboutSection />
                         <RoadmapSection />
-                        <CustomerSection data={data5.slice(0,20)}/>
+                        <CustomerSection data={data5.slice(0, 20)} />
                         <TestemonialSection data={data1} />
                         <PortfolioSection data={data2.slice(0, 12)} />
                         <MavaratebSection />

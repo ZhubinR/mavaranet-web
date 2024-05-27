@@ -52,7 +52,7 @@ const blogArchive = async () => {
         // Find the category object corresponding to the post's category ID
         const postCategory = categories.find(category => category.id === post.categories[0]); // Assuming only one category per post
 
-        const gregorianDate =  post.date
+        const gregorianDate = post.date
         const jalaliDate = moment(gregorianDate, 'YYYY-MM-DDTHH:mm:ss').locale('fa').format('YYYY/MM/DD HH:mm:ss');
 
         // Return the post object with the category name added
@@ -63,34 +63,33 @@ const blogArchive = async () => {
         };
     });
 
-    return (    
+    return (
         <main className="pageMain">
             <div className="container">
-                           
-                            <InsidePageTitle
-                                title={`اخبار و مقالات`}
-                                desc={`وبلاگ ماورانت به عنوان یک منبع برجسته در زمینه تبلیغات و برندینگ کسب و کارهای مختلف شناخته می‌شود. در اینجا، ما به طرح و بررسی موضوعات گوناگونی می‌پردازیم که مستقیماً به نیازها و مسائل مربوط به بیزینس ها در فضای آنلاین مربوط می‌شود.`}
-                                backText={`BLOG`}
+                <InsidePageTitle
+                    title={`اخبار و مقالات`}
+                    desc={`وبلاگ ماورانت به عنوان یک منبع برجسته در زمینه تبلیغات و برندینگ کسب و کارهای مختلف شناخته می‌شود. در اینجا، ما به طرح و بررسی موضوعات گوناگونی می‌پردازیم که مستقیماً به نیازها و مسائل مربوط به بیزینس ها در فضای آنلاین مربوط می‌شود.`}
+                    backText={`BLOG`}
+                />
+
+                <div className="row align-items-center justify-content-center">
+
+                    {blogPostsWithCategories.map(post => (
+                        <div key={post.id} className="col-lg-4 col-md-6 mb-4">
+                            <BlogItem
+                                slug={`/blog/${post.slug}`}
+                                imageUrl={post.acf.thumbnail_url}
+                                title={post.title.rendered}
+                                description={post.acf.desc}
+                                updatedAt={post.date}
+                                readingTime={post.acf.readingtime}
+                                tag={post.categoryName}
                             />
+                        </div>
+                    ))}
 
-                            <div className="row align-items-center justify-content-center">
+                </div>
 
-                                {blogPostsWithCategories.map(post => (
-                                    <div key={post.id} className="col-lg-4 col-md-6 mb-4">
-                                        <BlogItem
-                                            slug={`/blog/${post.slug}`}
-                                            imageUrl={post.acf.thumbnail_url}
-                                            title={post.title.rendered}
-                                            description={post.acf.desc}
-                                            updatedAt={post.date}
-                                            readingTime={post.acf.readingtime}
-                                            tag={post.categoryName}
-                                        />
-                                    </div>
-                                ))}
-
-                            </div>
-                        
             </div>
         </main>
     )

@@ -1,13 +1,18 @@
 import '@/app/styles/styles.scss'
 import { reqUrl } from "@/app/config"
 import PortfolioTitle from "../../../../public/components/portfolio/portfolioTitle"
+import { fetchWithRetry } from '../../../../public/components/lib/fetchWithRetry'
+export const ignoredUrls = [
+    'هومن-عشقی',
+    'کلینیک-مهرافروز'
+]
 
 export async function generateMetadata({ params }) {
 
     // fetch data for meta data
     const seoPortfolios = await fetch(`${reqUrl}/portfolios?acf_format=standard&slug=${params.slug}`).then((res) => res.json())
     const seoPortfolio = seoPortfolios[0]
-    
+
     // optionally access and extend (rather than replace) parent metadata
 
     return {
@@ -58,61 +63,84 @@ const PortfolioSingle = async ({ params }) => {
         }
     };
     return (
-            
-                <main>
-                    <section className="portfolio_hero mb-4">
-                        <div className="container">
-                            <PortfolioTitle
-                                title={portfolio.acf.portfolio_name}
-                                subTitle={portfolio.acf.portfolio_name_subtitle}
-                                desc={portfolio.acf.portfolio_description}
-                                backText={portfolio.acf.name_eng}
-                            />
-                        </div>
-                    </section>
-                    <section className="portfolio_content">
-                        <div className="container">
-                            <div className="row align-items-center justify-content-center">
-                                {/* map through the fetched data and render each item */}
-                                {portfolioContent.map((item, index) => {
-                                    // determine the type of the resource for the current item
-                                    const resourceType = getResourceType(item.medi);
 
-                                    return (
-                                        <>
-                                            {/* conditional rendering based on the inferred resource type */}
-                                            {resourceType === 'video' && (
-                                                
-                                                <div className="col-lg-4 mb-4" key={index}>
-                                                    
-                                                    <video className="portfolio_content_video" controls>
-                                                        <source src={item.medi} type="video/mp4" />
-                                                        Your browser does not support the video tag.
-                                                    </video>
+        <main>
+            <section className="portfolio_hero mb-4">
+                <div className="container">
+                    <PortfolioTitle
+                        title={portfolio.acf.portfolio_name}
+                        subTitle={portfolio.acf.portfolio_name_subtitle}
+                        desc={portfolio.acf.portfolio_description}
+                        backText={portfolio.acf.name_eng}
+                    />
+                </div>
+            </section>
+            <section className="portfolio_content">
+                <div className="container">
+                    <div className="row align-items-center justify-content-center">
+                        {/* map through the fetched data and render each item */}
+                        {portfolioContent.map((item, index) => {
+                            // determine the type of the resource for the current item
+                            const resourceType = getResourceType(item.medi);
 
-                                                </div>
-                                                
-                                            )}
+                            return (
+                                <>
+                                    {/* conditional rendering based on the inferred resource type */}
+                                    {resourceType === 'video' && (
 
-                                            {resourceType === 'picture' && <div className="col-lg-8 mb-4"><img className="portfolio_content_pic" src={item.medi} alt="Picture" /></div>}
-                                        </>
-                                    );
-                                })}
-                            </div>
-                        </div>
-                    </section>
-                </main>
-            
+                                        <div className="col-lg-4 mb-4" key={index}>
+
+                                            <video className="portfolio_content_video" controls>
+                                                <source src={item.medi} type="video/mp4" />
+                                                Your browser does not support the video tag.
+                                            </video>
+
+                                        </div>
+
+                                    )}
+
+                                    {resourceType === 'picture' && <div className="col-lg-8 mb-4"><img className="portfolio_content_pic" src={item.medi} alt="Picture" /></div>}
+                                </>
+                            );
+                        })}
+                    </div>
+                </div>
+            </section>
+        </main>
+
     )
 }
 
 // Return a list of `params` to populate the [slug] dynamic segment
-// export async function generateStaticParams() {
-//     const posts = await fetch(`${reqUrl}/portfolios?_fields=slug`).then((res) => res.json())
-   
-//     return posts.map((post) => ({
-//       slug: post.slug,
-//     }))
+// export async function getStaticPaths() {
+//     const req = await fetch(`${reqUrl}/portfolios?_fields=slug&per_page=100`);
+//     const portfolios = await req.json();
+//     const paths = portfolios.map(portfolio => ({ params: { slug: portfolio.slug } }));
+//     return {
+//         paths,
+//         fallback: false // or 'blocking' if you want to enable incremental static regeneration
+//     };
 // }
+
+
+
+export async function generateStaticParams() {
+
+    const portfolios = await fetchWithRetry(`${reqUrl}/portfolios?_fields=slug&per_page=100`);
+
+    if (!portfolios) {
+        console.error('Failed to fetch portfolio data');
+        return []; // Return an empty array to avoid build errors
+    }
+
+    // Filter out invalid or ignored portfolios
+    const validPortfolios = portfolios.filter(portfolio =>
+        portfolio && portfolio.slug && !ignoredUrls.includes(encodeURIComponent(portfolio.slug))
+    );
+
+    return validPortfolios.map((portfolio) => ({
+        slug: decodeURIComponent(portfolio.slug),
+    }));
+}
 
 export default PortfolioSingle
