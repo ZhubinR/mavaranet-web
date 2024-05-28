@@ -9,9 +9,9 @@ const SocialSection = () => {
                 <div className="row align-item-center justify-content-center">
                     <div className="col-lg-6">
                         <SharedContent 
-                            title={``}
-                            desc={``}
-                            button={``}
+                            title={`به اینستاگرام ما بپیوندید`}
+                            desc={`با دنبال کردن ما در اینستاگرام، به جمع افرادی که همراه ما در مسیر رشد و پیشرفت هستند بپیوندید. همراهی شما برای مجموعه ما بسیار ارزشمند است.`}
+                            button={`اینستاگرام`}
                             buttonSlug={`https://www.instagram.com/mavaranet/`}
                         />
                     </div>
