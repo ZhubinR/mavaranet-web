@@ -23,6 +23,7 @@ section {
     background: url(../../../public/images/sky-background-3.webp) center no-repeat;
     background-size: cover;
     margin-right: 68px;
+
     @media (max-width:992px) {
         margin-right: 0;
     }
@@ -165,10 +166,11 @@ section {
     backdrop-filter: blur(8px);
     border-bottom: 1px solid rgba($white_color, $alpha: .65);
     box-shadow: 0px -8px 16px -8px rgba(0, 0, 0, 0.15), 0px -13px 27px -5px rgba(0, 0, 0, 0.17);
+
     .burgerIcon {
         cursor: pointer;
     }
-    
+
     @media(max-width:992px) {
         display: flex;
     }
@@ -900,6 +902,7 @@ fp-nav ul,
                 opacity: 1;
             }
         }
+
         @media (max-width: 1500px) {
             .services_item {
                 margin-bottom: 1.35rem;
@@ -2813,25 +2816,31 @@ fp-nav ul,
                 }
             }
         }
+
         @media (max-width: 1500px) {
             .sectionTitle {
                 margin-bottom: 2.5rem;
+
                 .title {
                     font-size: 1.8em;
                 }
+
                 span {
                     font-size: 1em;
                 }
             }
+
             &_item {
                 img {
                     width: 48px;
                     height: 48px;
                 }
+
                 .text {
                     .name {
                         font-size: .9em;
                     }
+
                     span {
                         font-size: .7em;
                     }
@@ -3586,7 +3595,6 @@ fp-nav ul,
         &_video,
         &_pic {
             width: 100%;
-            object-fit: fill;
             border-radius: .75rem;
             overflow: hidden;
 
@@ -4768,17 +4776,21 @@ fp-nav ul,
             }
         }
     }
+
     @media (max-width: 1500px) {
         &_item {
             padding: 0.5rem 1rem;
+
             img {
                 width: 48px;
                 height: 48px;
             }
+
             .text {
                 .name {
                     font-size: .9em;
                 }
+
                 span {
                     font-size: .7em;
                 }
@@ -4789,6 +4801,7 @@ fp-nav ul,
 
 .not-found {
     overflow: hidden;
+
     canvas {
         z-index: 1;
         position: absolute;
@@ -4996,29 +5009,33 @@ fp-nav ul,
             animation-iteration-count: infinite;
             animation-name: orbit;
             animation-duration: 5.5s;
-        
+
             &:after {
-              content: "";
-              position: absolute;
-              width: 8px;
-              height: 8px;
-              border-radius: 8px;
-              background: #fff; /* Pick a color */
+                content: "";
+                position: absolute;
+                width: 8px;
+                height: 8px;
+                border-radius: 8px;
+                background: #fff;
+                /* Pick a color */
             }
-        
+
             &:nth-child(2) {
-              animation-delay: 240ms;
+                animation-delay: 240ms;
             }
+
             &:nth-child(3) {
-              animation-delay: 480ms;
+                animation-delay: 480ms;
             }
+
             &:nth-child(4) {
-              animation-delay: 720ms;
+                animation-delay: 720ms;
             }
+
             &:nth-child(5) {
-              animation-delay: 960ms;
+                animation-delay: 960ms;
             }
-          
+
         }
 
     }

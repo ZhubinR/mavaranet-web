@@ -87,21 +87,17 @@ const PortfolioSingle = async ({ params }) => {
                                 <>
                                     {/* conditional rendering based on the inferred resource type */}
                                     {resourceType === 'video' && (
-
                                         <div className="col-lg-4 mb-4" key={index}>
-
                                             <video className="portfolio_content_video" controls>
                                                 <source src={item.medi} type="video/mp4" />
                                                 Your browser does not support the video tag.
                                             </video>
 
                                         </div>
-
                                     )}
-
-                                    {resourceType === 'picture' && <div className="col-lg-8 mb-4"><img className="portfolio_content_pic" src={item.medi} alt="Picture" /></div>}
+                                    {resourceType === 'picture' && <div className="col-lg-8 mb-4" key={index}><img className="portfolio_content_pic" src={item.medi} alt="Picture" /></div>}
                                 </>
-                            );
+                            )
                         })}
                     </div>
                 </div>
@@ -112,18 +108,6 @@ const PortfolioSingle = async ({ params }) => {
 }
 
 // Return a list of `params` to populate the [slug] dynamic segment
-// export async function getStaticPaths() {
-//     const req = await fetch(`${reqUrl}/portfolios?_fields=slug&per_page=100`);
-//     const portfolios = await req.json();
-//     const paths = portfolios.map(portfolio => ({ params: { slug: portfolio.slug } }));
-//     return {
-//         paths,
-//         fallback: false // or 'blocking' if you want to enable incremental static regeneration
-//     };
-// }
-
-
-
 export async function generateStaticParams() {
 
     const portfolios = await fetchWithRetry(`${reqUrl}/portfolios?_fields=slug&per_page=100`);

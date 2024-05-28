@@ -19,6 +19,7 @@ import Footer from '../../public/components/layouts/Footer'
 import CustomerSection from '../../public/components/customer/CustomerSection'
 import Cta from '../../public/components/layouts/Cta'
 import LoadingHome from './loading'
+import SocialSection from '../../public/components/social/SocialSection'
 
 export default function Home() {
     const [data1, setData1] = useState([])
@@ -99,6 +100,7 @@ export default function Home() {
                         <CustomerSection data={data5.slice(0, 20)} />
                         <TestemonialSection data={data1} />
                         <PortfolioSection data={data2.slice(0, 12)} />
+                        <SocialSection/>
                         <MavaratebSection />
                         <RatingSection />
                         <BlogSection data={blogPostsWithCategories.slice(0, 12)} />
@@ -118,6 +120,7 @@ export default function Home() {
                         <CustomerSection data={data5.slice(0, 20)} />
                         <TestemonialSection data={data1} />
                         <PortfolioSection data={data2.slice(0, 12)} />
+                        <SocialSection/>
                         <MavaratebSection />
                         <RatingSection />
                         <BlogSection data={blogPostsWithCategories.slice(0, 12)} />

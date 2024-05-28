@@ -22,56 +22,47 @@ import Loading from "./loading";
 // }
 const PortfolioArchive = () => {
     // Data fetching
-    const [loading, setLoading] = useState(true);
-    const [portfolioData, setPortfolioData] = useState([]);
-    // const [filteredData, setFilteredData] = useState([])
-    // const [selectedCategory, setSelectedCategory] = useState(null)
+    const [portfolioData, setPortfolioData] = useState([])
+    const [filteredData, setFilteredData] = useState([])
+    const [selectedCategory, setSelectedCategory] = useState(null)
 
     useEffect(() => {
-        const GetData = async () => {
-            try {
-                setLoading(true);
-                const res = await fetch(
-                    `${reqUrl}/portfolios?acf_format=standard&per_page=100`,
-                    { next: { revalidate: 43200 } }
-                );
-                const portfoliosRes = await res.json();
-
-                setPortfolioData(portfoliosRes);
-                // setFilteredData(portfoliosRes)
-            } catch (error) {
-                console.error("Error fetching portfoliosRes:", error);
-            } finally {
-                setLoading(false);
-            }
-        };
         GetData();
     }, []);
-    if (loading) {
-        return (
-            <>
-                <Loading />
-            </>
-        );
+
+    const GetData = async () => {
+        try {
+
+            const res = await fetch(`${reqUrl}/portfolios?acf_format=standard&_fields=id,title,slug,acf`, { next: { revalidate: 1800 } })
+            const portfoliosRes = await res.json()
+            setPortfolioData(portfoliosRes)
+            setFilteredData(portfoliosRes)
+
+        } catch (error) {
+
+            console.error('Error fetching portfoliosRes:', error);
+
+        }
     }
 
-    // Handeling category Filter
-    // const Filter = (category) => {
-    //     if (category === selectedCategory) {
-    //         // If the same category is clicked again, reset the filter
-    //         setSelectedCategory(null)
-    //         setFilteredData(portfolioData)
-    //     } else {
-    //         // Filter the data based on the selected category
-    //         const filtered = portfolioData.filter(item => item.acf.catergory.name === category)
-    //         setSelectedCategory(category)
-    //         setFilteredData(filtered)
-    //     }
-    // }
-    // const handleShowAll = () => {
-    //     setSelectedCategory(null);
-    //     setFilteredData(portfolioData);
-    // };
+    // Handeling category Filter 
+    const Filter = (category) => {
+        if (category === selectedCategory) {
+            // If the same category is clicked again, reset the filter
+            setSelectedCategory(null)
+            setFilteredData(portfolioData)
+        } else {
+            // Filter the data based on the selected category
+            const filtered = portfolioData.filter(item => item.acf.catergory.name === category)
+            setSelectedCategory(category)
+            setFilteredData(filtered)
+        }
+    }
+    const handleShowAll = () => {
+        setSelectedCategory(null);
+        setFilteredData(portfolioData);
+    };
+
 
     return (
         // <DefaultLayout></DefaultLayout>
@@ -83,42 +74,32 @@ const PortfolioArchive = () => {
                     backText={`PORTFOLIO`}
                 />
 
-                {/* <div className="filter-row py-3">
-                            <button className={`filter-btn ${!selectedCategory ? 'active' : ''}`} onClick={handleShowAll}>
-                                همه
-                            </button>
+                <div className="filter-row py-3">
+                    <button className={`filter-btn ${!selectedCategory ? 'active' : ''}`} onClick={handleShowAll}>
+                        همه
+                    </button>
 
-                            <button className={`filter-btn ${selectedCategory === 'جراح پلاستیک' ? 'active' : ''}`} onClick={() => Filter('جراح پلاستیک')}>
-                                جراح پلاستیک
-                            </button>
+                    <button className={`filter-btn ${selectedCategory === 'طراحی سایت' ? 'active' : ''}`} onClick={() => Filter('طراحی سایت')}>
+                        طراحی سایت
+                    </button>
 
-                            <button className={`filter-btn ${selectedCategory === 'دندانپزشک' ? 'active' : ''}`} onClick={() => Filter('دندانپزشک')}>
-                                دندانپزشک
-                            </button>
+                    <button className={`filter-btn ${selectedCategory === 'گرافیک' ? 'active' : ''}`} onClick={() => Filter('گرافیک')}>
+                        گرافیک
+                    </button>
 
-                            <button className={`filter-btn ${selectedCategory === 'درمانی' ? 'active' : ''}`} onClick={() => Filter('درمانی')}>
-                                درمانی
-                            </button>
+                    <button className={`filter-btn ${selectedCategory === 'سئو و محتوا' ? 'active' : ''}`} onClick={() => Filter('سئو و محتوا')}>
+                        سئو و محتوا
+                    </button>
 
-                            <button className={`filter-btn ${selectedCategory === 'ارتوپدی' ? 'active' : ''}`} onClick={() => Filter('ارتوپدی')}>
-                                ارتوپدی
-                            </button>
+                    <button className={`filter-btn ${selectedCategory === 'تدوین' ? 'active' : ''}`} onClick={() => Filter('تدوین')}>
+                        تدوین
+                    </button>
 
-                            <button className={`filter-btn ${selectedCategory === 'انجمن ها' ? 'active' : ''}`} onClick={() => Filter('انجمن ها')}>
-                                انجمن ها
-                            </button>
 
-                            <button className={`filter-btn ${selectedCategory === 'بیمارستان ها' ? 'active' : ''}`} onClick={() => Filter('بیمارستان ها')}>
-                                بیمارستان ها
-                            </button>
-
-                            <button className={`filter-btn ${selectedCategory === 'سایر' ? 'active' : ''}`} onClick={() => Filter('سایر')}>
-                                سایر
-                            </button>
-                        </div> */}
+                </div>
 
                 <div className="row align-item-center justify-content-center mb-4">
-                    {portfolioData.map((portfolio) => (
+                    {filteredData.map((portfolio) => (
                         <div key={portfolio.id} className="col-lg-4 col-md-6 mb-4">
                             <PortfolioArchiveItem
                                 slug={`/portfolio/${portfolio.slug}`}
