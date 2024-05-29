@@ -5,7 +5,7 @@ import RoadmapItem from "./roadmapItem";
 
 const RoadmapSection = () => {
     return (
-        <div className="section wrapper roadmap">
+        <section className="section wrapper roadmap">
            
             <div className="container">
                 <div className="row align-items-center justify-content-between">
@@ -99,7 +99,7 @@ const RoadmapSection = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     )
 }
 export default RoadmapSection

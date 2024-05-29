@@ -5,7 +5,7 @@ import CustomerItem from './CustomerItem'
 const CustomerSection = ({ data }) => {
 
     return (
-        <div className="section customer wrapper">
+        <section className="section customer wrapper">
             <div className="container">
                 <SectionTitle
                     title={`برخی از مشتریان ما`}
@@ -31,7 +31,7 @@ const CustomerSection = ({ data }) => {
                     </div> */}
                 </div>
             </div>
-        </div>
+        </section>
     )
 }
 

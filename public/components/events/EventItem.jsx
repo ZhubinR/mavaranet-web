@@ -1,14 +1,14 @@
 import Link from "next/link"
 import Image from "next/image"
 
-const EventItem = ({ slug, title, date, location}) => {
+const EventItem = ({ slug, title, date, location, imgUrl}) => {
     return (
         <Link href={slug} className="event_item">
             <div className="image">
                 <Image
-                    src={ }
-                    width={ }
-                    height={ }
+                    src={ imgUrl}
+                    width={470}
+                    height={300}
                     alt={title}
                 />
             </div>
@@ -26,12 +26,12 @@ const EventItem = ({ slug, title, date, location}) => {
                         />
                         <span>{date}</span>
                     </div>
-                    <div className="readingTime">
+                    <div className="location">
                         <Image
                             src={`/images/contact/location.svg`}
                             width={20}
                             height={20}
-                            alt="reading time"
+                            alt="location"
                         />
                         <span>{location}</span>
                     </div>

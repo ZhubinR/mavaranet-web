@@ -11,7 +11,7 @@ import 'swiper/scss/autoplay';
 const PortfolioSection = ({ data }) => {
 
     return (
-        <div className="section portfolio wrapper">
+        <section className="section portfolio wrapper">
             <div className="container">
                 <SectionTitle
                     title={`نمونه کارها`}
@@ -71,7 +71,7 @@ const PortfolioSection = ({ data }) => {
                     </SwiperSlide>
                 ))}
             </Swiper>
-        </div>
+        </section>
     )
 }
 

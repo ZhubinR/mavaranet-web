@@ -17,7 +17,7 @@ const ServiceSection = () => {
         return '/images/services/service-1.png';
     }
     return (
-        <div className="section services wrapper">
+        <section className="section services wrapper">
 
             <div className="container">
                 <div className="row justify-content-between align-items-center">
@@ -203,7 +203,7 @@ const ServiceSection = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     )
 }
 export default ServiceSection 

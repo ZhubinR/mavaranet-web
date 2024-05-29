@@ -6,7 +6,7 @@ const SocialSection = () => {
     return (
         <section className="section social wrapper">
             <div className="container">
-                <div className="row align-item-center justify-content-center">
+                <div className="row align-items-center justify-content-center">
                     <div className="col-lg-6">
                         <SharedContent 
                             title={`به اینستاگرام ما بپیوندید`}

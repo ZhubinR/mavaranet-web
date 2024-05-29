@@ -18,7 +18,7 @@ const AboutSection = () => {
 
     }, [])
     return (
-        <div className="section about wrapper">
+        <section className="section about wrapper">
                
 
             <video id="aboutVideo" className="aboutVideo" ref={videoRef} style={{mixBlendMode: "lighten"}} autoPlay muted loop playsInline >
@@ -42,7 +42,7 @@ const AboutSection = () => {
                     <div className="col-lg-6"></div>
                 </div>
             </div>
-        </div>
+        </section>
     )
 }
 export default AboutSection

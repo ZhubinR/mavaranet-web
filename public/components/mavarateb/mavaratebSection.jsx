@@ -12,7 +12,7 @@ const MavaratebSection = () => {
     ]
 
     return (
-        <div className="section mavarateb wrapper">
+        <section className="section mavarateb wrapper">
       
 
             <div className="container">
@@ -38,7 +38,7 @@ const MavaratebSection = () => {
                     </div>
                 </div>
             </div>
-        </div >
+        </section>
     )
 }
 

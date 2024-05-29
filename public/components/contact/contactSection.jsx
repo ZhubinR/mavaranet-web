@@ -4,9 +4,7 @@ import ContactItem from "./ContactItem";
 
 export default function ContactSection() {
     return (
-        <div className="section contact wrapper ">
-
-            
+        <section className="section contact wrapper ">    
             <div className="container">
                 <div className="row align-items-center justify-content-between">
                     <div className="col order-3 order-lg-1 right">
@@ -74,6 +72,6 @@ export default function ContactSection() {
             <div id='stars'></div>
             <div id='stars2'></div>
             <div id='stars3'></div>
-        </div>
+        </section>
     )
 }

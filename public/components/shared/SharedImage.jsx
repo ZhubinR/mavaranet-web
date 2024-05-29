@@ -5,9 +5,9 @@ const SharedImage = ({imageUrl , alt}) => {
         <div className="shared_image">
             <Image
                 src={imageUrl}
-                width={480}
-                height={480}
-                
+                width={630}
+                height={630}
+                priority
                 alt={alt}
             />
         </div>

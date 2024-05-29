@@ -24,7 +24,7 @@ const HeroSection = () => {
 
 
     return (
-        <div className="section hero">
+        <section className="section hero">
             <div className="hero_effect">
                 <Overlay/>
 
@@ -41,7 +41,7 @@ const HeroSection = () => {
                 </video>
                 
             </div>
-        </div>
+        </section>
     )
 }
 export default HeroSection

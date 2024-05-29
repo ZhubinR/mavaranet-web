@@ -11,7 +11,7 @@ const TestemonialSection = ({ data }) => {
     // const testimonials = await getData()
 
     return (
-        <div className="section testemonial wrapper">
+        <section className="section testemonial wrapper">
 
 
             <div className="container">
@@ -55,7 +55,7 @@ const TestemonialSection = ({ data }) => {
                     ))}
                 </Swiper>
             </div>
-        </div>
+        </section>
     )
 }
 

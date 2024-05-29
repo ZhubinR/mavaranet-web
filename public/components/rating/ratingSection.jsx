@@ -5,7 +5,7 @@ import RatingItem from "./ratingItem"
 const RatingSection = () => {
 
     return (
-        <div className="section rating wrapper">
+        <section className="section rating wrapper">
             <span className="shadow"></span>
             <Image
                 className="rating-bg"
@@ -65,7 +65,7 @@ const RatingSection = () => {
                 </div>
                 <span className="line "></span>
             </div>
-        </div>
+        </section>
     )
 }
 

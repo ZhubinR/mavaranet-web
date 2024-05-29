@@ -1,11 +1,10 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 //import DefaultLayout from "../../../public/components/layouts/DefaultLayout"
 import "@/app/styles/styles.scss";
 import InsidePageTitle from "../../../public/components/shared/SharedPageTitle";
 import PortfolioArchiveItem from "../../../public/components/portfolio/portfolioArchiveItem";
 import { reqUrl } from "../config";
-import Loading from "./loading";
 
 // export const metadata = {
 //     title: 'نمونه کار های ماورانت',

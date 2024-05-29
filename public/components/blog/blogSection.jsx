@@ -11,7 +11,7 @@ import SectionTitle from '../layouts/SectionTitle';
 const BlogSection = ({data}) => {
 
     return (
-        <div className="section blog wrapper">
+        <section className="section blog wrapper">
            
             <div className="container">
                 <SectionTitle
@@ -69,7 +69,7 @@ const BlogSection = ({data}) => {
             </Swiper>
 
 
-        </div>
+        </section>
     )
 }
 
