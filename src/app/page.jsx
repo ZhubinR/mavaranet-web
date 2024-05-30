@@ -20,6 +20,7 @@ import CustomerSection from '../../public/components/customer/CustomerSection'
 import Cta from '../../public/components/layouts/Cta'
 import LoadingHome from './loading'
 import SocialSection from '../../public/components/social/SocialSection'
+import EventSection from '../../public/components/events/EventSection'
 
 export default function Home() {
     const [data1, setData1] = useState([])
@@ -27,6 +28,7 @@ export default function Home() {
     const [data3, setData3] = useState([])
     const [data4, setData4] = useState([])
     const [data5, setData5] = useState([])
+    const [data6, setData6] = useState([])
     const [SmallScreen, setSmallScreen] = useState(false)
 
     useEffect(() => {
@@ -37,15 +39,18 @@ export default function Home() {
                 fetch(`${reqUrl}/portfolios?acf_format=standard&per_page=100`, { next: { revalidate: 43200 } }),
                 fetch(`${reqUrl}/posts?acf_format=standard&per_page=100`, { next: { revalidate: 43200 } }),
                 fetch(`${reqUrl}/categories`, { next: { revalidate: 43200 } }),
-                fetch(`${reqUrl}/customers?acf_format=standard&per_page=100`, { next: { revalidate: 43200 } })])
+                fetch(`${reqUrl}/customers?acf_format=standard&per_page=100`, { next: { revalidate: 43200 } }),
+                fetch(`${reqUrl}/events?acf_format=standard&per_page=100`, { next: { revalidate: 43200 } }),
+            ])
 
-            const [data1, data2, data3, data4, data5] = res
+            const [data1, data2, data3, data4, data5 ,data6] = res
 
             setData1(await data1.json())
             setData2(await data2.json())
             setData3(await data3.json())
             setData4(await data4.json())
             setData5(await data5.json())
+            setData6(await data6.json())
 
         }
         getDatas()
@@ -101,6 +106,7 @@ export default function Home() {
                         <TestemonialSection data={data1} />
                         <PortfolioSection data={data2.slice(0, 12)} />
                         <SocialSection/>
+                        <EventSection data={data6}/>
                         <MavaratebSection />
                         <RatingSection />
                         <BlogSection data={blogPostsWithCategories.slice(0, 12)} />
@@ -121,6 +127,7 @@ export default function Home() {
                         <TestemonialSection data={data1} />
                         <PortfolioSection data={data2.slice(0, 12)} />
                         <SocialSection/>
+                        <EventSection data={data6}/>
                         <MavaratebSection />
                         <RatingSection />
                         <BlogSection data={blogPostsWithCategories.slice(0, 12)} />

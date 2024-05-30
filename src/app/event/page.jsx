@@ -44,11 +44,11 @@ const EventArchive = async () => {
                     {eventData.map(event => (
                     <div key={event.id} className="col-lg-4 col-md-6">
                         <EventItem
-                            slug={``}
-                            title={``}
-                            date={``}
-                            location={``}
-                            imgUrl={``}
+                            slug={event.slug}
+                            title={event.acf.title}
+                            date={event.acf.date}
+                            location={event.acf.location}
+                            imgUrl={event.acf.thumbnail_img}
                         />
                     </div>
                 ))}

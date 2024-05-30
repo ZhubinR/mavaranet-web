@@ -9,23 +9,23 @@ const EventSection = ({ data }) => {
                 <SectionTitle
                     title={`رویداد ها`}
                 />
-            </div>
-            <div className="row align-items-center justify-content-center">
-                {data.map(event => (
-                    <div key={event.id} className="col-lg-4 col-md-6">
-                        <EventItem
-                            slug={``}
-                            title={``}
-                            date={``}
-                            location={``}
-                            imgUrl={``}
-                        />
-                    </div>
-                ))}
+                <div className="row align-items-center justify-content-center">
+                    {data.map(event => (
+                        <div key={event.id} className="col-lg-4 col-md-6">
+                            <EventItem
+                                slug={event.slug}
+                                title={event.acf.title}
+                                date={event.acf.date}
+                                location={event.acf.location}
+                                imgUrl={event.acf.thumbnail_img}
+                            />
+                        </div>
+                    ))}
 
+                </div>
                 <Button
-                    text={``}
-                    slug={``}
+                    text={`مشاهده بیشتر`}
+                    slug={`/event`}
                 />
             </div>
         </section>
