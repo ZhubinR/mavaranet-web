@@ -9,7 +9,7 @@ const EventSection = ({ data }) => {
                 <SectionTitle
                     title={`رویداد ها`}
                 />
-                <div className="row align-items-center justify-content-center">
+                <div className="row align-items-center justify-content-center mb-4">
                     {data.map(event => (
                         <div key={event.id} className="col-lg-4 col-md-6">
                             <EventItem
@@ -23,10 +23,12 @@ const EventSection = ({ data }) => {
                     ))}
 
                 </div>
-                <Button
-                    text={`مشاهده بیشتر`}
-                    slug={`/event`}
-                />
+                <div className="d-flex align-items-center justify-content-center">
+                    <Button
+                        text={`مشاهده بیشتر`}
+                        slug={`/event`}
+                    />
+                </div>
             </div>
         </section>
     )

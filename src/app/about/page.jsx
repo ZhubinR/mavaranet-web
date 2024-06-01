@@ -41,7 +41,7 @@ const About = () => {
     ]
     return (
       
-            <DefaultLayout>
+            
                 <main className="pageMain " style={{ backgroundColor: '#010c16' }}>
                     <section className="about_description wrapper section about">
                         <video id="aboutVideo" className="aboutVideo" autoPlay muted loop playsInline >
@@ -294,7 +294,7 @@ const About = () => {
                         </div>
                     </section>
                 </main>
-            </DefaultLayout>
+            
      
 
     )

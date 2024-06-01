@@ -53,25 +53,30 @@ const blogSingle = async ({ params }) => {
     const blogPosts = await req.json();
     const blogPost = blogPosts[0];
 
-    const categoryIds = blogPost.categories; // Assuming category IDs are stored in an array
-    const categoryFetchPromises = categoryIds.map(categoryId =>
-        fetch(`${reqUrl}/categories/${categoryId}`)
-    );
+    // Fetch categories data for the current post
+  const categoryIds = blogPost.categories;
+  const categoryFetchPromises = categoryIds.map(categoryId =>
+    fetch(`${reqUrl}/categories/${categoryId}`)
+  );
 
-    const categoryResponses = await Promise.all(categoryFetchPromises);
-    const categoryData = await Promise.all(categoryResponses.map(response => response.json()));
+  const categoryResponses = await Promise.all(categoryFetchPromises);
+  const categoryData = await Promise.all(categoryResponses.map(response => response.json()));
 
-    // Add category data to the blogPost object
+  // Add category data to the blogPost object
+  blogPost.categoriesData = categoryData;
 
-    blogPost.categoriesData = categoryData
-    const dataReq = await fetch(`${reqUrl}/posts?acf_format=standard&categories=${blogPost.categoriesData.map(category => category.id).join(', ')}`)
-    const allData = await dataReq.json()
-    const threeData = allData
-    const gregorianDate = blogPost.date
-    const jalaliDate = moment(gregorianDate, 'YYYY-MM-DDTHH:mm:ss').locale('fa').format('YYYY/MM/DD HH:mm:ss');
+  // Fetch related posts
+  const dataReq = await fetch(`${reqUrl}/posts?acf_format=standard&categories=${blogPost.categoriesData.map(category => category.id).join(', ')}`);
+  const allData = await dataReq.json();
 
-    const gregorianDates = threeData.map(three => three.date)
-    const jalaliDates = moment(gregorianDates, 'YYYY-MM-DDTHH:mm:ss').locale('fa').format('YYYY/MM/DD HH:mm:ss');
+  // Filter out the current post from related posts
+  const filteredData = allData.filter(post => post.slug !== slug);
+
+  // Take the first three related posts after filtering
+  const threeData = filteredData.slice(0, 3);
+
+  const gregorianDate = blogPost.date;
+  const jalaliDate = moment(gregorianDate, 'YYYY-MM-DDTHH:mm:ss').locale('fa').format('YYYY/MM/DD HH:mm:ss');
 
     return (
         <>
@@ -96,7 +101,7 @@ const blogSingle = async ({ params }) => {
                                 imageUrl={lastPosts.acf.thumbnail_url}
                                 title={lastPosts.title.rendered}
                                 desc={lastPosts.acf.desc}
-                                date={jalaliDates.slice(0, 10)}
+                                date={moment(lastPosts.date, 'YYYY-MM-DDTHH:mm:ss').locale('fa').format('YYYY/MM/DD HH:mm:ss').slice(0, 10)}
                             />
 
                         ))}
@@ -106,16 +111,6 @@ const blogSingle = async ({ params }) => {
         </>
     )
 }
-
-// export async function getStaticPaths() {
-//     const req = await fetch(`${reqUrl}/posts?_fields=slug&per_page=100`);
-//     const blogs = await req.json();
-//     const paths = blogs.map(post => ({ params: { slug: post.slug } }));
-//     return {
-//         paths,
-//         fallback: false // or 'blocking' if you want to enable incremental static regeneration
-//     };
-// }
 
 export async function generateStaticParams() {
 

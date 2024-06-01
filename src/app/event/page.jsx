@@ -1,6 +1,8 @@
 import { reqUrl } from "../config"
 import InsidePageTitle from "../../../public/components/shared/SharedPageTitle"
-import EventItem from "../../../public/components/events/EventItem" 
+import EventItem from "../../../public/components/events/EventItem"
+import '@/app/styles/styles.scss'
+
 
 export async function generateMetadata() {
     // optionally access and extend (rather than replace) parent metadata

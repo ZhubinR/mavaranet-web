@@ -17,6 +17,7 @@ const EventItem = ({ slug, title, date, location, imgUrl}) => {
                     {title}
                 </h3>
                 <div className="details">
+                    
                     <div className="date">
                         <Image
                             src={`/images/calender.svg`}
@@ -28,7 +29,7 @@ const EventItem = ({ slug, title, date, location, imgUrl}) => {
                     </div>
                     <div className="location">
                         <Image
-                            src={`/images/contact/location.svg`}
+                            src={`/images/location-white.svg`}
                             width={20}
                             height={20}
                             alt="location"
