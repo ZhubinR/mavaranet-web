@@ -24,7 +24,7 @@ export async function generateMetadata() {
 }
 
 async function getData() {
-    const req = await fetch(`${reqUrl}/events?acf_format=standard&per_page=100`, { next: { revalidate: 43200 } })
+    const req = await fetch(`${reqUrl}/events?acf_format=standard&per_page=100`, { next: { revalidate:  3200 } })
     if (!req.ok) {
         throw new Error('Failed to fetch data')
     }
@@ -44,9 +44,9 @@ const EventArchive = async () => {
                 />
                 <div className="row align-items-center justify-content-center">
                     {eventData.map(event => (
-                    <div key={event.id} className="col-lg-4 col-md-6">
+                    <div key={event.id} className="col-lg-4 col-md-6 mb-4">
                         <EventItem
-                            slug={event.slug}
+                            slug={`/event/${event.slug}`}
                             title={event.acf.title}
                             date={event.acf.date}
                             location={event.acf.location}

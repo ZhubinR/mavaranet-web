@@ -27,7 +27,7 @@ export async function generateMetadata() {
 
 // get blog categories
 async function getCategory() {
-    const categoryReq = await fetch(`${reqUrl}/categories`, { next: { revalidate: 43200 } })
+    const categoryReq = await fetch(`${reqUrl}/categories`, { next: { revalidate:  3200 } })
     if (!categoryReq.ok) {
         throw new Error('Failed to fetch data')
     }
@@ -35,7 +35,7 @@ async function getCategory() {
 }
 // get blog data
 async function getData() {
-    const req = await fetch(`${reqUrl}/posts?acf_format=standard&per_page=100`, { next: { revalidate: 43200 } })
+    const req = await fetch(`${reqUrl}/posts?acf_format=standard&per_page=100`, { next: { revalidate:  3200 } })
     if (!req.ok) {
         throw new Error('Failed to fetch data')
     }

@@ -158,6 +158,21 @@ const LayoutStatics = () => {
                                 اخبار و مقالات
                             </Link>
                         </li>
+
+                        <li>
+                            <Link
+                                href='/event'
+                            >
+                                <Image
+                                    className='ms-4'
+                                    src={`../images/menu/event.svg`}
+                                    width={20}
+                                    height={20}
+                                    alt='blog icon'
+                                />
+                                رویداد ها
+                            </Link>
+                        </li>
                     </ul>
                 </div>
 

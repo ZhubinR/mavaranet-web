@@ -45,6 +45,11 @@ const PagesHeader = () => {
                                         مقالات
                                     </Link>
                                 </li>
+                                <li>
+                                    <Link href={`/event`}>
+                                        رویدادها
+                                    </Link>
+                                </li>
                             </ul>
                         </nav>
                         <Button

@@ -2407,6 +2407,9 @@ fp-nav ul,
                 font-size: 1em;
 
             }
+            @media (max-width: 576px) {
+                scale: 1;
+            }
 
         }
 
@@ -2415,6 +2418,9 @@ fp-nav ul,
             filter: grayscale(.5);
             opacity: .65;
             scale: 1;
+            @media (max-width: 576px) {
+                scale: 1;
+            }
         }
 
         .swiper-pagination {
@@ -3278,6 +3284,77 @@ fp-nav ul,
         }
     }
 
+    &_eventSingle {
+        background: url(../../../public/images/sky-background-3.webp) no-repeat center;
+        background-size: cover;
+        padding: 3rem 0;
+        padding-top: 180px;
+        position: relative;
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba($dark_color, $alpha: .6);
+            z-index: 1;
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .title {
+            padding-bottom: 1.125rem;
+            margin-bottom: 1.125rem;
+            border-bottom: 1px solid #e1b453;
+
+            .logo {
+                padding: 12px;
+                border-radius: 50%;
+                background-color: $white_color;
+                box-shadow: $secondary_shadow;
+
+            }
+
+            h1 {
+                font-size: 1.5rem;
+                font-weight: 700;
+                margin-bottom: 0;
+                color: $white_color;
+            }
+        }
+        .desc {
+            color: $text_color;
+            margin-bottom: 1.75rem;
+        }
+
+        .detail {
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.015), rgba(255, 255, 255, 0.1));
+            -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
+            box-shadow: 0px 8px 16px -8px rgba(0, 0, 0, 0.3), 0px 13px 27px -5px rgba(0, 0, 0, 0.25);
+            padding: .5rem 1rem;
+            border: 1px solid rgba(#ffffff, $alpha: 0.2);
+            border-radius: .5rem;
+            min-width: 220px;
+
+            span {
+                font-size: 13px;
+                font-weight: 300;
+                color: $text_color;
+            }
+
+            p {
+                font-size: 17.6px;
+                font-weight: 500;
+                color: $white_color;
+            }
+        }
+    }
+
     &_portfolioTitle {
         padding: 0 10rem;
         margin-bottom: 4rem;
@@ -3361,6 +3438,11 @@ fp-nav ul,
             display: flex;
             align-items: center;
             gap: 3rem;
+            background: linear-gradient(to right, rgba(255, 255, 255, .015), rgba(255, 255, 255, 0.1));
+            backdrop-filter: blur(5px);
+            box-shadow: 0px 8px 16px -8px rgba(0, 0, 0, 0.30),
+                0px 13px 27px -5px rgba(0, 0, 0, 0.25);
+            border: 1px solid rgba(#ffffff, $alpha: 0.2);
 
             .tag {
                 padding: .5rem 1.1rem;
@@ -4707,7 +4789,6 @@ fp-nav ul,
         color: $dark_color;
         font-weight: 500;
     }
-
 }
 
 .customer {
@@ -5128,9 +5209,11 @@ fp-nav ul,
 }
 
 .event {
+    position: relative;
     .sectionTitle {
         margin-bottom: 2rem;
     }
+
     &_item {
         display: flex;
         flex-direction: column;
@@ -5142,6 +5225,7 @@ fp-nav ul,
         box-shadow: 0px 8px 16px -8px rgba(0, 0, 0, 0.3), 0px 13px 27px -5px rgba(0, 0, 0, 0.25);
         gap: 1.5rem;
         border: 1px solid rgba(#ffffff, $alpha: 0.2);
+
         .image {
             img {
                 border-radius: .75rem;
@@ -5162,10 +5246,12 @@ fp-nav ul,
                 display: flex;
                 align-items: center;
                 gap: 2rem;
+
                 .date {
                     display: flex;
                     align-items: center;
                     gap: .5rem;
+
                     span {
                         background: $gold_gradient;
                         width: fit-content;
@@ -5174,15 +5260,26 @@ fp-nav ul,
                         -webkit-text-fill-color: transparent;
                     }
                 }
+
                 .location {
                     display: flex;
                     align-items: center;
                     gap: .5rem;
+
                     span {
                         color: $white_color;
                     }
                 }
             }
+        }
+    }
+    
+    .shared_image {
+        img {
+            border-radius: 1.5rem;
+            box-shadow: $main_shadow;
+            overflow: hidden;
+            border: 1px solid rgba(#ffffff, $alpha: 0.2);
         }
     }
 }
