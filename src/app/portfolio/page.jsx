@@ -5,6 +5,7 @@ import "@/app/styles/styles.scss";
 import InsidePageTitle from "../../../public/components/shared/SharedPageTitle";
 import PortfolioArchiveItem from "../../../public/components/portfolio/portfolioArchiveItem";
 import { reqUrl } from "../config";
+import Overlay from "../../../public/components/layouts/Overlay";
 
 // export const metadata = {
 //     title: 'نمونه کار های ماورانت',
@@ -66,12 +67,18 @@ const PortfolioArchive = () => {
     return (
         // <DefaultLayout></DefaultLayout>
         <main className="pageMain">
+            <section className="service_intro wrapper mb-5">
+                <div className="container">
+                    <Overlay />
+                    <InsidePageTitle
+                        title={`نمونه کار های ماورانت`}
+                        desc={`ویترینی از نمونه کارهای مختلف ماوارنت، نمایان کننده ی اعتماد اشخاص، کسب و کارها، انجمن های پزشکی و.. به تجربه درازمدت ماورانت`}
+                        backText={`PORTFOLIO`}
+                    />
+                </div>
+            </section>
             <div className="container mt-0">
-                <InsidePageTitle
-                    title={`نمونه کار های ماورانت`}
-                    desc={`ویترینی از نمونه کارهای مختلف ماوارنت، نمایان کننده ی اعتماد اشخاص، کسب و کارها، انجمن های پزشکی و.. به تجربه درازمدت ماورانت`}
-                    backText={`PORTFOLIO`}
-                />
+
 
                 <div className="filter-row py-3">
                     <button className={`filter-btn ${!selectedCategory ? 'active' : ''}`} onClick={handleShowAll}>

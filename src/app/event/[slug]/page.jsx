@@ -52,7 +52,7 @@ const eventSingle = async ({ params }) => {
     return (
         <>
             <SharedEventSingle
-                imageUrl={eventPost.acf.thumbnail_img}
+                // imageUrl={eventPost.acf.thumbnail_img}
                 title={eventPost.acf.title}
                 desc={eventPost.acf.description}
                 date={eventPost.acf.date}
@@ -60,7 +60,7 @@ const eventSingle = async ({ params }) => {
             />
             <div className="container event">
 
-                <div className="row align-items-center wrapper justify-content-center">
+                <div className="row event_border align-items-center wrapper justify-content-center">
                    
                     <div className="col-lg-6">
                         <SharedImage
@@ -70,7 +70,7 @@ const eventSingle = async ({ params }) => {
                     </div>
                     <div className="col-lg-6">
                         <SharedContent1
-                            title={``}
+                            title={eventPost.acf.title1}
                             desc={eventPost.acf.desc1}
                         />
                     </div>

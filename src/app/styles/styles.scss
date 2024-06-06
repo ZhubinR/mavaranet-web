@@ -177,13 +177,12 @@ section {
 }
 
 .pageMain {
-    padding: 10rem 0;
+
     padding-bottom: 0;
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    &.contactPage {
+        padding-top: 10rem;
+    }
 }
 
 .pageHeader {
@@ -3287,7 +3286,7 @@ fp-nav ul,
     &_eventSingle {
         background: url(../../../public/images/sky-background-3.webp) no-repeat center;
         background-size: cover;
-        padding: 3rem 0;
+        padding: 4.5rem 0;
         padding-top: 180px;
         position: relative;
 
@@ -3311,24 +3310,21 @@ fp-nav ul,
             margin-bottom: 1.125rem;
             border-bottom: 1px solid #e1b453;
 
-            .logo {
-                padding: 12px;
-                border-radius: 50%;
-                background-color: $white_color;
-                box-shadow: $secondary_shadow;
-
-            }
+           
 
             h1 {
                 font-size: 1.5rem;
                 font-weight: 700;
                 margin-bottom: 0;
                 color: $white_color;
+                text-align: center;
+
             }
         }
         .desc {
             color: $text_color;
             margin-bottom: 1.75rem;
+            text-align: center;
         }
 
         .detail {
@@ -3438,11 +3434,6 @@ fp-nav ul,
             display: flex;
             align-items: center;
             gap: 3rem;
-            background: linear-gradient(to right, rgba(255, 255, 255, .015), rgba(255, 255, 255, 0.1));
-            backdrop-filter: blur(5px);
-            box-shadow: 0px 8px 16px -8px rgba(0, 0, 0, 0.30),
-                0px 13px 27px -5px rgba(0, 0, 0, 0.25);
-            border: 1px solid rgba(#ffffff, $alpha: 0.2);
 
             .tag {
                 padding: .5rem 1.1rem;
@@ -3747,6 +3738,9 @@ fp-nav ul,
         display: flex;
         align-items: center;
         justify-content: center;
+        .container {
+            overflow-x: visible;
+        }
 
         .overlay {
             position: absolute;
@@ -5280,6 +5274,33 @@ fp-nav ul,
             box-shadow: $main_shadow;
             overflow: hidden;
             border: 1px solid rgba(#ffffff, $alpha: 0.2);
+        }
+    }
+    .shared_content {
+        .mainTitle {
+            font-size: 2em;
+            margin-bottom: 1rem;
+        }
+    }
+
+    &_border {
+        border-bottom: 1px solid rgba(#ffffff, $alpha: 0.2);
+    }
+
+    @media (max-width: 992px) {
+        &_item {
+            .text {
+                .title {
+                    font-size: .9em;
+                    margin-bottom: 1rem;
+                }
+                .details {
+                    span {
+                        font-size: .8em;
+                        font-weight: 300;
+                    }
+                }
+            }
         }
     }
 }

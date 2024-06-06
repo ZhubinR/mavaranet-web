@@ -87,7 +87,7 @@ const blogSingle = async ({ params }) => {
             />
             <div className="container">
                 <div className="row align-items-center justify-content-center">
-                    <div className="col-lg-11">
+                    <div >
 
                         <HtmlRenderComponent
                             htmlContent={blogPost.content.rendered}

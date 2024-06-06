@@ -3,6 +3,7 @@ import InsidePageTitle from "../../../public/components/shared/SharedPageTitle"
 import BlogItem from "../../../public/components/blog/blogItem"
 import '@/app/styles/styles.scss'
 import moment from "jalali-moment"
+import Overlay from "../../../public/components/layouts/Overlay"
 import { reqUrl } from "../config"
 
 export async function generateMetadata() {
@@ -27,7 +28,7 @@ export async function generateMetadata() {
 
 // get blog categories
 async function getCategory() {
-    const categoryReq = await fetch(`${reqUrl}/categories`, { next: { revalidate:  3200 } })
+    const categoryReq = await fetch(`${reqUrl}/categories`, { next: { revalidate: 3200 } })
     if (!categoryReq.ok) {
         throw new Error('Failed to fetch data')
     }
@@ -35,7 +36,7 @@ async function getCategory() {
 }
 // get blog data
 async function getData() {
-    const req = await fetch(`${reqUrl}/posts?acf_format=standard&per_page=100`, { next: { revalidate:  3200 } })
+    const req = await fetch(`${reqUrl}/posts?acf_format=standard&per_page=100`, { next: { revalidate: 3200 } })
     if (!req.ok) {
         throw new Error('Failed to fetch data')
     }
@@ -65,13 +66,18 @@ const blogArchive = async () => {
 
     return (
         <main className="pageMain">
-            <div className="container">
-                <InsidePageTitle
-                    title={`اخبار و مقالات`}
-                    desc={`وبلاگ ماورانت به عنوان یک منبع برجسته در زمینه تبلیغات و برندینگ کسب و کارهای مختلف شناخته می‌شود. در اینجا، ما به طرح و بررسی موضوعات گوناگونی می‌پردازیم که مستقیماً به نیازها و مسائل مربوط به بیزینس ها در فضای آنلاین مربوط می‌شود.`}
-                    backText={`BLOG`}
-                />
+            <section className="service_intro wrapper mb-5">
+                <div className="container">
+                    <Overlay />
+                    <InsidePageTitle
+                        title={`اخبار و مقالات`}
+                        desc={`وبلاگ ماورانت به عنوان یک منبع برجسته در زمینه تبلیغات و برندینگ کسب و کارهای مختلف شناخته می‌شود. در اینجا، ما به طرح و بررسی موضوعات گوناگونی می‌پردازیم که مستقیماً به نیازها و مسائل مربوط به بیزینس ها در فضای آنلاین مربوط می‌شود.`}
+                        backText={`BLOG`}
+                    />
+                </div>
+            </section>
 
+            <div className="container">
                 <div className="row align-items-center justify-content-center">
 
                     {blogPostsWithCategories.map(post => (

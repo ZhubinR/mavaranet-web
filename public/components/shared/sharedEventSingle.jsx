@@ -6,21 +6,14 @@ const SharedEventSingle = ({ title, imageUrl, desc, date, location }) => {
         <div className="shared_eventSingle">
             <div className="overlay"></div>
             <div className="container">
-                <div className="row">
+                <div className="row justify-content-center">
                     <div className="col-xl-6 col-lg-7">
-                        <div className="title d-flex gap-3 align-items-center">
-                            <div className="logo d-flex align-items-center justify-content-center">
-                                <Image
-                                    src={imageUrl}
-                                    width={68}
-                                    height={68}
-                                    alt={title}
-                                />
-                            </div>
+                        <div className="title d-flex flex-column gap-3 align-items-center">
+                           
                             <h1>{title}</h1>
                         </div>
                         <p className="desc">{desc}</p>
-                        <div className="d-flex flex-wrap gap-4">
+                        <div className="d-flex flex-wrap justify-content-center gap-4">
                             <div className="detail d-flex align-items-center gap-2">
                                 <Image
                                     src={`/images/calender.svg`}
