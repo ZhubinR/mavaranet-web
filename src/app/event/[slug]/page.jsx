@@ -59,7 +59,6 @@ const eventSingle = async ({ params }) => {
                 location={eventPost.acf.location}
             />
             <div className="container event">
-
                 <div className="row event_border align-items-center wrapper justify-content-center">
                    
                     <div className="col-lg-6">

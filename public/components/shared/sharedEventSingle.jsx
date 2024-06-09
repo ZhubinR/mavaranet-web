@@ -47,3 +47,4 @@ const SharedEventSingle = ({ title, imageUrl, desc, date, location }) => {
 }
 
 export default SharedEventSingle
+

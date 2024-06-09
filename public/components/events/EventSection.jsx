@@ -13,7 +13,7 @@ const EventSection = ({ data }) => {
                     {data.map(event => (
                         <div key={event.id} className="col-lg-4 col-md-6">
                             <EventItem
-                                slug={event.slug}
+                                slug={`/event/${event.slug}`}
                                 title={event.acf.title}
                                 date={event.acf.date}
                                 location={event.acf.location}
