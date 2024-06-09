@@ -3956,11 +3956,14 @@ fp-nav ul,
 
         figure {
             margin: 2rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         &_image,
         img {
-            min-width: 100%;
+
             height: auto;
             object-fit: cover;
             object-position: center;

@@ -42,16 +42,13 @@ export default function Home() {
                 fetch(`${reqUrl}/customers?acf_format=standard&per_page=100`, { next: { revalidate:  3200 } }),
                 fetch(`${reqUrl}/events?acf_format=standard&per_page=100`, { next: { revalidate:  3200 } }),
             ])
-
             const [data1, data2, data3, data4, data5 ,data6] = res
-
             setData1(await data1.json())
             setData2(await data2.json())
             setData3(await data3.json())
             setData4(await data4.json())
             setData5(await data5.json())
             setData6(await data6.json())
-
         }
         getDatas()
 
@@ -95,7 +92,6 @@ export default function Home() {
                     slug={`tel:+989125441048`}
                     imgUrl={`/images/contact/phone.svg`}
                 />
-
                 {SmallScreen ? (
                     <>
                         <HeroSection />
@@ -117,7 +113,6 @@ export default function Home() {
                 ) : (
 
                     <Fullpage>
-
                         <LoadingHome />
                         <HeroSection />
                         <ServiceSection />
@@ -134,7 +129,6 @@ export default function Home() {
                         <ContactSection />
                     </Fullpage>
                 )}
-
             </main>
         </HomeLayout>
     )
