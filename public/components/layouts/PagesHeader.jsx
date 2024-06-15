@@ -4,7 +4,7 @@ import Button from "./Button"
 
 const PagesHeader = () => {
     return (
-        <>
+        
             <header className="pageHeader">
                 <div className="container">
                     <div className="headerWrapper">
@@ -59,7 +59,7 @@ const PagesHeader = () => {
                     </div>
                 </div>
             </header>
-        </>
+        
     )
 }
 
