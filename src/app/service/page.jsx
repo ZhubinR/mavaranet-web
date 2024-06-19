@@ -6,6 +6,9 @@ import '@/app/styles/styles.scss'
 import SharedServiceTitle from '../../../public/components/shared/SharedServiceTitle'
 import SharedImage from '../../../public/components/shared/SharedImage'
 import SharedContent1 from '../../../public/components/shared/SharedContent1'
+import Button from '../../../public/components/layouts/Button'
+import Image from 'next/image'
+import ServiceOptionBox from '../../../public/components/services/serviceOptionBox'
 
 export const metadata = {
     // optionally access and extend (rather than replace) parent metadata
@@ -32,7 +35,8 @@ const serviceSingle = async () => {
 
     const serviceData = await fetch(`${reqUrl}/services?acf_format=standard`).then((res) => res.json())
     const service = serviceData[0]
-   
+    console.log(service.acf.special_img)
+
     return (
 
         <main>
@@ -106,11 +110,106 @@ const serviceSingle = async () => {
                 </div>
             </section>
 
-            <section className="shared_otherPortfolio wrapper">
+            <section className="service_options wrapper">
                 <div className="container">
-                    <SharedSectionTitle
+                    <SharedServiceTitle
+                        title={`ویژگی های طراحی سایت در ماورانت`}
+                        eng={`WEB DESIGN FEATURES`}
+                    />
+                    <div className="row align-items-center justify-content-center">
+                        <div className="col-lg-4">
+                            <div className="service_options_box">
+                                <ServiceOptionBox
+                                    imageUrl={service.acf.icon_1}
+                                    text={service.acf.special_1}
+                                />
+                                <ServiceOptionBox
+                                    imageUrl={service.acf.icon_2}
+                                    text={service.acf.special_2}
+                                />
+                                <ServiceOptionBox
+                                    imageUrl={service.acf.icon_3}
+                                    text={service.acf.special_3}
+                                />
+                            </div>
+                        </div>
+                        <div className="col-lg-4">
+                            <SharedImage
+                                imageUrl={service.acf.special_img}
+                                alt={service.acf.title}
+                            />
+                        </div>
+                        <div className="col-lg-4">
+                            <div className="service_options_box">
+                                <ServiceOptionBox
+                                    imageUrl={service.acf.icon_4}
+                                    text={service.acf.special_4}
+                                />
+                                <ServiceOptionBox
+                                    imageUrl={service.acf.icon_5}
+                                    text={service.acf.special_5}
+                                />
+                                <ServiceOptionBox
+                                    imageUrl={service.acf.icon_6}
+                                    text={service.acf.special_6}
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section className="service_team wrapper">
+                <div className="container">
+                    <SharedServiceTitle
+                        title={`متخصصین ما در طراحی سایت`}
+                        eng={`our staff`}
+                    />
+                    <div className="row  justify-content-center">
+                        <div className="col-lg-4">
+                            <div className="service_team_manager">
+                                <Image
+                                    src={service.acf.manager_img}
+                                    width={224}
+                                    height={332}
+                                    alt='manager'
+                                />
+                                <div className="text">
+                                    <span className="name">{service.acf.manager_name}</span>
+                                    <span className="jobTitle">{service.acf.manage_job}</span>
+                                    <p>{service.acf.manager_massage}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-lg-8">
+                            <div className="row p-0">
+                                {service.acf.team.map(team => (
+                                    <div key={team.index} className="col-xl-2">
+                                        <div className="service_team_staff">
+                                            <Image
+                                                src={ team.person_img}
+                                                width={224}
+                                                height={200}
+                                                alt='manager'
+                                            />
+                                            <div className="text">
+                                                <span className="name">{team.name}</span>
+                                                <span className="jobTitle">{team.title}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section className="shared_otherPortfolio service wrapper">
+                <div className="container">
+                    <SharedServiceTitle
                         title={`نمونه کار های طراحی سایت`}
-                        subTitle={`شما میتوانید نمونه کار های طراحی سایت ماورانت را مشاهده کنید`}
+                        eng={`portfolio`}
                     />
                     <div className="row align-items-center justify-content-center">
                         {portfolios.slice(0, 3).map(portfolioArchive => (
@@ -122,6 +221,12 @@ const serviceSingle = async () => {
                                 />
                             </div>
                         ))}
+                    </div>
+                    <div className="mt-4 d-flex align-items-center justify-content-center">
+                        <Button
+                            text={`مشاهده بیشتر`}
+                            slug={`/portfolio`}
+                        />
                     </div>
                 </div>
             </section>

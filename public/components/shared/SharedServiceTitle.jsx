@@ -1,7 +1,7 @@
 const SharedServiceTitle = ({title, tagline, eng}) => {
     return (
         <div className="shared_serviceTitle">
-            <span>{eng}</span>
+            <span>{eng.toUpperCase()}</span>
             <h1 className="title">{title}</h1>
             <p className="desc">
                 {tagline}

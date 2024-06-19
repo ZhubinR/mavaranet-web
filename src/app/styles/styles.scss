@@ -3597,11 +3597,13 @@ fp-nav ul,
             font-weight: 700;
             color: $white_color;
             text-align: center;
+            width: fit-content;
         }
 
         .desc {
             color: $text_color;
             text-align: center;
+            width: fit-content;
         }
 
         span {
@@ -3637,6 +3639,14 @@ fp-nav ul,
             width: 272px;
             height: 2px;
             background: linear-gradient(90deg, rgba(255, 255, 255, 0.00) 0%, #FFF 47.92%, rgba(255, 255, 255, 0.00) 100%);
+        }
+    }
+
+    &_otherPortfolio {
+       
+        .shared_serviceTitle {
+            padding-top: 2rem;
+            margin-bottom: 3rem;
         }
     }
 
@@ -3798,7 +3808,6 @@ fp-nav ul,
         .container {
             overflow-x: visible;
         }
-
         .overlay {
             position: absolute;
             top: 0;
@@ -3808,36 +3817,29 @@ fp-nav ul,
             background-color: rgba($dark_color, $alpha: .7);
             z-index: 2;
         }
-
         .shared_pageTitle {
             position: relative;
             z-index: 3;
             margin-bottom: 0;
-
-
         }
     }
 
     &_details {
         background-color: #01101a;
-
         &_item {
             position: relative;
             padding: 2rem;
             border-radius: 1rem;
             border: 1px dashed rgba(#ffffff, $alpha: 0.5);
             height: 100%;
-
             .content {
                 width: 80%;
-
                 .title {
                     font-size: 1.2em;
                     font-weight: 700;
                     margin-bottom: .75rem;
                    color: $white_color;
                 }
-
                 .desc {
                     font-size: .9em;
                     color: $text_color;
@@ -3845,30 +3847,22 @@ fp-nav ul,
                     font-weight: 300;
                 }
             }
-
             .image {
                 position: absolute;
                 top: 1.5rem;
                 left: 1.5rem;
-
             }
-
             @media(max-width: 576px) {
                 padding: 1.5rem;
-
                 .content {
                     width: 75%;
-
                     .title {
                         font-size: 1.125em;
                     }
-
                     .desc {
                         font-size: .8em;
-
                     }
                 }
-
                 .image {
                     top: 1rem;
                     left: 1rem;
@@ -3878,7 +3872,123 @@ fp-nav ul,
             }
         }
     }
+
     &_description {
+        background: #000C14;
+    }
+
+    &_options {
+        background-color: #01101A;
+        .shared_serviceTitle {
+            padding-top: 2rem;
+            margin-bottom: 3rem;
+        }
+        &_box {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            justify-content: space-between;
+            gap: 1.5rem;
+            &_item {
+                background-color: rgba(#ffffff, $alpha: .05);
+                border: 1px solid rgba(#ffffff, $alpha: .2 );
+                border-radius: .75rem;
+                padding: 1rem 1.25rem;
+                box-shadow: 0 4px 8px rgba(#000, 0.16);
+                display: flex;
+                gap: 1.5rem;
+                align-items: center;
+                .image {
+                    padding-left: .75rem;
+                    border-left: 1px solid hsla(0, 0%, 66%, .5);
+                }
+                .text {
+                    p {
+                        margin-bottom: 0;
+                        font-weight: 500;
+                        color: $white_color;
+                    }
+                }
+            }
+        }
+    }
+
+    &_team {
+        background: #000C14;
+        .col-xl-2 {
+            padding: 0 .25rem;
+        }
+        .shared_serviceTitle {
+            padding-top: 2rem;
+            margin-bottom: 3rem;
+        }
+        &_manager {
+            position: sticky;
+            top: 1rem;
+            display: flex;
+            align-items: center;
+            img {
+                object-fit: contain;
+                object-position: bottom;
+                height: auto;
+                min-width: 224px;
+            }
+            .text {
+                display: flex;
+                flex-direction: column;
+                .name {
+                    font-size: 1.25em;
+                    font-weight: 800;
+                    color: $white_color;
+                }
+                .jobTitle {
+                    font-size: 1em;
+                    font-weight: 500;
+                    background: $gold_gradient;
+                    background-clip: text;
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    margin-bottom: .5rem;
+                }
+                p {
+                    margin-bottom: 0;
+                    font-size: .86em;
+                    font-weight: 400;
+                    color: $text_color;
+                    text-align: justify;
+                }
+            }
+        }
+        &_staff {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: .75rem;
+            margin-bottom: 1.25rem;
+            img {
+                object-fit: contain;
+                object-position: bottom;
+                height: auto;
+            }
+            .text {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                .name {
+                    font-size: .95em;
+                    font-weight: 500;
+                    color: $white_color;
+                    text-align: center;
+                }
+                .jobTitle {
+                    font-size: .85em;
+                    color: $text_color;
+                    text-align: center;
+                }
+            }
+        }
+    }
+    .shared_otherPortfolio {
         background: #000C14;
     }
 }
