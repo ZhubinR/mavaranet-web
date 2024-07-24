@@ -7,26 +7,7 @@ import moment from "jalali-moment";
 import Overlay from "../../../public/components/layouts/Overlay";
 import { reqUrl } from "../config";
 
-// get blog categories
-async function getCategory() {
-  const categoryReq = await fetch(`${reqUrl}/categories`, {next: { revalidate: 3200 },})
-  if (!categoryReq.ok) {
-    throw new Error("Failed to fetch data");
-  }
-  return categoryReq.json();
-}
-// get blog data
-async function getData() {
-  const req = await fetch(`${reqUrl}/posts?acf_format=standard&per_page=100`, {
-    next: { revalidate: 3200 },
-  });
-  if (!req.ok) {
-    throw new Error("Failed to fetch data");
-  }
-  return req.json();
-}
-
-const blogArchive = () => {
+const BlogArchive = () => {
   const [BlogData, setBlogData] = useState([]);
   const [CategoryData, setCategoryData] = useState([]);
 
@@ -114,4 +95,4 @@ const blogArchive = () => {
   );
 };
 
-export default blogArchive;
+export default BlogArchive;
