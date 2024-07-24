@@ -112,22 +112,22 @@ const blogSingle = async ({ params }) => {
     )
 }
 
-export async function generateStaticParams() {
+// export async function generateStaticParams() {
 
-    const posts = await fetchWithRetry(`${reqUrl}/posts?_fields=slug&per_page=100`);
+//     const posts = await fetchWithRetry(`${reqUrl}/posts?_fields=slug&per_page=100`);
 
-    if (!posts) {
-        console.error('Failed to fetch portfolio data');
-        return []; // Return an empty array to avoid build errors
-    }
+//     if (!posts) {
+//         console.error('Failed to fetch portfolio data');
+//         return []; // Return an empty array to avoid build errors
+//     }
 
-    // Filter out invalid or ignored portfolios
-    const validPosts = posts.filter(post => post && post.slug)
+//     // Filter out invalid or ignored portfolios
+//     const validPosts = posts.filter(post => post && post.slug)
 
-    return validPosts.map((post) => ({
-        slug: decodeURIComponent(post.slug),
-    }));
-}
+//     return validPosts.map((post) => ({
+//         slug: decodeURIComponent(post.slug),
+//     }));
+// }
 
 
 export default blogSingle
