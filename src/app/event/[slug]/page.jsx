@@ -6,36 +6,36 @@ import SharedImage from "../../../../public/components/shared/SharedImage"
 import { fetchWithRetry } from "../../../../public/components/lib/fetchWithRetry"
 
 
-// export async function generateMetadata({ params }) {
-//     // fetch data
-//     const seoEvents = await fetch(`${reqUrl}/events?acf_format=standard&slug=${params.slug}`).then((res) => res.json())
-//     const seoEvent = seoEvents[0]
+export async function generateMetadata({ params }) {
+    // fetch data
+    const seoEvents = await fetch(`${reqUrl}/events?acf_format=standard&slug=${params.slug}`).then((res) => res.json())
+    const seoEvent = seoEvents[0]
 
-//     // optionally access and extend (rather than replace) parent metadata
+    // optionally access and extend (rather than replace) parent metadata
 
-//     return {
-//         title: seoEvent.yoast_head_json.title,
-//         description: seoEvent.yoast_head_json.description,
-//         openGraph: {
-//             title: seoEvent.yoast_head_json.og_title,
-//             description: seoEvent.yoast_head_json.og_description,
-//             images: [
-//                 {
-//                     url: seoEvent.yoast_head_json.og_image.url, // Must be an absolute URL
-//                     width: seoEvent.yoast_head_json.og_image.width,
-//                     height: seoEvent.yoast_head_json.og_image.height,
-//                 },
-//             ],
-//             url: `https://mavaranet.net/event/${seoEvent.slug}`,
-//             locale: seoEvent.yoast_head_json.og_locale,
-//             type: seoEvent.yoast_head_json.og_type,
-//             siteName: seoEvent.yoast_head_json.og_site_name,
-//             twitter: {
-//                 card: 'summary_large_image',
-//             },
-//         },
-//     }
-// }
+    return {
+        title: seoEvent.yoast_head_json.title,
+        description: seoEvent.yoast_head_json.description,
+        openGraph: {
+            title: seoEvent.yoast_head_json.og_title,
+            description: seoEvent.yoast_head_json.og_description,
+            // images: [
+            //     {
+            //         url: seoEvent.yoast_head_json.og_image.url, // Must be an absolute URL
+            //         width: seoEvent.yoast_head_json.og_image.width,
+            //         height: seoEvent.yoast_head_json.og_image.height,
+            //     },
+            // ],
+            url: `https://mavaranet.net/event/${seoEvent.slug}`,
+            locale: seoEvent.yoast_head_json.og_locale,
+            type: seoEvent.yoast_head_json.og_type,
+            siteName: seoEvent.yoast_head_json.og_site_name,
+            twitter: {
+                card: 'summary_large_image',
+            },
+        },
+    }
+}
 
 
 const eventSingle = async ({ params }) => {
@@ -95,22 +95,24 @@ const eventSingle = async ({ params }) => {
     )
 }
 
-// export async function generateStaticParams() {
 
-//     const events = await fetchWithRetry(`${reqUrl}/events?_fields=slug&per_page=100`);
 
-//     if (!events) {
-//         console.error('Failed to fetch portfolio data');
-//         return []; // Return an empty array to avoid build errors
-//     }
+export async function generateStaticParams() {
 
-//     // Filter out invalid or ignored portfolios
-//     const validEvents = events.filter(post => post && post.slug)
+    const events = await fetchWithRetry(`${reqUrl}/events?_fields=slug&per_page=100`);
 
-//     return validEvents.map((post) => ({
-//         slug: decodeURIComponent(post.slug),
-//     }));
-// }
+    if (!events) {
+        console.error('Failed to fetch portfolio data');
+        return []; // Return an empty array to avoid build errors
+    }
+
+    // Filter out invalid or ignored portfolios
+    const validEvents = events.filter(event => event && event.slug)
+
+    return validEvents.map((event) => ({
+        slug: decodeURIComponent(event.slug),
+    }));
+}
 
 
 export default eventSingle
