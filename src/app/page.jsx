@@ -18,7 +18,6 @@ import Fullpage from '../../public/components/Fullpage'
 import Footer from '../../public/components/layouts/Footer'
 import CustomerSection from '../../public/components/customer/CustomerSection'
 import Cta from '../../public/components/layouts/Cta'
-import LoadingHome from './loading'
 import SocialSection from '../../public/components/social/SocialSection'
 import EventSection from '../../public/components/events/EventSection'
 
@@ -35,12 +34,12 @@ export default function Home() {
         // fetching all datas
         const getDatas = async () => {
             const res = await Promise.all([
-                fetch(`${reqUrl}/user_testimonial?acf_format=standard&per_page=100`, { next: { revalidate:  3200 } }),
-                fetch(`${reqUrl}/portfolios?acf_format=standard&per_page=100`, { next: { revalidate:  3200 } }),
-                fetch(`${reqUrl}/posts?acf_format=standard&per_page=100`, { next: { revalidate:  3200 } }),
+                fetch(`${reqUrl}/user_testimonial?acf_format=standard`, { next: { revalidate:  3200 } }),
+                fetch(`${reqUrl}/portfolios?acf_format=standard&_fields=slug,title,acf.portfolio_thumbnail`, { next: { revalidate:  3200 } }),
+                fetch(`${reqUrl}/posts?acf_format=standard&_fields=slug,title,acf,date,id,categories`, { next: { revalidate:  3200 } }),
                 fetch(`${reqUrl}/categories`, { next: { revalidate:  3200 } }),
-                fetch(`${reqUrl}/customers?acf_format=standard&per_page=100`, { next: { revalidate:  3200 } }),
-                fetch(`${reqUrl}/events?acf_format=standard&per_page=100`, { next: { revalidate:  3200 } }),
+                fetch(`${reqUrl}/customers?acf_format=standard`, { next: { revalidate:  3200 } }),
+                fetch(`${reqUrl}/events?acf_format=standard&_fields=slug,id,acf.title,acf.date,acf.location,acf.thumbnail_img`, { next: { revalidate:  3200 } }),
             ])
             const [data1, data2, data3, data4, data5 ,data6] = res
             setData1(await data1.json())
@@ -66,6 +65,7 @@ export default function Home() {
     }, [])
 
     const blogPostsWithCategories = data3.map(post => {
+        console.log(data4)
         // find the category
         const postCategory = data4.find(category => category.id === post.categories[0]) // Assuming only one category per post
         // coverting default date to jalali date
@@ -108,7 +108,7 @@ export default function Home() {
                 ) : (
 
                     <Fullpage>
-                        <LoadingHome />
+                        
                         <HeroSection />
                         <ServiceSection />
                         <AboutSection />

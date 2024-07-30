@@ -21,10 +21,8 @@ const ServiceSection = () => {
 
             <div className="container">
                 <div className="row justify-content-between align-items-center">
-                    <div className="col-lg-4">
-                        
-                    </div>
-                    {/* <div className="col-lg-4 d-flex align-items-center justify-content-center">
+                    
+                    <div className="col-lg-4 d-flex align-items-center justify-content-center">
                         <Image
                             priority 
                             className={`services-image`}
@@ -203,7 +201,7 @@ const ServiceSection = () => {
                                 </div>
                             </div>
                         </div>
-                    </div> */}
+                    </div>
                 </div>
             </div>
         </section>
