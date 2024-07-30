@@ -97,22 +97,22 @@ const eventSingle = async ({ params }) => {
 
 
 
-export async function generateStaticParams() {
+// export async function generateStaticParams() {
 
-    const events = await fetchWithRetry(`${reqUrl}/events?_fields=slug&per_page=100`);
+//     const events = await fetchWithRetry(`${reqUrl}/events?_fields=slug&per_page=100`);
 
-    if (!events) {
-        console.error('Failed to fetch portfolio data');
-        return []; // Return an empty array to avoid build errors
-    }
+//     if (!events) {
+//         console.error('Failed to fetch portfolio data');
+//         return []; // Return an empty array to avoid build errors
+//     }
 
-    // Filter out invalid or ignored portfolios
-    const validEvents = events.filter(event => event && event.slug)
+//     // Filter out invalid or ignored portfolios
+//     const validEvents = events.filter(event => event && event.slug)
 
-    return validEvents.map((event) => ({
-        slug: decodeURIComponent(event.slug),
-    }));
-}
+//     return validEvents.map((event) => ({
+//         slug: decodeURIComponent(event.slug),
+//     }));
+// }
 
 
 export default eventSingle

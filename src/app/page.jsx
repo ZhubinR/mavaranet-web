@@ -52,21 +52,16 @@ export default function Home() {
         }
         getDatas()
 
-        // remove fullpage in responsive
         const handleResize = () => {
             setSmallScreen(window.innerWidth < 700)
         }
 
-        // initial check
         handleResize()
 
-        // listen for window resize events
         window.addEventListener('resize', handleResize)
-        // clean up the event listener when the component unmounts
         return () => {
             window.removeEventListener('resize', handleResize)
         }
-        // end remove fullpage in responsive
 
     }, [])
 
