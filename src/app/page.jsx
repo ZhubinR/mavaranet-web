@@ -34,12 +34,12 @@ export default function Home() {
         // fetching all datas
         const getDatas = async () => {
             const res = await Promise.all([
-                fetch(`${reqUrl}/user_testimonial?acf_format=standard`, { next: { revalidate:  3200 } }),
-                fetch(`${reqUrl}/portfolios?acf_format=standard&_fields=slug,title,acf.portfolio_thumbnail`, { next: { revalidate:  3200 } }),
-                fetch(`${reqUrl}/posts?acf_format=standard&_fields=slug,title,acf,date,id,categories`, { next: { revalidate:  3200 } }),
-                fetch(`${reqUrl}/categories`, { next: { revalidate:  3200 } }),
-                fetch(`${reqUrl}/customers?acf_format=standard`, { next: { revalidate:  3200 } }),
-                fetch(`${reqUrl}/events?acf_format=standard&_fields=slug,id,acf.title,acf.date,acf.location,acf.thumbnail_img`, { next: { revalidate:  3200 } }),
+                fetch(`${reqUrl}/user_testimonial?acf_format=standard`),
+                fetch(`${reqUrl}/portfolios?acf_format=standard&_fields=slug,title,acf.portfolio_thumbnail`),
+                fetch(`${reqUrl}/posts?acf_format=standard&_fields=slug,title,acf,date,id,categories`),
+                fetch(`${reqUrl}/categories`),
+                fetch(`${reqUrl}/customers?acf_format=standard`),
+                fetch(`${reqUrl}/events?acf_format=standard&_fields=slug,id,acf.title,acf.date,acf.location,acf.thumbnail_img`),
             ])
             const [data1, data2, data3, data4, data5 ,data6] = res
             setData1(await data1.json())

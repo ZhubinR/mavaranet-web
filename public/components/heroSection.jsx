@@ -1,5 +1,5 @@
-'use client'
-import React, { useRef, useEffect } from 'react';
+// 'use client'
+// import React, { useRef, useEffect } from 'react';
 import PageTitle from './layouts/PageTitle';
 import ScrollDown from './layouts/ScrollDown';
 import Overlay from './layouts/Overlay';
@@ -7,19 +7,19 @@ import Overlay from './layouts/Overlay';
 const HeroSection = () => {
     
 
-    const videoRef = useRef(null);
+    // const videoRef = useRef(null);
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        const videoElement = videoRef.current;
-        videoElement.play();
-        videoElement.addEventListener('ended', () => {
-            videoElement.currentTime = 0;
-            videoElement.play();
-        });
+    //     const videoElement = videoRef.current;
+    //     videoElement.play();
+    //     videoElement.addEventListener('ended', () => {
+    //         videoElement.currentTime = 0;
+    //         videoElement.play();
+    //     });
 
 
-    }, [])
+    // }, [])
 
 
 
@@ -35,10 +35,10 @@ const HeroSection = () => {
 
                 <ScrollDown />
 
-                <video id='introVideo' className="hero_image" ref={videoRef} autoPlay muted loop playsInline>
+                {/* <video id='introVideo' className="hero_image" ref={videoRef} autoPlay muted loop playsInline>
                     <source src="/videos/intro-mavaranet.webm" type="video/webm" />
                     Your browser does not support the video tag.
-                </video>
+                </video> */}
                 
             </div>
         </section>

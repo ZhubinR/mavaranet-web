@@ -1,5 +1,3 @@
-"use client";
-import { useState, useEffect } from "react";
 import InsidePageTitle from "../../../public/components/shared/SharedPageTitle";
 import BlogItem from "../../../public/components/blog/blogItem";
 import "@/app/styles/styles.scss";
@@ -7,51 +5,32 @@ import moment from "jalali-moment";
 import Overlay from "../../../public/components/layouts/Overlay";
 import { reqUrl } from "../config";
 
-const BlogArchive = () => {
-  const [BlogData, setBlogData] = useState([]);
-  const [CategoryData, setCategoryData] = useState([]);
+const BlogArchive = async () => {
 
-  useEffect(() => {
+  const req = await fetch(`${reqUrl}/posts?acf_format=standard&per_page=100`, {
+    next: { revalidate: 604800 },
+  });
+  const blogReq = await req.json();
 
-    GetData();
-    GetDate();
+  const cateReq = await fetch(`${reqUrl}/categories`, {
+    next: { revalidate: 604800 },
+  });
+  const category = await cateReq.json();
 
-  }, []);
+  const categories = category;
+  const blogPosts = blogReq;
 
-  const GetData = async () => {
-    try {
-      const req = await fetch(`${reqUrl}/posts?acf_format=standard&per_page=100`,{ next: { revalidate: 3200 } })
-      const blogReq = await req.json()
-      setBlogData(blogReq)
-      
-    } catch (error) {
-      console.error("Error fetching blogData:", error)
-    }
-  }
-
-  const GetDate = async () => {
-    try {
-      const cateReq = await fetch(`${reqUrl}/categories`,{ next: { revalidate: 3200 } })
-      const category = await cateReq.json()
-      
-      setCategoryData(category)
-    } catch (error) {
-      console.error("Error fetching blogData:", error)
-    }
-  }
-
-  // const categories = await getCategory();
-  // const blogPosts = await getData();
-  console.log(BlogData)
   // Map over blog posts and find the corresponding category for each post
-  const blogPostsWithCategories = BlogData.map((post) => {
+  const blogPostsWithCategories = blogPosts.map((post) => {
     // Find the category object corresponding to the post's category ID
-    const postCategory = CategoryData.find(
+    const postCategory = categories.find(
       (category) => category.id === post.categories[0]
     ); // Assuming only one category per post
 
-    const gregorianDate = post.date
-    const jalaliDate = moment(gregorianDate, "YYYY-MM-DDTHH:mm:ss").locale("fa").format("YYYY/MM/DD HH:mm:ss")
+    const gregorianDate = post.date;
+    const jalaliDate = moment(gregorianDate, "YYYY-MM-DDTHH:mm:ss")
+      .locale("fa")
+      .format("YYYY/MM/DD HH:mm:ss");
 
     // Return the post object with the category name added
     return {

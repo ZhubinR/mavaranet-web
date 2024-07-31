@@ -7,6 +7,8 @@ import moment from "jalali-moment"
 import BlogMorePostWrapper from "../../../../public/components/blog/BlogMorePostWrapper"
 import { fetchWithRetry } from '../../../../public/components/lib/fetchWithRetry'
 
+
+
 // async function getCategory() {
 //     const categoryReq = await fetch(`${reqUrl}/categories`, { next: { revalidate:  3200 } })
 //     if (!categoryReq.ok) {
@@ -15,9 +17,26 @@ import { fetchWithRetry } from '../../../../public/components/lib/fetchWithRetry
 //     return categoryReq.json()
 // }
 
+export async function generateStaticParams() {
+
+        const posts = await fetchWithRetry(`${reqUrl}/posts?acf_format=standard&per_page=100`);
+    
+        if (!posts) {
+            console.error('Failed to fetch portfolio data');
+            return []; // Return an empty array to avoid build errors
+        }
+    
+        // Filter out invalid or ignored portfolios
+        const validPosts = posts.filter(post => post && post.slug)
+    
+        return validPosts.map((post) => ({
+            slug: decodeURIComponent(post.slug),
+        }));
+}
+
 export async function generateMetadata({ params }) {
     // fetch data
-    const seoBlogs = await fetch(`${reqUrl}/posts?acf_format=standard&slug=${params.slug}`).then((res) => res.json())
+    const seoBlogs = await fetch(`${reqUrl}/posts?acf_format=standard&slug=${params.slug}&_fields=yoast_head_json`).then((res) => res.json())
     const seoBlog = seoBlogs[0]
 
     // optionally access and extend (rather than replace) parent metadata
@@ -31,11 +50,11 @@ export async function generateMetadata({ params }) {
             images: [
                 {
                     url: seoBlog.yoast_head_json.og_image.url, // Must be an absolute URL
-                    width: seoBlog.yoast_head_json.og_image.width,
-                    height: seoBlog.yoast_head_json.og_image.height,
+                    // width: seoBlog.yoast_head_json.og_image.width,
+                    // height: seoBlog.yoast_head_json.og_image.height,
                 },
             ],
-            url: `https://mavaranet.net/blog/${seoBlog.slug}`,
+            url: `https://mavaranet.net/blog/${params.slug}`,
             locale: seoBlog.yoast_head_json.og_locale,
             type: seoBlog.yoast_head_json.og_type,
             siteName: seoBlog.yoast_head_json.og_site_name,
@@ -47,9 +66,10 @@ export async function generateMetadata({ params }) {
 }
 
 const blogSingle = async ({ params }) => {
-    const { slug } = params
+    console.log(params)
 
-    const req = await fetch(`${reqUrl}/posts?acf_format=standard&slug=${slug}`, { next: { revalidate:  3200 } });
+    const { slug } = params
+    const req = await fetch(`${reqUrl}/posts?acf_format=standard&slug=${slug}`, { next: { revalidate:  604800 } });
     const blogPosts = await req.json();
     const blogPost = blogPosts[0];
 
@@ -57,10 +77,11 @@ const blogSingle = async ({ params }) => {
   const categoryIds = blogPost.categories;
   const categoryFetchPromises = categoryIds.map(categoryId =>
     fetch(`${reqUrl}/categories/${categoryId}`)
-  );
+);
 
-  const categoryResponses = await Promise.all(categoryFetchPromises);
-  const categoryData = await Promise.all(categoryResponses.map(response => response.json()));
+const categoryResponses = await Promise.all(categoryFetchPromises);
+const categoryData = await Promise.all(categoryResponses.map(response => response.json()));
+
 
   // Add category data to the blogPost object
   blogPost.categoriesData = categoryData;
@@ -112,22 +133,7 @@ const blogSingle = async ({ params }) => {
     )
 }
 
-// export async function generateStaticParams() {
 
-//     const posts = await fetchWithRetry(`${reqUrl}/posts?_fields=slug&per_page=100`);
-
-//     if (!posts) {
-//         console.error('Failed to fetch portfolio data');
-//         return []; // Return an empty array to avoid build errors
-//     }
-
-//     // Filter out invalid or ignored portfolios
-//     const validPosts = posts.filter(post => post && post.slug)
-
-//     return validPosts.map((post) => ({
-//         slug: decodeURIComponent(post.slug),
-//     }));
-// }
 
 
 export default blogSingle
