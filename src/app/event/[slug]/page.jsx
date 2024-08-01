@@ -33,14 +33,14 @@ export async function generateMetadata({ params }) {
         openGraph: {
             title: seoEvent.yoast_head_json.og_title,
             description: seoEvent.yoast_head_json.og_description,
-            images: [
-                {
-                    url: seoEvent.yoast_head_json.og_image.url, // Must be an absolute URL
-                    // width: seoEvent.yoast_head_json.og_image.width,
-                    // height: seoEvent.yoast_head_json.og_image.height,
-                },
-            ],
-            url: `https://mavaranet.net/event/${params.slug}`,
+            // images: [
+            //     {
+            //         url: seoEvent.yoast_head_json.og_image.url, // Must be an absolute URL
+            //         // width: seoEvent.yoast_head_json.og_image.width,
+            //         // height: seoEvent.yoast_head_json.og_image.height,
+            //     },
+            // ],
+            // url: `https://mavaranet.net/event/${params.slug}`,
             locale: seoEvent.yoast_head_json.og_locale,
             type: seoEvent.yoast_head_json.og_type,
             siteName: seoEvent.yoast_head_json.og_site_name,
@@ -56,7 +56,7 @@ const eventSingle = async ({ params }) => {
 
     const { slug } = params
 
-    const req = await fetch(`${reqUrl}/events?acf_format=standard&slug=${slug}`, { next: { revalidate: 3200 } })
+    const req = await fetch(`${reqUrl}/events?acf_format=standard&slug=${slug}&_fields=acf`, { next: { revalidate: 604800 } })
     const eventPosts = await req.json()
     const eventPost = eventPosts[0]
 
@@ -105,25 +105,6 @@ const eventSingle = async ({ params }) => {
         </>
     )
 }
-
-
-
-// export async function generateStaticParams() {
-
-//     const events = await fetchWithRetry(`${reqUrl}/events?_fields=slug&per_page=100`);
-
-//     if (!events) {
-//         console.error('Failed to fetch portfolio data');
-//         return []; // Return an empty array to avoid build errors
-//     }
-
-//     // Filter out invalid or ignored portfolios
-//     const validEvents = events.filter(event => event && event.slug)
-
-//     return validEvents.map((event) => ({
-//         slug: decodeURIComponent(event.slug),
-//     }));
-// }
 
 
 export default eventSingle
