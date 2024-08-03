@@ -6,22 +6,29 @@ import HtmlRenderComponent from "../../../../public/components/layouts/HtmlRende
 import moment from "jalali-moment";
 import BlogMorePostWrapper from "../../../../public/components/blog/BlogMorePostWrapper";
 import { fetchWithRetry } from "../../../../public/components/lib/fetchWithRetry";
+export const ignoredUrls = [
+  'هومن-عشقی',
+  'کلینیک-مهرافروز'
+]
 
+
+// Return a list of `params` to populate the [slug] dynamic segment
 export async function generateStaticParams() {
-  const posts = await fetchWithRetry(
-    `${reqUrl}/posts?acf_format=standard&per_page=100`
-  );
+
+  const posts = await fetchWithRetry(`${reqUrl}/posts?_fields=slug&per_page=100`);
 
   if (!posts) {
-    console.error("Failed to fetch portfolio data");
-    return []; // Return an empty array to avoid build errors
+      console.error('Failed to fetch portfolio data');
+      return []; // Return an empty array to avoid build errors
   }
 
-  // Filter out invalid or ignored portfolios
-  const validPosts = posts.filter((post) => post && post.slug);
+  // Filter out invalid or ignored posts
+  const validPosts = posts.filter(post =>
+      post && post.slug && !ignoredUrls.includes(encodeURIComponent(post.slug))
+  );
 
   return validPosts.map((post) => ({
-    slug: decodeURIComponent(post.slug),
+      slug: decodeURIComponent(post.slug),
   }));
 }
 

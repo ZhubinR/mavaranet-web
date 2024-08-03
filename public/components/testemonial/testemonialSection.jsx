@@ -1,3 +1,4 @@
+'use client'
 import TestemonialContent from "./testemonialContent"
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination, Autoplay } from 'swiper'

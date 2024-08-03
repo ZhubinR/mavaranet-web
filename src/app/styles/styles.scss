@@ -1546,8 +1546,6 @@ fp-nav ul,
             right: -10%;
             opacity: 0.25;
             z-index: 0;
-
-
         }
 
         .swiper {
@@ -1613,7 +1611,7 @@ fp-nav ul,
 
             .name {
                 text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.50);
-                font-size: 2rem;
+                font-size: 1.5em;
                 font-weight: 600;
                 color: $white_color;
                 margin-bottom: 0;
@@ -1621,7 +1619,7 @@ fp-nav ul,
             }
 
             .job {
-                font-size: 1.25rem;
+                font-size: 1em;
                 font-weight: 500;
                 background: $gold_gradient;
                 text-align: center;
@@ -1632,7 +1630,7 @@ fp-nav ul,
             }
 
             .desc {
-                font-size: 1.1em;
+                font-size: .85em;
                 color: $text_color;
                 font-weight: 300;
                 text-align: center;
@@ -5228,149 +5226,6 @@ fp-nav ul,
     &:hover {
         scale: 1.1;
     }
-}
-
-.loader {
-
-    &_home {
-        width: 100vw;
-        height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow-y: hidden;
-        position: relative;
-        background: $primary_gradient;
-        z-index: 20;
-
-        .circle {
-            position: absolute;
-            width: 56px;
-            height: 56px;
-            opacity: 0;
-            transform: rotate(225deg);
-            animation-iteration-count: infinite;
-            animation-name: orbit;
-            animation-duration: 5.5s;
-
-            &:after {
-                content: "";
-                position: absolute;
-                width: 8px;
-                height: 8px;
-                border-radius: 8px;
-                background: #fff;
-                /* Pick a color */
-            }
-
-            &:nth-child(2) {
-                animation-delay: 240ms;
-            }
-
-            &:nth-child(3) {
-                animation-delay: 480ms;
-            }
-
-            &:nth-child(4) {
-                animation-delay: 720ms;
-            }
-
-            &:nth-child(5) {
-                animation-delay: 960ms;
-            }
-
-        }
-
-    }
-
-    &_title {
-        margin-top: 8rem;
-        background-color: #01101a;
-        padding: 1.75rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        border-radius: 2rem;
-        margin-bottom: 2rem;
-        box-shadow: $secondary_shadow;
-
-        .skeleton {
-            &_title {
-                border: 1px solid rgba(#ffffff, $alpha: .03);
-                width: 100%;
-                max-width: 300px;
-                height: 70px;
-                background-image: linear-gradient(to right, #01101a 0%, #061621 20%, #061621 40%, #01101a 100%);
-                background-repeat: no-repeat;
-                background-size: 450px 400px;
-                animation: skeleton 1s ease-in-out forwards infinite;
-                margin-bottom: .75rem;
-                border-radius: 5rem;
-            }
-
-            &_desc {
-                border: 1px solid rgba(#ffffff, $alpha: .03);
-                width: 100%;
-                max-width: 700px;
-                height: 20px;
-                background-image: linear-gradient(to right, #01101a 0%, #061621 20%, #061621 40%, #01101a 100%);
-                background-repeat: no-repeat;
-                background-size: 450px 400px;
-                animation: skeleton 1s ease-in-out forwards infinite;
-                margin-bottom: .75rem;
-                border-radius: 5rem;
-
-                &:nth-child(2) {
-                    max-width: 450px;
-                }
-
-                &:last-child {
-                    max-width: 550px;
-                }
-            }
-        }
-    }
-
-    &_portfolio {
-
-        &_card {
-            border-radius: 1rem;
-            background-color: #01101a;
-            padding: .75rem;
-            opacity: .8;
-            box-shadow: $secondary_shadow;
-
-            .skeleton {
-
-                &_inside {
-                    background-image: linear-gradient(to right, #01101a 0%, #061621 20%, #061621 40%, #01101a 100%);
-                    background-repeat: no-repeat;
-                    background-size: 450px 400px;
-                    height: 170px;
-                    width: 100%;
-                    border: 1px solid rgba(#ffffff, $alpha: .03);
-                    border-radius: .5rem;
-                    margin-bottom: 1.25rem;
-                    animation: skeleton 1s ease-in-out forwards infinite;
-                }
-
-                &_line {
-                    background-image: linear-gradient(to right, #01101a 0%, #061621 20%, #061621 40%, #01101a 100%);
-                    background-repeat: no-repeat;
-                    background-size: 450px 400px;
-                    height: 20px;
-                    width: 100%;
-                    animation: skeleton 1s ease-in-out forwards infinite;
-                    animation-delay: 200ms;
-                    border-radius: 5rem;
-                    border: 1px solid rgba(#ffffff, $alpha: .03);
-
-                }
-            }
-        }
-    }
-
 }
 
 .event {

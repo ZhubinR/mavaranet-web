@@ -32,23 +32,7 @@ export default function Home() {
 
     useEffect(() => {
         // fetching all datas
-        const getDatas = async () => {
-            const res = await Promise.all([
-                fetch(`${reqUrl}/user_testimonial?acf_format=standard`),
-                fetch(`${reqUrl}/portfolios?acf_format=standard&_fields=slug,title,acf.portfolio_thumbnail&per_page=100`),
-                fetch(`${reqUrl}/posts?acf_format=standard&_fields=slug,title,acf,date,id,categories`),
-                fetch(`${reqUrl}/categories`),
-                fetch(`${reqUrl}/customers?acf_format=standard&per_page=100`),
-                fetch(`${reqUrl}/events?acf_format=standard&_fields=slug,id,acf.title,acf.date,acf.location,acf.thumbnail_img`),
-            ])
-            const [data1, data2, data3, data4, data5 ,data6] = res
-            setData1(await data1.json())
-            setData2(await data2.json())
-            setData3(await data3.json())
-            setData4(await data4.json())
-            setData5(await data5.json())
-            setData6(await data6.json())
-        }
+        
         getDatas()
 
         const handleResize = () => {
@@ -63,6 +47,24 @@ export default function Home() {
         }
 
     }, [])
+
+    const getDatas = async () => {
+        const res = await Promise.all([
+            fetch(`${reqUrl}/user_testimonial?acf_format=standard`),
+            fetch(`${reqUrl}/portfolios?acf_format=standard&_fields=slug,title,acf.portfolio_thumbnail&per_page=100`),
+            fetch(`${reqUrl}/posts?acf_format=standard&_fields=slug,title,acf,date,id,categories`),
+            fetch(`${reqUrl}/categories`),
+            fetch(`${reqUrl}/customers?acf_format=standard&per_page=100`),
+            fetch(`${reqUrl}/events?acf_format=standard&_fields=slug,id,acf.title,acf.date,acf.location,acf.thumbnail_img`),
+        ])
+        const [data1, data2, data3, data4, data5 ,data6] = res
+        setData1(await data1.json())
+        setData2(await data2.json())
+        setData3(await data3.json())
+        setData4(await data4.json())
+        setData5(await data5.json())
+        setData6(await data6.json())
+    }
 
     const blogPostsWithCategories = data3.map(post => {
         console.log(data4)

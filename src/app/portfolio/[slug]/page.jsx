@@ -7,6 +7,26 @@ export const ignoredUrls = [
     'کلینیک-مهرافروز'
 ]
 
+// Return a list of `params` to populate the [slug] dynamic segment
+export async function generateStaticParams() {
+
+    const portfolios = await fetchWithRetry(`${reqUrl}/portfolios?_fields=slug&per_page=100`);
+
+    if (!portfolios) {
+        console.error('Failed to fetch portfolio data');
+        return []; // Return an empty array to avoid build errors
+    }
+
+    // Filter out invalid or ignored portfolios
+    const validPortfolios = portfolios.filter(portfolio =>
+        portfolio && portfolio.slug && !ignoredUrls.includes(encodeURIComponent(portfolio.slug))
+    );
+
+    return validPortfolios.map((portfolio) => ({
+        slug: decodeURIComponent(portfolio.slug),
+    }));
+}
+
 export async function generateMetadata({ params }) {
 
     // fetch data for meta data
@@ -107,24 +127,6 @@ const PortfolioSingle = async ({ params }) => {
     )
 }
 
-// Return a list of `params` to populate the [slug] dynamic segment
-export async function generateStaticParams() {
 
-    const portfolios = await fetchWithRetry(`${reqUrl}/portfolios?_fields=slug&per_page=100`);
-
-    if (!portfolios) {
-        console.error('Failed to fetch portfolio data');
-        return []; // Return an empty array to avoid build errors
-    }
-
-    // Filter out invalid or ignored portfolios
-    const validPortfolios = portfolios.filter(portfolio =>
-        portfolio && portfolio.slug && !ignoredUrls.includes(encodeURIComponent(portfolio.slug))
-    );
-
-    return validPortfolios.map((portfolio) => ({
-        slug: decodeURIComponent(portfolio.slug),
-    }));
-}
 
 export default PortfolioSingle
