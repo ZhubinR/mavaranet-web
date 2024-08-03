@@ -3,7 +3,7 @@ const BlogMorePostTitle = () => {
     return (
         <div className='blogSingle_morePost'>
             <Image
-                src={`/../images/portfolio/logocards.png`}
+                src={`/images/portfolio/logocards.png`}
                 width={32}
                 height={42}
                 alt="more posts icon"

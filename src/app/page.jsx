@@ -67,7 +67,7 @@ export default function Home() {
     }
 
     const blogPostsWithCategories = data3.map(post => {
-        console.log(data4)
+        
         // find the category
         const postCategory = data4.find(category => category.id === post.categories[0]) // Assuming only one category per post
         // coverting default date to jalali date

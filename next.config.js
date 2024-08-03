@@ -15,8 +15,14 @@ const cspHeader = `
 const nextConfig = {
 
     images: {
-        domains: ['back.mavaranet.net'],
-    },
+        remotePatterns: [
+          {
+            protocol: 'https',
+            hostname: 'back.mavaranet.net',
+            port: '',
+          },
+        ],
+      },
 
     i18n: {
         locales: ['en', 'fa'],

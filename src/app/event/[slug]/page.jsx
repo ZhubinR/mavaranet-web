@@ -2,11 +2,10 @@ import { reqUrl } from "@/app/config";
 import SharedEventSingle from "../../../../public/components/shared/sharedEventSingle";
 import SharedContent1 from "../../../../public/components/shared/SharedContent1";
 import SharedImage from "../../../../public/components/shared/SharedImage";
-import { fetchWithRetry } from "../../../../public/components/lib/fetchWithRetry";
 export const ignoredUrls = ["هومن-عشقی", "کلینیک-مهرافروز"];
 
 export async function generateStaticParams() {
-  const events = await fetchWithRetry(
+  const events = await fetch(
     `${reqUrl}/events?_fields=slug&per_page=100`
   );
 
@@ -29,7 +28,7 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }) {
-  const seoEvents = await fetchWithRetry(
+  const seoEvents = await fetch(
     `${reqUrl}/events?acf_format=standard&slug=${params.slug}&_fields=yoast_head_json`
   ).then((res) => res.json());
   const seoEvent = seoEvents[0];
@@ -61,7 +60,7 @@ export async function generateMetadata({ params }) {
 const eventSingle = async ({ params }) => {
   const { slug } = params;
 
-  const req = await fetchWithRetry(
+  const req = await fetch(
     `${reqUrl}/events?acf_format=standard&slug=${slug}&_fields=acf`
   );
   const eventPosts = await req.json();
