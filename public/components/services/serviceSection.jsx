@@ -1,28 +1,34 @@
-'use client'
-import { useState } from 'react'
+// 'use client'
+// import { useState } from 'react'
 import Image from 'next/image';
-import TitleCont from '../layouts/TitleCont';
+// import TitleCont from '../layouts/TitleCont';
 
 const ServiceSection = () => {
-    const [selectedBox, setSelectedBox] = useState(1);
-    const handleBoxClick = (boxId) => {
-        setSelectedBox(boxId);
-    };
+    // const [selectedBox, setSelectedBox] = useState(1);
+    // const handleBoxClick = (boxId) => {
+    //     setSelectedBox(boxId);
+    // };
 
-    const getImagePath = (boxId) => {
-        if (boxId) {
-            return `/images/services/service-${boxId}.webp`;
-        }
-        // Return the path to the default image
-        return '/images/services/service-1.png';
-    }
+    // const getImagePath = (boxId) => {
+    //     if (boxId) {
+    //         return `/images/services/service-${boxId}.webp`;
+    //     }
+    //     // Return the path to the default image
+    //     return '/images/services/service-1.png';
+    // }
     return (
         <section className="section services wrapper">
 
             <div className="container">
                 <div className="row justify-content-between align-items-center">
+
+                    <div className="col-lg-4">
+                        <div className="service-item">
+                            
+                        </div>
+                    </div>
                     
-                    <div className="col-lg-4 d-flex align-items-center justify-content-center">
+                    {/* <div className="col-lg-4 d-flex align-items-center justify-content-center">
                         <Image
                             priority 
                             className={`services-image`}
@@ -201,7 +207,7 @@ const ServiceSection = () => {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </section>

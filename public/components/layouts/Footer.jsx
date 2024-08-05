@@ -36,7 +36,7 @@ const Footer = () => {
                                 </div> */}
                                 <div className="col-12">
                                     <FooterContactLinks
-                                        slug={``}
+                                        slug={`https://maps.app.goo.gl/xRMkEgZbLfKtxPWw5`}
                                         iconUrl={`/images/contact/location.svg`}
                                         text={`تهران، خیابان آیت الله کاشانی، ساختمان راز، بلوک A، طبقه 3`}
                                         alt={`location icon`}

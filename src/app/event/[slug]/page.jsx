@@ -7,7 +7,7 @@ export const ignoredUrls = ["هومن-عشقی", "کلینیک-مهرافروز"
 export async function generateStaticParams() {
   const events = await fetch(
     `${reqUrl}/events?_fields=slug&per_page=100`
-  );
+  ).then((res) => res.json());
 
   if (!events) {
     console.error("Failed to fetch portfolio data");

@@ -710,7 +710,11 @@ fp-nav ul,
         background-size: cover;
         position: relative;
         overflow: hidden;
-
+        .service-item {
+            background: url(../../../public/images/service-back.png) no-repeat center;
+            background-size: contain;
+            height: 100%;
+        }
 
         .overlay {
             position: absolute;

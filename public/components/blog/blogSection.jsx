@@ -1,3 +1,4 @@
+'use client'
 import BlogItem from './blogItem';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay } from 'swiper';
@@ -5,8 +6,6 @@ import 'swiper/scss';
 import 'swiper/scss/pagination';
 import 'swiper/scss/autoplay';
 import SectionTitle from '../layouts/SectionTitle';
-
-
 
 const BlogSection = ({data}) => {
 

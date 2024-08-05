@@ -1,4 +1,4 @@
-// import TitleCont from '../layouts/TitleCont'
+'use client'
 import PortfolioItem from './portfolioItem'
 // import Button from '../layouts/Button'
 import SectionTitle from '../layouts/SectionTitle'
@@ -52,7 +52,7 @@ const PortfolioSection = ({ data }) => {
                     }
                 }}
             >
-                <SwiperSlide>
+                <SwiperSlide key='1111111'>
                     <PortfolioItem
                         url={`/portfolio/nilfouroush-clinic`}
                         imageAlt={`وبسایت دکتر نیلفروش زاده`}

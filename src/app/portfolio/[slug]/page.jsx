@@ -1,7 +1,6 @@
 import '@/app/styles/styles.scss'
-import { reqUrl } from "@/app/config"
-import PortfolioTitle from "../../../../public/components/portfolio/portfolioTitle"
-import { fetchWithRetry } from '../../../../public/components/lib/fetchWithRetry'
+import { reqUrl } from '@/app/config'
+import PortfolioTitle from '../../../../public/components/portfolio/portfolioTitle'
 export const ignoredUrls = [
     'هومن-عشقی',
     'کلینیک-مهرافروز'
@@ -10,7 +9,7 @@ export const ignoredUrls = [
 // Return a list of `params` to populate the [slug] dynamic segment
 export async function generateStaticParams() {
 
-    const portfolios = await fetchWithRetry(`${reqUrl}/portfolios?_fields=slug&per_page=100`);
+    const portfolios = await fetch(`${reqUrl}/portfolios?_fields=slug&per_page=100`).then((res) => res.json());
 
     if (!portfolios) {
         console.error('Failed to fetch portfolio data');
