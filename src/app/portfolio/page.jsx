@@ -7,19 +7,6 @@ import PortfolioArchiveItem from "../../../public/components/portfolio/portfolio
 import { reqUrl } from "../config";
 import Overlay from "../../../public/components/layouts/Overlay";
 
-// export const metadata = {
-//     title: 'نمونه کار های ماورانت',
-//     description: 'نمونه کارهای ما در ماورانت، به عنوان نماینده‌ای از تنوع و کیفیت بالا در زمینه تبلیغات و برندینگ شناخته می‌شوند.',
-//     openGraph: {
-//         title: 'نمونه کار های ماورانت',
-//         description: 'نمونه کارهای ما در ماورانت، به عنوان نماینده‌ای از تنوع و کیفیت بالا در زمینه تبلیغات و برندینگ شناخته می‌شوند.',
-//         locale: 'fa_IR',
-//         type: 'archive',
-//         url: 'https://mavaranet.net/portfolio',
-//         siteName: 'ماورانت'
-
-//     },
-// }
 const PortfolioArchive = () => {
     // Data fetching
     const [portfolioData, setPortfolioData] = useState([])
@@ -33,7 +20,7 @@ const PortfolioArchive = () => {
     const GetData = async () => {
         try {
 
-            const res = await fetch(`${reqUrl}/portfolios?acf_format=standard&_fields=id,title,slug,acf`, { next: { revalidate: 1800 } })
+            const res = await fetch(`${reqUrl}/portfolios?acf_format=standard&_fields=id,title,slug,acf`, { next: { revalidate: 604800 } })
             const portfoliosRes = await res.json()
             setPortfolioData(portfoliosRes)
             setFilteredData(portfoliosRes)
@@ -45,7 +32,6 @@ const PortfolioArchive = () => {
         }
     }
 
-    // Handeling category Filter 
     const Filter = (category) => {
         if (category === selectedCategory) {
             // If the same category is clicked again, reset the filter
@@ -58,6 +44,7 @@ const PortfolioArchive = () => {
             setFilteredData(filtered)
         }
     }
+
     const handleShowAll = () => {
         setSelectedCategory(null);
         setFilteredData(portfolioData);
@@ -65,7 +52,6 @@ const PortfolioArchive = () => {
 
 
     return (
-        // <DefaultLayout></DefaultLayout>
         <main className="pageMain">
             <section className="service_intro wrapper mb-5">
                 <div className="container">
@@ -78,8 +64,7 @@ const PortfolioArchive = () => {
                 </div>
             </section>
             <div className="container mt-0">
-
-
+                
                 <div className="filter-row py-3">
                     <button className={`filter-btn ${!selectedCategory ? 'active' : ''}`} onClick={handleShowAll}>
                         همه

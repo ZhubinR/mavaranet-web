@@ -1,4 +1,3 @@
-// "use client";
 import TestemonialSection from "../../public/components/testemonial/testemonialSection";
 import ServiceSection from "../../public/components/services/serviceSection";
 import AboutSection from "../../public/components/about/aboutSection";
@@ -11,7 +10,6 @@ import PortfolioSection from "../../public/components/portfolio/portfolioSection
 import ContactSection from "../../public/components/contact/contactSection";
 import HomeLayout from "../../public/components/layouts/HomeLayout";
 import { reqUrl } from "./config";
-// import { useEffect, useState } from "react";
 import moment from "jalali-moment";
 import "@/app/styles/styles.scss";
 import Fullpage from "../../public/components/Fullpage";
@@ -22,63 +20,34 @@ import SocialSection from "../../public/components/social/SocialSection";
 import EventSection from "../../public/components/events/EventSection";
 
 export default async function Home() {
-  //   const [data1, setData1] = useState([]);
-  //   const [data2, setData2] = useState([]);
-  //   const [data3, setData3] = useState([]);
-  //   const [data4, setData4] = useState([]);
-  //   const [data5, setData5] = useState([]);
-  //   const [data6, setData6] = useState([]);
-  //   const [SmallScreen, setSmallScreen] = useState(false);
 
-  //   useEffect(() => {
-  //     // fetching all datas
+  const data1 = await fetch(
+    `${reqUrl}/user_testimonial?acf_format=standard`
+  ).then((res) => res.json());
 
-  //     getDatas();
+  const data2 = await fetch(
+    `${reqUrl}/portfolios?acf_format=standard&_fields=slug,id,title,acf.portfolio_thumbnail&per_page=100`
+  ).then((res) => res.json());
 
-  //     const handleResize = () => {
-  //       setSmallScreen(window.innerWidth < 700);
-  //     };
+  const data3 = await fetch(
+    `${reqUrl}/posts?acf_format=standard&_fields=slug,title,acf,date,id,categories`
+  ).then((res) => res.json());
 
-  //     handleResize();
+  const data4 = await fetch(`${reqUrl}/categories`).then((res) => res.json());
 
-  //     window.addEventListener("resize", handleResize);
-  //     return () => {
-  //       window.removeEventListener("resize", handleResize);
-  //     };
-  //   }, []);
+  const data5 = await fetch(
+    `${reqUrl}/customers?acf_format=standard&per_page=100`
+  ).then((res) => res.json());
 
-  //   const getDatas = async () => {
-  //     const res = await Promise.all([
-  //       fetch(`${reqUrl}/user_testimonial?acf_format=standard`),
-  //       fetch(
-  //         `${reqUrl}/portfolios?acf_format=standard&_fields=slug,title,acf.portfolio_thumbnail&per_page=100`
-  //       ),
-  //       fetch(
-  //         `${reqUrl}/posts?acf_format=standard&_fields=slug,title,acf,date,id,categories`
-  //       ),
-  //       fetch(`${reqUrl}/categories`),
-  //       fetch(`${reqUrl}/customers?acf_format=standard&per_page=100`),
-  //       fetch(
-  //         `${reqUrl}/events?acf_format=standard&_fields=slug,id,acf.title,acf.date,acf.location,acf.thumbnail_img`
-  //       ),
-  //     ]);
-  //     const [data1, data2, data3, data4, data5, data6] = res;
-  //     setData1(await data1.json());
-  //     setData2(await data2.json());
-  //     setData3(await data3.json());
-  //     setData4(await data4.json());
-  //     setData5(await data5.json());
-  //     setData6(await data6.json());
-  //   };
+  const data6 = await fetch(
+    `${reqUrl}/events?acf_format=standard&_fields=slug,id,acf.title,acf.date,acf.location,acf.thumbnail_img`
+  ).then((res) => res.json());
 
-    const data1 = await fetch(`${reqUrl}/user_testimonial?acf_format=standard`).then((res) => res.json())
-    const data2 = await fetch(`${reqUrl}/portfolios?acf_format=standard&_fields=slug,id,title,acf.portfolio_thumbnail&per_page=100`).then((res) => res.json())
-    const data3 = await fetch(`${reqUrl}/posts?acf_format=standard&_fields=slug,title,acf,date,id,categories`).then((res) => res.json())
-    const data4 = await fetch(`${reqUrl}/categories`).then((res) => res.json())
-    const data5 = await fetch(`${reqUrl}/customers?acf_format=standard&per_page=100`).then((res) => res.json())
-    const data6 = await fetch(`${reqUrl}/events?acf_format=standard&_fields=slug,id,acf.title,acf.date,acf.location,acf.thumbnail_img`).then((res) => res.json())
+  const data7 = await fetch(
+    `${reqUrl}/services?acf_format=standard&_fields=slug,id,acf.title,acf.image,acf.description`
+  ).then((res) => res.json());
 
-    const blogPostsWithCategories = data3.map((post) => {
+  const blogPostsWithCategories = data3.map((post) => {
     // find the category
     const postCategory = data4.find(
       (category) => category.id === post.categories[0]
@@ -95,7 +64,7 @@ export default async function Home() {
       categoryName: postCategory ? postCategory.name : "Uncategorized", // Provide a default category name if no category found
       date: jalaliDate.slice(0, 10),
     };
-    });
+  });
 
   return (
     <HomeLayout>
@@ -103,7 +72,7 @@ export default async function Home() {
         <Cta slug={`tel:+989125441048`} imgUrl={`/images/contact/phone.svg`} />
         <Fullpage footer={<Footer />}>
           <HeroSection />
-          <ServiceSection />
+          <ServiceSection data={data7} />
           <AboutSection />
           <RoadmapSection />
           <CustomerSection data={data5.slice(0, 20)} />

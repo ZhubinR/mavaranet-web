@@ -1,34 +1,31 @@
-// 'use client'
-// import { useState } from 'react'
-import Image from 'next/image';
-// import TitleCont from '../layouts/TitleCont';
+import Image from "next/image";
+import Link from "next/link";
+import Button from "../layouts/Button";
 
-const ServiceSection = () => {
-    // const [selectedBox, setSelectedBox] = useState(1);
-    // const handleBoxClick = (boxId) => {
-    //     setSelectedBox(boxId);
-    // };
+const ServiceSection = ({ data }) => {
+  return (
+    <section className="section services wrapper">
+      <div className="container">
+        <div className="row justify-content-between align-items-center pb-5">
+          {data.map((service) => (
+            <div className="col-lg-4" key={service.id}>
+              <div className="service-item">
+                <Image
+                  src={service.acf.image}
+                  width={392}
+                  height={536}
+                  alt={service.acf.title}
+                />
+                <div className="content">
+                  <h2>{service.acf.title}</h2>
+                  <p>{service.acf.description}</p>
+                  <Button text={`مشاهده`}  slug={service.slug} />
+                </div>
+              </div>
+            </div>
+          ))}
 
-    // const getImagePath = (boxId) => {
-    //     if (boxId) {
-    //         return `/images/services/service-${boxId}.webp`;
-    //     }
-    //     // Return the path to the default image
-    //     return '/images/services/service-1.png';
-    // }
-    return (
-        <section className="section services wrapper">
-
-            <div className="container">
-                <div className="row justify-content-between align-items-center">
-
-                    <div className="col-lg-4">
-                        <div className="service-item">
-                            
-                        </div>
-                    </div>
-                    
-                    {/* <div className="col-lg-4 d-flex align-items-center justify-content-center">
+          {/* <div className="col-lg-4 d-flex align-items-center justify-content-center">
                         <Image
                             priority 
                             className={`services-image`}
@@ -208,9 +205,9 @@ const ServiceSection = () => {
                             </div>
                         </div>
                     </div> */}
-                </div>
-            </div>
-        </section>
-    )
-}
-export default ServiceSection 
+        </div>
+      </div>
+    </section>
+  );
+};
+export default ServiceSection;
