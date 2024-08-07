@@ -60,9 +60,9 @@ export default function NotFound() {
                     <div></div>
                     <div></div>
                 </div>
-                <div className="caps">
+                {/* <div className="caps">
                     <img src="http://ademilter.com/caps.png" alt="" />
-                </div>
+                </div> */}
                 <canvas id="canvas"></canvas>
             </div>
         </HomeLayout>

@@ -12,7 +12,7 @@ const RatingSection = () => {
                 src={`/images/globe-rating.png`}
                 width={700}
                 height={700}
-                priority
+                loading="lazy"	
             />
 
             <BackgroundSlide

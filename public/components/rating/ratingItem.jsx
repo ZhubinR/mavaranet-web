@@ -11,7 +11,7 @@ const RatingItem = ({url , name , number,count}) => {
                         width={64}
                         height={64}
                         alt={name}
-                        priority
+                        loading="lazy"	
                     />
                 </div>
             </div>

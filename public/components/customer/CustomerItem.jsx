@@ -9,6 +9,7 @@ const CustomerItem = ({ logoUrl, name, desc }) => {
                     width={86}
                     height={86}
                     alt={name}
+                    loading="lazy"	
                 />
             </div>
             <div className="text">

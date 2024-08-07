@@ -3,15 +3,7 @@ import Image from "next/image"
 const TestemonialContent = ({name, job, desc,  imageUrl}) => {
     return (
         <div className="testemonial-content">
-            {/* <div className="icon">
-                <Image
-                    width={100}
-                    height={100}
-                    src={`/images/quote.png`}
-                    alt="quote"
-                    priority
-                />
-            </div> */}
+           
             <div className="d-flex flex-column gap-3 align-items-center mb-3">
                 <div className="responsive-image">
                     <Image
@@ -19,7 +11,7 @@ const TestemonialContent = ({name, job, desc,  imageUrl}) => {
                         height={124}
                         src={imageUrl}
                         alt={name}
-                        priority
+                        loading="lazy"	
                     />
                 </div>
                 <div>

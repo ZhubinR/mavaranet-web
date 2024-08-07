@@ -18,6 +18,7 @@ const SingleSwiper = ({ imageUrls, noBack }) => {
                 width={460}
                 height={460}
                 alt="background"
+                loading="lazy"	
             />
             <div className={`shine ${noBack}`}></div>
             <Swiper
@@ -45,6 +46,7 @@ const SingleSwiper = ({ imageUrls, noBack }) => {
                             width={264}
                             height={540}
                             alt={`Slide ${index + 1}`}
+                            loading="lazy"	
                         />
                     </SwiperSlide>
                 ))}

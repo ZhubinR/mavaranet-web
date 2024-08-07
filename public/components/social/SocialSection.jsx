@@ -1,4 +1,3 @@
-import React from 'react'
 import SharedContent from '../shared/SharedContent'
 import SharedImage from '../shared/SharedImage'
 

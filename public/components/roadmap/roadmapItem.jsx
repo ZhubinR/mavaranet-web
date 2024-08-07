@@ -16,7 +16,7 @@ const RoadmapItem = ({ icon, number, title, desc }) => {
                         width={100}
                         height={100}
                         alt={title}
-                        priority
+                        loading="lazy"	
                     />
                 </div>
                 <div className="number counter-count">{number}</div>

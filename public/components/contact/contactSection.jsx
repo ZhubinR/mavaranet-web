@@ -41,6 +41,7 @@ export default function ContactSection() {
                             alt="globe"
                             width={550}
                             height={550}
+                            loading="lazy"	
                         />
 
                     </div>

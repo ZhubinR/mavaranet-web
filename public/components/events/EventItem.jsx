@@ -11,6 +11,7 @@ const EventItem = ({ slug, title, date, location, imgUrl}) => {
                     width={470}
                     height={300}
                     alt={title}
+                    loading="lazy"	
                 />
             </div>
             <div className="text">
@@ -25,6 +26,7 @@ const EventItem = ({ slug, title, date, location, imgUrl}) => {
                             width={20}
                             height={20}
                             alt="date"
+                            loading="lazy"	
                         />
                         <span>{date}</span>
                     </div>
@@ -34,6 +36,7 @@ const EventItem = ({ slug, title, date, location, imgUrl}) => {
                             width={20}
                             height={20}
                             alt="location"
+                            loading="lazy"	
                         />
                         <span>{location}</span>
                     </div>

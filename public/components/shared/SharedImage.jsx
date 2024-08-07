@@ -7,7 +7,7 @@ const SharedImage = ({imageUrl , alt}) => {
                 src={imageUrl}
                 width={630}
                 height={630}
-                priority
+                loading="lazy"	
                 alt={alt}
             />
         </div>

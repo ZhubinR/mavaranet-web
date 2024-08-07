@@ -11,6 +11,7 @@ const ContactItem = ({ reverseClass, imageUrl, imageAlt, slug, text, socialRes})
                         width={24}
                         height={24}
                         alt={imageAlt}
+                        loading="lazy"	
                     />
                 </div>
                 <p>

@@ -171,6 +171,7 @@ const serviceSingle = async () => {
                   width={224}
                   height={332}
                   alt="manager"
+                  loading="lazy"	
                 />
                 <div className="text">
                   <span className="name">{service.acf.manager_name}</span>
@@ -189,6 +190,7 @@ const serviceSingle = async () => {
                         width={224}
                         height={200}
                         alt="manager"
+                        loading="lazy"	
                       />
                       <div className="text">
                         <span className="name">{team.name}</span>

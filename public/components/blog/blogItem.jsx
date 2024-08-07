@@ -13,7 +13,7 @@ export default function BlogItem({slug, imageUrl, title, description, updatedAt,
                         width={393}
                         height={214}
                         alt={ title }
-                        priority
+                        loading="lazy"	
                     />
                 </div>
                 <div className="content">
@@ -30,6 +30,7 @@ export default function BlogItem({slug, imageUrl, title, description, updatedAt,
                             width={20}
                             height={20}
                             alt="date"
+                            loading="lazy"	
                         />
                         <span>{ updatedAt }</span>
                     </div>
@@ -39,6 +40,7 @@ export default function BlogItem({slug, imageUrl, title, description, updatedAt,
                             width={20}
                             height={20}
                             alt="reading time"
+                            loading="lazy"	
                         />
                         <span>{ readingTime }</span>
                     </div>

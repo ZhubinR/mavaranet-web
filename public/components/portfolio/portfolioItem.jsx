@@ -10,7 +10,7 @@ export default function PortfolioItem({url , imageUrl, title, imageAlt}) {
                     width={620}
                     height={240}
                     alt={imageAlt} 
-                    priority
+                    loading="lazy"	
                     />
                 </div>
 

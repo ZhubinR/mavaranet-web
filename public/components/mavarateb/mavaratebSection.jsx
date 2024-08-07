@@ -1,6 +1,4 @@
 import SingleSwiper from "../layouts/SingleSwiper";
-import Overlay from "../layouts/Overlay";
-
 import MavaratebContent from "./mavaratebContent";
 
 
