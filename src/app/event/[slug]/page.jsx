@@ -10,7 +10,7 @@ export async function generateStaticParams() {
   ).then((res) => res.json());
 
   if (!events) {
-    console.error("Failed to fetch portfolio data");
+    console.error("Failed to fetch event data");
     return []; // Return an empty array to avoid build errors
   }
 

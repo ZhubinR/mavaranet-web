@@ -1,39 +1,76 @@
-import ServiceDetailItem from "../../../public/components/services/serviceDetailItem";
-import PortfolioArchiveItem from "../../../public/components/portfolio/portfolioArchiveItem";
-import { reqUrl } from "../config";
+import ServiceDetailItem from "../../../../public/components/services/serviceDetailItem";
+import PortfolioArchiveItem from "../../../../public/components/portfolio/portfolioArchiveItem";
+import { reqUrl } from "../../config";
 import "@/app/styles/styles.scss";
-import SharedServiceTitle from "../../../public/components/shared/SharedServiceTitle";
-import SharedImage from "../../../public/components/shared/SharedImage";
-import SharedContent1 from "../../../public/components/shared/SharedContent1";
-import Button from "../../../public/components/layouts/Button";
+import SharedServiceTitle from "../../../../public/components/shared/SharedServiceTitle";
+import SharedImage from "../../../../public/components/shared/SharedImage";
+import SharedContent1 from "../../../../public/components/shared/SharedContent1";
+import Button from "../../../../public/components/layouts/Button";
 import Image from "next/image";
-import ServiceOptionBox from "../../../public/components/services/serviceOptionBox";
+import ServiceOptionBox from "../../../../public/components/services/serviceOptionBox";
+export const ignoredUrls = [
+  'هومن-عشقی',
+  'کلینیک-مهرافروز'
+]
 
-export const metadata = {
+export async function generateStaticParams() {
+
+  const services = await fetch(`${reqUrl}/services?_fields=slug&per_page=100`).then((res) => res.json());
+
+  if (!services) {
+      console.error('Failed to fetch service data');
+      return []; // Return an empty array to avoid build errors
+  }
+
+  // Filter out invalid or ignored services
+  const validServices = services.filter(service =>
+      service && service.slug && !ignoredUrls.includes(encodeURIComponent(service.slug))
+  );
+
+  return validServices.map((service) => ({
+      slug: decodeURIComponent(service.slug),
+  }));
+}
+
+export async function generateMetadata({ params }) {
+  // fetch data
+  const seoServices = await fetch(
+    `${reqUrl}/services?acf_format=standard&slug=${params.slug}&_fields=yoast_head_json`
+  ).then((res) => res.json());
+  const seoService = seoServices[0];
+
   // optionally access and extend (rather than replace) parent metadata
-  title: `خدمات ما`,
-  description: `ما با تیمی مجرب و متخصص در زمینه‌های طراحی سایت، سوشال مدیا، سئو، تدوین، مارکتینگ، گرافیک و تولید محتوا آماده‌ایم تا به شما کمک کنیم برند قدرتمندی را ایجاد کنید.`,
-  openGraph: {
-    title: `خدمات ما`,
-    description: `ما با تیمی مجرب و متخصص در زمینه‌های طراحی سایت، سوشال مدیا، سئو، تدوین، مارکتینگ، گرافیک و تولید محتوا آماده‌ایم تا به شما کمک کنیم برند قدرتمندی را ایجاد کنید.`,
 
-    url: `https://mavaranet.net/service/`,
-    locale: `fa_IR`,
-    type: `article`,
-    siteName: `ماورانت`,
-    twitter: {
-      card: "summary_large_image",
+  return {
+    title: seoService.yoast_head_json.title,
+    description: seoService.yoast_head_json.description,
+    openGraph: {
+      title: seoService.yoast_head_json.og_title,
+      description: seoService.yoast_head_json.og_description,
+      // images: [
+      //   {
+      //     url: seoService.yoast_head_json.og_image.url, 
+      //   },
+      // ],
+      url: `https://mavaranet.net/Service/${params.slug}`,
+      locale: seoService.yoast_head_json.og_locale,
+      type: seoService.yoast_head_json.og_type,
+      siteName: seoService.yoast_head_json.og_site_name,
+      twitter: {
+        card: "summary_large_image",
+      },
     },
-  },
-};
+  };
+}
 
-const serviceSingle = async () => {
+const serviceSingle = async ({params}) => {
+  const { slug } = params;
   const Preq = await fetch(
     `${reqUrl}/portfolios?acf_format=standard&_fields=slug,id,title,acf.portfolio_thumbnail&per_page=100`
   );
   const portfolios = await Preq.json();
 
-  const serviceData = await fetch(`${reqUrl}/services?acf_format=standard`, {
+  const serviceData = await fetch(`${reqUrl}/services?acf_format=standard&slug=${slug}&_fields=slug,id,title,acf`, {
     next: { revalidate: 604800 },
   }).then((res) => res.json());
   const service = serviceData[0];
@@ -57,7 +94,7 @@ const serviceSingle = async () => {
             <div className="col-md-5 d-flex align-items-center justify-content-center">
               <SharedImage
                 imageUrl={service.acf.image}
-                alt={`طراحی سایت`}
+                alt={service.acf.title}
               />
             </div>
           </div>
@@ -66,42 +103,42 @@ const serviceSingle = async () => {
               <ServiceDetailItem
                 imageUrl={`/images/services/numb1.svg`}
                 title={service.acf.mytitle1}
-                desc={`با تمرکز بر رابط کاربری اختصاصی، ما در ماورانت به ارائه خدمات طراحی سایتی متمایز و شگفت‌انگیز می‌پردازیم. هدف ما ایجاد یک تجربه استثنایی برای کاربران است، که همچنین باعث افزایش تعامل و رضایت آن‌ها می‌شود.`}
+                desc={service.acf.desc1}
               />
             </div>
             <div className="col-xl-6 mb-4">
               <ServiceDetailItem
                 imageUrl={`/images/services/numb2.svg`}
-                title={`استاندارد سئو در طراحی سایت`}
-                desc={`با بهره‌گیری از بهینه‌سازی محتوا، ساختار سایت، استفاده از کلمات کلیدی مناسب و بهبود سرعت بارگیری، ماورانت به شما کمک می‌کند تا رتبه بالاتری در نتایج جستجو کسب کنید و بر جذب ترافیک کاربران متمرکز شوید.`}
+                title={service.acf.mytitle2}
+                desc={service.acf.desc2}
               />
             </div>
             <div className="col-12 mb-4">
               <ServiceDetailItem
                 imageUrl={`/images/services/numb3.svg`}
-                title={`طراحی سایت با کدنویسی اختصاصی`}
-                desc={`با استفاده از کدنویسی اختصاصی، ما قادر به ارائه طراحی‌های سفارشی، انعطاف‌پذیر و دقیق هستیم که کاملاً با نیازها و محتوای شما هماهنگ می‌شوند. این رویکرد به ما امکان می‌دهد تا بهترین راهکارها را برای شما ارائه دهیم و وبسایتی را ایجاد کنیم که علاوه بر جذابیت بصری، در نتایج جستجو نیز موثر و قابل مشاهده باشد.`}
+                title={service.acf.mytitle3}
+                desc={service.acf.desc3}
               />
             </div>
             <div className="col-xl-4 col-lg-6 mb-4">
               <ServiceDetailItem
                 imageUrl={`/images/services/numb4.svg`}
-                title={`طراحی سایت با نسخه واکنشگرا`}
-                desc={` با استفاده از تکنولوژی‌های مدرن و رویکردهای طراحی نوین، وبسایت‌های واکنشگرا را به شکلی زیبا، کارآمد و سریع ارائه می‌دهیم تا کاربران شما از تجربه یکنواخت و لذت‌بخشی برخوردار شوند. از طراحی واکنشگرا در ماورانت استفاده کنید و به وبسایت خود یک نگاه تازه و جذاب ببخشید.`}
+                title={service.acf.mytitle4}
+                desc={service.acf.desc4}
               />
             </div>
             <div className="col-xl-4 col-lg-6 mb-4">
               <ServiceDetailItem
                 imageUrl={`/images/services/numb5.svg`}
-                title={`طراحی قالب اختصاصی وردپرس`}
-                desc={`با استفاده از آخرین تکنولوژی‌ها و بهینه‌سازی‌های مدرن، قالب‌های اختصاصی وردپرس را به شکلی منحصر به فرد و جذاب طراحی می‌کنیم که به نیازهای شما و توانایی‌های وبسایتتان واکنش نشان می‌دهد.`}
+                title={service.acf.mytitle5}
+                desc={service.acf.desc5}
               />
             </div>
             <div className="col-xl-4 col-lg-6 mb-4">
               <ServiceDetailItem
                 imageUrl={`/images/services/numb6.svg`}
-                title={`طراحی سایت با بارگذاری سریع`}
-                desc={`در ماورانت، ما به طراحی سایت‌های با بارگذاری سریع و عملکرد بی‌نظیر اهمیت می‌دهیم. با بهره‌گیری از بهترین روش‌های بهینه‌سازی و بهبود کارایی، وبسایت‌هایی را طراحی می‌کنیم که به سرعت بالا، زمان بارگذاری کمتر، و تجربه کاربری بهتری دست می‌دهند. `}
+                title={service.acf.mytitle6}
+                desc={service.acf.desc6}
               />
             </div>
           </div>
@@ -111,7 +148,7 @@ const serviceSingle = async () => {
       <section className="service_options wrapper">
         <div className="container">
           <SharedServiceTitle
-            title={`ویژگی های طراحی سایت در ماورانت`}
+            title={`ویژگی های ${service.acf.title} در ماورانت`}
             eng={`WEB DESIGN FEATURES`}
           />
           <div className="row align-items-center justify-content-center">
@@ -160,7 +197,7 @@ const serviceSingle = async () => {
       <section className="service_team wrapper">
         <div className="container">
           <SharedServiceTitle
-            title={`متخصصین ما در طراحی سایت`}
+            title={`متخصصین ما در ${service.acf.title}`}
             eng={`our staff`}
           />
           <div className="row justify-content-center">

@@ -17,7 +17,7 @@ export async function generateStaticParams() {
   const posts = await fetch(`${reqUrl}/posts?_fields=slug&per_page=100`).then((res) => res.json());
 
   if (!posts) {
-      console.error('Failed to fetch portfolio data');
+      console.error('Failed to fetch posts data');
       return []; // Return an empty array to avoid build errors
   }
 
