@@ -3,7 +3,7 @@ import Image from "next/image"
 const ContactItem = ({ reverseClass, imageUrl, imageAlt, slug, text, socialRes}) => {
     return (
 
-        <div className={socialRes}>
+        <div className={`${socialRes} contactBox`}>
             <a href={slug} rel="nofollow noopener noreferrer" target="_blank" className={`contact-item ${reverseClass}`}>
                 <div className="icon">
                     <Image

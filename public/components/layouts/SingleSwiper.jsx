@@ -15,8 +15,8 @@ const SingleSwiper = ({ imageUrls, noBack }) => {
             <Image
                 className={`back ${noBack}`}
                 src={`/images/teb-back.png`}
-                width={460}
-                height={460}
+                width={400}
+                height={400}
                 alt="background"
                 loading="lazy"	
             />
@@ -41,7 +41,7 @@ const SingleSwiper = ({ imageUrls, noBack }) => {
 
                     <SwiperSlide key={index}>
                         <Image
-                            className="mb-3"
+                            className="mb-3 swiperImage"
                             src={imageUrl}
                             width={264}
                             height={540}

@@ -12,7 +12,7 @@ const BlogSection = ({data}) => {
     return (
         <section className="section blog wrapper">
            
-            <div className="container">
+            <div className="container-flouid px-4 px-lg-5">
                 <SectionTitle
                     title={`آخرین مقالات`}
                 />
@@ -32,7 +32,7 @@ const BlogSection = ({data}) => {
                 spaceBetween={24}
                 breakpoints={{
                     0: {
-                        slidesPerView: 1,
+                        slidesPerView: 1.25,
                     },
                     576: {
                         slidesPerView: 1.85,

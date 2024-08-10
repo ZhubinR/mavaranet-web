@@ -1,12 +1,6 @@
-
 import Image from "next/image"
 
-
-
-
 const RoadmapItem = ({ icon, number, title, desc }) => {
-
-
     return (
         <div className="item">
             <div className="top-row">

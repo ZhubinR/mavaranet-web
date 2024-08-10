@@ -12,7 +12,7 @@ const PortfolioSection = ({ data }) => {
 
     return (
         <section className="section portfolio wrapper">
-            <div className="container">
+            <div className="container-flouid px-4 px-lg-5">
                 <SectionTitle
                     title={`نمونه کارها`}
                 />
@@ -36,7 +36,7 @@ const PortfolioSection = ({ data }) => {
                 spaceBetween={24}
                 breakpoints={{
                     0: {
-                        slidesPerView: 1,
+                        slidesPerView: 1.1,
                     },
                     576: {
                         slidesPerView: 1.85,

@@ -5,13 +5,13 @@ import EventItem from "./EventItem"
 const EventSection = ({ data }) => {
     return (
         <section className="section event wrapper">
-            <div className="container">
+            <div className="container-flouid px-4 px-lg-5">
                 <SectionTitle
                     title={`رویداد ها`}
                 />
                 <div className="row align-items-center justify-content-center mb-4">
                     {data.map(event => (
-                        <div key={event.id} className="col-lg-4 col-md-6">
+                        <div key={event.id} className="col-xl-3 col-lg-4 col-sm-6">
                             <EventItem
                                 slug={`/event/${event.slug}`}
                                 title={event.acf.title}

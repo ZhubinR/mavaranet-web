@@ -13,15 +13,15 @@ const MavaratebSection = () => {
         <section className="section mavarateb wrapper">
       
 
-            <div className="container">
+            <div className="container-flouid px-4 px-lg-5">
                 <div className="row align-items-center justify-content-center">
-                    <div className="col-lg-6 d-none d-lg-block">
+                    <div className="col-lg-4 col-md-5">
                         <SingleSwiper
                             imageUrls={mavaratebPics}
                             noBack={``}
                         />
                     </div>
-                    <div className="col-lg-6">
+                    <div className="col-lg-5 col-md-6 col-sm-10">
                         <MavaratebContent
                             title={`سامانه ماوراطب`}
                             subtTitle={`سامانه جامع پزشکی آنلاین`}

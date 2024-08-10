@@ -75,7 +75,7 @@ export default async function Home() {
           <ServiceSection data={data7} />
           <AboutSection />
           <RoadmapSection />
-          <CustomerSection data={data5.slice(0, 20)} />
+          <CustomerSection data={data5.slice(0, 12)} />
           <TestemonialSection data={data1} />
           <PortfolioSection data={data2.slice(0, 12)} />
           <SocialSection />

@@ -12,7 +12,7 @@ const TestemonialSection = ({ data }) => {
 
   return (
     <section className="section testemonial wrapper">
-      <div className="container">
+      <div className="container-flouid px-4 px-lg-5">
         <SectionTitle title={`نظرات مشتریان`} />
         <Swiper
           loop={true}
@@ -26,9 +26,18 @@ const TestemonialSection = ({ data }) => {
             0: {
               slidesPerView: 1,
             },
+            578: {
+              slidesPerView: 1.5,
+            },
+            768: {
+              slidesPerView:2,
+            },
 
-            1300: {
-              slidesPerView: 2,
+            1200: {
+              slidesPerView: 3,
+            },
+            1366: {
+              slidesPerView:4 ,
             },
           }}
           pagination={{

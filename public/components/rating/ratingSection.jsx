@@ -23,7 +23,7 @@ const RatingSection = () => {
             />
 
    
-            <div className="container">
+            <div className="container-flouid px-4 px-lg-5">
                 <span className="line"></span>
                 <div className="row align-items-center">
                     <div className="col-lg-3 col-6 mb-3 mb-lg-0">

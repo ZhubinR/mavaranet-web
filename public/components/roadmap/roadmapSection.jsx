@@ -5,8 +5,8 @@ const RoadmapSection = () => {
   return (
     <section className="section wrapper roadmap">
       <div className="container">
-        <div className="row align-items-center justify-content-between">
-          <div className="col-xxl-5 col-lg-6 order-2 order-md-1">
+        <div className="row align-items-center justify-content-center">
+          <div className="col-xxl-5 col-lg-6  order-md-1">
             <div className="roadmap-wrapper" id="roadmap-wrapper">
               <RoadmapItem
                 icon={`roadmap1.svg`}
@@ -86,7 +86,7 @@ const RoadmapSection = () => {
               />
             </div>
           </div>
-          <div className="col-lg-6">
+          <div className="col-lg-6 text">
             <RoadmapContent
               title={`نــــقــــشــــه  راه  مــــشـــتـــریــان`}
               goldTitle={`مـاورانـت`}
