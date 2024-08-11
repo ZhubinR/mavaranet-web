@@ -1005,6 +1005,23 @@ fp-nav ul,
     @media (max-width: 768px) {
       .about_content {
         margin-bottom: 35%;
+        padding-right: 0;
+        .titleWrapper {
+          .mainTitle {
+            font-size: 1.7em;
+            margin-bottom: .65rem;
+          }
+          .subTitle {
+            font-size: 1.25em;
+          }
+        }
+        .desc {
+          font-size: .9em;
+        }
+      }
+      .aboutVideo {
+        width: 580px;
+        left: 450px;
       }
     }
 
@@ -1014,12 +1031,12 @@ fp-nav ul,
 
       .aboutVideo {
         width: 480px;
-        left: 0px;
+        left: 500px;
         bottom: -20px;
       }
 
       .about_content {
-        margin-bottom: 2%;
+        margin-bottom: 20%;
         padding-right: 0;
 
         .titleWrapper {
@@ -1049,6 +1066,16 @@ fp-nav ul,
           left: 0px;
           bottom: 20px;
         }
+      }
+    }
+    @media (max-width: 440px) {
+      .about_content {
+        margin-bottom: 40%;
+      }
+      .aboutVideo {
+        width: 480px;
+        left: 500px;
+        bottom: -20px;
       }
     }
   }
@@ -3423,7 +3450,7 @@ fp-nav ul,
           text-align: center;
         }
         .custom-btn {
-          width: 100%;
+          margin: auto;
         }
       }
       .col-md-5 {
@@ -3434,6 +3461,13 @@ fp-nav ul,
               max-width: 360px !important;
             }
           }
+        }
+      }
+    }
+    @media (max-width: 576px) {
+      .col-md-6 {
+        .custom-btn {
+          width: 100%;
         }
       }
     }
@@ -3461,12 +3495,19 @@ fp-nav ul,
       }
     }
 
+    &.customer {
+      background: $primary_gradient;
+
+    }
+
     &.about {
       background: url(../../../public/images/sky-background-3.webp) center
         no-repeat;
       transform: none;
       opacity: 1;
-
+      .aboutVideo {
+        opacity: 1;
+      }
       .about_content {
         .titleWrapper {
           .mainTitle {
@@ -3606,6 +3647,19 @@ fp-nav ul,
           opacity: 1;
         }
       }
+    }
+
+    &.social {
+      background: url(../../../public/images/sky-background-3.webp) center
+        no-repeat;
+    }
+
+    &.event {
+      background: $primary_gradient;
+    }
+    &.blog {
+      background: $primary_gradient;
+
     }
   }
 }

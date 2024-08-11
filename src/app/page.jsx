@@ -73,8 +73,8 @@ export default async function Home() {
         <Fullpage footer={<Footer />}>
           <HeroSection />
           <ServiceSection data={data7} />
-          <AboutSection />
           <RoadmapSection />
+          <AboutSection />
           <CustomerSection data={data5.slice(0, 12)} />
           <TestemonialSection data={data1} />
           <PortfolioSection data={data2.slice(0, 12)} />
