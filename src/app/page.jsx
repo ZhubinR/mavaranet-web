@@ -22,29 +22,29 @@ import EventSection from "../../public/components/events/EventSection";
 export default async function Home() {
 
   const data1 = await fetch(
-    `${reqUrl}/user_testimonial?acf_format=standard`
+    `${reqUrl}/user_testimonial?acf_format=standard`, { keepalive: true }
   ).then((res) => res.json());
 
   const data2 = await fetch(
-    `${reqUrl}/portfolios?acf_format=standard&_fields=slug,id,title,acf.portfolio_thumbnail&per_page=100`
+    `${reqUrl}/portfolios?acf_format=standard&_fields=slug,id,title,acf.portfolio_thumbnail&per_page=100`, { keepalive: true }
   ).then((res) => res.json());
 
   const data3 = await fetch(
-    `${reqUrl}/posts?acf_format=standard&_fields=slug,title,acf,date,id,categories`
+    `${reqUrl}/posts?acf_format=standard&_fields=slug,title,acf,date,id,categories`, { keepalive: true }
   ).then((res) => res.json());
 
   const data4 = await fetch(`${reqUrl}/categories`).then((res) => res.json());
 
   const data5 = await fetch(
-    `${reqUrl}/customers?acf_format=standard&per_page=100`
+    `${reqUrl}/customers?acf_format=standard&per_page=100`, { keepalive: true }
   ).then((res) => res.json());
 
   const data6 = await fetch(
-    `${reqUrl}/events?acf_format=standard&_fields=slug,id,acf.title,acf.date,acf.location,acf.thumbnail_img`
+    `${reqUrl}/events?acf_format=standard&_fields=slug,id,acf.title,acf.date,acf.location,acf.thumbnail_img`, { keepalive: true }
   ).then((res) => res.json());
 
   const data7 = await fetch(
-    `${reqUrl}/services?acf_format=standard&_fields=slug,id,acf.title,acf.image,acf.description`
+    `${reqUrl}/services?acf_format=standard&_fields=slug,id,acf.title,acf.image,acf.description`, { keepalive: true }
   ).then((res) => res.json());
 
   const blogPostsWithCategories = data3.map((post) => {
@@ -79,7 +79,7 @@ export default async function Home() {
           <TestemonialSection data={data1} />
           <PortfolioSection data={data2.slice(0, 12)} />
           <SocialSection />
-          <EventSection data={data6} />
+          <EventSection data={data6.slice(0, 3)} />
           <MavaratebSection />
           <RatingSection />
           <BlogSection data={blogPostsWithCategories.slice(0, 12)} />

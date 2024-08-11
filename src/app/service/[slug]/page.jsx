@@ -200,14 +200,14 @@ const serviceSingle = async ({params}) => {
             title={`متخصصین ما در ${service.acf.title}`}
             eng={`our staff`}
           />
-          <div className="row justify-content-center">
+          <div className="row justify-content-center align-items-center">
             <div className="col-xxl-4 col-xl-5 col-lg-6">
               <div className="service_team_manager">
                 <Image
                   src={service.acf.manager_img}
                   width={224}
                   height={332}
-                  alt="manager"
+                  alt={service.acf.manager_name}
                   loading="lazy"	
                 />
                 <div className="text">
@@ -226,7 +226,7 @@ const serviceSingle = async ({params}) => {
                         src={team.person_img}
                         width={224}
                         height={200}
-                        alt="manager"
+                        alt={team.name}
                         loading="lazy"	
                       />
                       <div className="text">

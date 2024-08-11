@@ -719,7 +719,7 @@ fp-nav ul,
     position: relative;
     overflow: hidden;
     .service-item {
-      background: url(../../../public/images/service-back.png) no-repeat bottom;
+      background: url(../../../public/images/service-back.webp) no-repeat bottom;
       background-size: contain;
       height: 100%;
       display: flex;
@@ -1353,6 +1353,7 @@ fp-nav ul,
             }
           }
           .top-row {
+            margin-bottom: -1rem;
             .icon {
               img {
                 width: 64px !important;
@@ -2168,17 +2169,6 @@ fp-nav ul,
       .sectionTitle {
         padding-right: 0;
       }
-    }
-
-    @media (max-width: 576px) {
-      justify-content: center;
-
-      .sectionTitle {
-        h3 {
-          font-size: 2rem;
-        }
-      }
-
       a {
         .blog-item {
           padding: .5rem;
@@ -2211,6 +2201,16 @@ fp-nav ul,
               font-size: 0.7em;
             }
           }
+        }
+      }
+    }
+
+    @media (max-width: 576px) {
+      justify-content: center;
+
+      .sectionTitle {
+        h3 {
+          font-size: 2rem;
         }
       }
     }
@@ -4371,6 +4371,14 @@ fp-nav ul,
         font-size: 0.9em;
       }
     }
+    &_serviceTitle {
+      .title {
+        font-size: 1.35em;
+      }
+      span {
+        font-size: 1.6em;
+      }
+    }
   }
 }
 
@@ -4538,6 +4546,11 @@ fp-nav ul,
       }
       .col-md-7 {
         order: 2;
+        .shared_content {
+          .desc {
+            font-size: .9em;
+          }
+        }
       }
     }
   }
@@ -5975,9 +5988,10 @@ fp-nav ul,
 
     .text {
       .title {
-        font-size: 1.125em;
+        font-size: 1em;
         color: $white_color;
         font-weight: 600;
+        margin-bottom: 1rem;
       }
 
       .details {
@@ -5991,6 +6005,7 @@ fp-nav ul,
           gap: 0.5rem;
 
           span {
+            font-size: .8em;
             background: $gold_gradient;
             width: fit-content;
             background-clip: text;
@@ -6005,6 +6020,7 @@ fp-nav ul,
           gap: 0.5rem;
 
           span {
+            font-size: .8em;
             color: $white_color;
           }
         }
@@ -6036,11 +6052,10 @@ fp-nav ul,
       .text {
         .title {
           font-size: 0.9em;
-          margin-bottom: 1rem;
         }
         .details {
           span {
-            font-size: 0.8em;
+            font-size: 0.7em;
             font-weight: 300;
           }
         }
