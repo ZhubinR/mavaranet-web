@@ -3,10 +3,10 @@ import ServiceItem from "./serviceItem";
 const ServiceSection = ({ data }) => {
   return (
     <section className="section services wrapper">
-      <div className="container">
-        <div className="row justify-content-between align-items-center pb-5">
+      <div className="container-flouid">
+        <div className="row justify-content-center align-items-center pb-5">
           {data.map((service) => (
-            <div className="col-lg-4 col-md-6" key={service.id}>
+            <div className="col-xl-3 col-lg-4 col-sm-6" key={service.id}>
               <ServiceItem
                 imageUrl={service.acf.image}
                 title={service.acf.title}

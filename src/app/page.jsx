@@ -29,6 +29,8 @@ export default async function Home() {
     `${reqUrl}/portfolios?acf_format=standard&_fields=slug,id,title,acf.portfolio_thumbnail&per_page=100`, { keepalive: true }
   ).then((res) => res.json());
 
+  const filteredData = data2.filter((item) => item.slug !== 'nilfouroush-clinic');
+
   const data3 = await fetch(
     `${reqUrl}/posts?acf_format=standard&_fields=slug,title,acf,date,id,categories`, { keepalive: true }
   ).then((res) => res.json());
@@ -77,7 +79,7 @@ export default async function Home() {
           <AboutSection />
           <CustomerSection data={data5.slice(0, 12)} />
           <TestemonialSection data={data1} />
-          <PortfolioSection data={data2.slice(0, 12)} />
+          <PortfolioSection data={filteredData.slice(0, 12)} />
           <SocialSection />
           <EventSection data={data6.slice(0, 3)} />
           <MavaratebSection />

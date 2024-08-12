@@ -14,7 +14,7 @@ const ServiceItem = ({ imageUrl , title , desc , slug}) => {
                 <div className="content">
                   <h2>{title}</h2>
                   <p>{desc}</p>
-                  <Button text={`مشاهده`} slug={`service/${slug}`} />
+                  {/* <Button text={`مشاهده`} slug={`service/${slug}`} /> */}
                 </div>
               </div>
     )
