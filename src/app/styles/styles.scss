@@ -201,6 +201,7 @@ section {
 .pageMain {
   padding-bottom: 0;
   min-height: 100vh;
+  background: $dark_color;
   &.contactPage {
     padding-top: 10rem;
   }
@@ -4725,7 +4726,7 @@ fp-nav ul,
     border: 1px solid rgba($white_color, $alpha: 0.35);
     box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px,
       rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
-    background-color: rgba($dark_color, $alpha: 0.6);
+    background: url(../../../public/images/sky-background-3.webp) bottom no-repeat;
     backdrop-filter: blur(12px);
     margin-bottom: 2rem;
   }
@@ -6078,6 +6079,89 @@ fp-nav ul,
             font-weight: 300;
           }
         }
+      }
+    }
+  }
+}
+
+.nationaDoctorsDay {
+  
+  &_intro {
+    background: url(../../../public/images/sky-background-3.webp) bottom no-repeat;
+    background-size: cover;
+    &_img {
+      img {
+        width: 100%;
+        object-fit: cover;
+        height: auto;
+      }
+    }
+    &_countdown {
+      .title {
+        font-size: 1.5em;
+        font-weight: 800;
+        color: $white_color;
+        text-shadow: $text_shadow;
+        margin-bottom: 1.5rem;
+      }
+      .countDown {
+        padding: .65rem 1.25rem;
+        border-radius: 1rem;
+        background: rgba(#ffffff, $alpha: 0.05);
+        border: 1px solid rgba($white_color, $alpha: .2);
+        gap: 1rem;
+        span {
+          font-size: 2.5em;
+          color: $white_color;
+        }
+        &_box {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          width: 100%;
+          p {
+            color: $white_color;
+            font-size: 1.5em;
+          }
+          span {
+            color: $text_color;
+            font-size: .9em;
+            font-weight: 300;
+          }
+        }
+      }
+    }
+    .shared_serviceTitle {
+      align-items: flex-start;
+      margin-bottom: 0;
+      &::before,
+      &::after {
+        display: none;
+      }
+      h1,p,span {
+        text-align: right;
+      }
+      h1 {
+        font-size: 2.5em;
+        text-shadow: $text_shadow;
+        font-weight: 900;
+        margin-bottom: .85rem;
+      }
+      span {
+        font-size: 2.25em;
+      }
+      p {
+        font-size: 1.125em;
+        font-weight: 500;
+        margin-bottom: 0;
+      }
+    }
+    .shared_content {
+      .desc {
+        margin-bottom: 0;
+        padding: 0;
+        text-align: center;
       }
     }
   }

@@ -1,5 +1,7 @@
 import '@/app/styles/globals.scss'
 import '@/app/styles/styles.scss'
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import PagesHeader from '../../../public/components/layouts/PagesHeader'
 import HeaderMenu from '../../../public/components/layouts/HeaderMenu'
 import Footer from '../../../public/components/layouts/Footer'

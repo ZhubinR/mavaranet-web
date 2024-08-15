@@ -1,6 +1,7 @@
 
 const cspHeader = `
     default-src 'self' back.mavaranet.net;
+    frame-src https://www.google.com/;
     script-src 'self' 'unsafe-eval' 'unsafe-inline';
     style-src 'self' 'unsafe-inline';
     img-src 'self' back.mavaranet.net blob: data:;

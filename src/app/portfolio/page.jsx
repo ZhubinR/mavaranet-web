@@ -1,6 +1,5 @@
 "use client";
 import { useState, useEffect } from "react";
-//import DefaultLayout from "../../../public/components/layouts/DefaultLayout"
 import "@/app/styles/styles.scss";
 import InsidePageTitle from "../../../public/components/shared/SharedPageTitle";
 import PortfolioArchiveItem from "../../../public/components/portfolio/portfolioArchiveItem";

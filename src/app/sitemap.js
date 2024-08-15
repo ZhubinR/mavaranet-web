@@ -54,49 +54,21 @@ const fetchPortfolio = async () => {
   }
   return res.json();
 };
+const fetchEvent = async () => {
+  const res = await fetch(`${reqUrl}/events?_fields=slug,date&per_page=100`);
+  if (!res.ok) {
+    throw new Error('Failed to fetch portfolios');
+  }
+  return res.json();
+};
 
 export default async function sitemap() {
   const urls = [];
   const blogs = await fetchPosts()
   const portfolios = await fetchPortfolio()
-
-  // // Add static pages
-  // const staticPages = ['/', '/about', '/contact', '/portfolio', '/blog'];
-  // staticPages.forEach((page) => {
-  //   urls.push(`
-  //       <url>
-  //         <loc>${`https://mavaranet.net${page}`}</loc>
-  //         <lastmod>${new Date().toISOString()}</lastmod>
-  //       </url>
-  //     `);
-  // });
-
-  // // Add dynamic blogs
-  // blogs.forEach((blog) => {
-  //   urls.push(`
-  //       <url>
-  //         <loc>${`https://mavaranet.net/blog/${blog.slug}`}</loc>
-  //         <lastmod>${new Date(blog.modified).toISOString()}</lastmod>
-  //       </url>
-  //     `);
-  // });
+  const events = await fetchEvent()
 
 
-  // // Add dynamic pages
-  // portfolios.forEach((page) => {
-  //   urls.push(`
-  //     <url>
-  //       <loc>${`https://mavaranet.net/portfolio/${page.slug}`}</loc>
-  //       <lastmod>${new Date(page.modified).toISOString()}</lastmod>
-  //     </url>
-  //   `);
-  // });
-
-  // return `<?xml version="1.0" encoding="UTF-8"?>
-  //   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  //     ${urls.join('')}
-  //   </urlset>
-  // `
   return [
     {
       url: 'https://mavaranet.net',
@@ -137,6 +109,12 @@ export default async function sitemap() {
     ...portfolios.map(portfolio => ({
       url: `https://mavaranet.net/portfolio/${portfolio.slug}`,
       lastModified: new Date(portfolio.date).toISOString(),
+      changeFrequency: 'weekly',
+      priority: 0.25,
+    })),
+    ...events.map(event => ({
+      url: `https://mavaranet.net/event/${event.slug}`,
+      lastModified: new Date(event.date).toISOString(),
       changeFrequency: 'weekly',
       priority: 0.25,
     }))

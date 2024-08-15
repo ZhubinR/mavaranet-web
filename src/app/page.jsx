@@ -12,6 +12,7 @@ import HomeLayout from "../../public/components/layouts/HomeLayout";
 import { reqUrl } from "./config";
 import moment from "jalali-moment";
 import "@/app/styles/styles.scss";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Fullpage from "../../public/components/Fullpage";
 import Footer from "../../public/components/layouts/Footer";
 import CustomerSection from "../../public/components/customer/CustomerSection";

@@ -1,3 +1,5 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '@/app/styles/styles.scss'
 
 // export const metadata = {
 //   title: 'آژانس برندینگ ماورانت',

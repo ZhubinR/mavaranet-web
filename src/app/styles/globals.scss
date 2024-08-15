@@ -1,4 +1,4 @@
-@import "bootstrap"; 
+// @import "bootstrap"; 
 
 $primary_gradient: linear-gradient(128deg, #041A29 0%, #01101A 100%);
 $gold_gradient: repeating-linear-gradient(to right, #a2682a 0%, #d3b15f 27%, #faf0a0 35%, #ffffc2 40%, #faf0a0 50%, #be8c3c 67%, #bb8332 83%, #a4692a 100%);
@@ -120,11 +120,11 @@ body {
   padding: 0;
   box-sizing: border-box;
   font-size: 1rem;
-  font-family: "mavaranet-font";
+  font-family: "mavaranet-font" !important;
   font-weight: 400;
   line-height: 1.75;
   overflow-x: hidden;
-  background: #061c2a;
+  background: $dark_color !important;
   direction: rtl;
 }
 
