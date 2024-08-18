@@ -13,6 +13,7 @@ const RatingSection = () => {
                 width={700}
                 height={700}
                 loading="lazy"	
+                alt="rating bg"
             />
 
             <BackgroundSlide

@@ -1,5 +1,3 @@
-
-
 const SharedContent1 = ({ title, subtitle, desc }) => {
     return (
         <div className="shared_content">

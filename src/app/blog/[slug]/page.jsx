@@ -104,7 +104,7 @@ const blogSingle = async ({ params }) => {
     .format("YYYY/MM/DD HH:mm:ss");
 
   return (
-    <>
+    <main>
       <SharedSinglePageTitle
         title={blogPost.title.rendered}
         date={jalaliDate.slice(0, 10)}
@@ -134,8 +134,8 @@ const blogSingle = async ({ params }) => {
           </div>
         </div>
       </div>
-    </>
+    </main>
   );
-};
+}
 
 export default blogSingle;

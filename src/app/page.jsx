@@ -12,7 +12,6 @@ import HomeLayout from "../../public/components/layouts/HomeLayout";
 import { reqUrl } from "./config";
 import moment from "jalali-moment";
 import "@/app/styles/styles.scss";
-import 'bootstrap/dist/css/bootstrap.min.css';
 import Fullpage from "../../public/components/Fullpage";
 import Footer from "../../public/components/layouts/Footer";
 import CustomerSection from "../../public/components/customer/CustomerSection";
@@ -36,7 +35,7 @@ export default async function Home() {
     `${reqUrl}/posts?acf_format=standard&_fields=slug,title,acf,date,id,categories`, { keepalive: true }
   ).then((res) => res.json());
 
-  const data4 = await fetch(`${reqUrl}/categories`).then((res) => res.json());
+  const data4 = await fetch(`${reqUrl}/categories`, { keepalive: true }).then((res) => res.json());
 
   const data5 = await fetch(
     `${reqUrl}/customers?acf_format=standard&per_page=100`, { keepalive: true }
