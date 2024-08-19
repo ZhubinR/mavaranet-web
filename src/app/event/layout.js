@@ -41,14 +41,14 @@ export async function generateMetadata() {
 const Layout = ({ children }) => {
     
     return (
-        <html lang="fa" dir="rtl">
+        
             <body>
                 <PagesHeader />
                 <HeaderMenu />
                 {children}
                 <Footer />
             </body>
-        </html>      
+          
     )
 }
 

@@ -2261,7 +2261,7 @@ fp-nav ul,
       );
       opacity: 0;
       border-radius: 5rem;
-      transform: translateX(-1920px);
+      
       transition: all 0.75s ease-in-out;
       transition-delay: 0.5s;
 
@@ -2271,7 +2271,7 @@ fp-nav ul,
 
       &:last-child {
         margin-top: 5rem;
-        transform: translateX(1920px);
+        
       }
     }
 
@@ -2342,20 +2342,10 @@ fp-nav ul,
       }
     }
 
-    .overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba($dark_color, $alpha: 0.4);
-      z-index: 1;
-    }
-
     .container-flouid {
       position: relative;
       z-index: 4;
-      overflow-y: hidden;
+      overflow: hidden;
     }
 
     .rating-bg {
@@ -2388,7 +2378,7 @@ fp-nav ul,
       position: absolute;
       top: -12%;
       bottom: 0;
-      left: -1920px;
+      left: 0;
       margin: auto;
       width: 57%;
       z-index: 2;
@@ -2407,7 +2397,7 @@ fp-nav ul,
 
       &.right {
         left: unset;
-        right: -1920px;
+        right: -820px;
         transform: perspective(500px) rotateY(-45deg);
       }
     }
@@ -4832,6 +4822,11 @@ fp-nav ul,
       border-radius: 0.75rem;
       overflow: hidden;
     }
+    &_pic {
+      width: 100%;
+      object-fit: cover;
+      height: auto;
+    }
 
     .cont {
       display: flex;
@@ -5218,7 +5213,7 @@ fp-nav ul,
 
 .blogSingle {
   &_content {
-    background-color: $dark_color;
+    background-color: #01121c;
     border-radius: 1.5rem;
     padding: 2rem 1rem;
     margin: 2rem 0;
@@ -5391,7 +5386,7 @@ fp-nav ul,
     display: flex;
     align-items: center;
     gap: 1.25rem;
-    background-color: $dark_color;
+    background-color: #01121c;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px,
       rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
 
@@ -6550,7 +6545,6 @@ fp-nav ul,
         }
       }
     }
-
     .shared_serviceTitle {
       align-items: flex-start;
       margin-bottom: 0;
@@ -6583,6 +6577,26 @@ fp-nav ul,
         margin-bottom: 0;
         padding: 0;
         text-align: center;
+      }
+    }
+    .col-lg-6,.col-lg-10{
+      transform: translateY(-100px);
+      opacity: 0;
+      transition: all 1s ease-in;
+      
+    }
+    .col-lg-3 {
+      transform: translateY(-150px);
+      opacity: 0;
+      transition: all 1.5s ease-in;
+      
+    }
+    &.active {
+      .col-lg-6,
+      .col-lg-10,
+      .col-lg-3 {
+        transform: translateY(0px);
+        opacity: 1;
       }
     }
   }

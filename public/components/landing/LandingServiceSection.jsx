@@ -1,5 +1,5 @@
 'use client'
-import LandingServices from "./LandingServices";
+import LandingServiceItem from "./LandingServiceItem";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper";
 import "swiper/scss/autoplay";
@@ -52,7 +52,7 @@ const LandingServiceSection = ({services}) => {
           >
             {services.map((service) => (
               <SwiperSlide key={service.id}>
-                <LandingServices
+                <LandingServiceItem
                   img={service.imageUrl}
                   name={service.title}
                   desc={service.description}

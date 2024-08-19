@@ -1,12 +1,11 @@
 import { reqUrl } from "@/app/config";
 import Image from "next/image";
-import SharedServiceTitle from "../../../../public/components/shared/SharedServiceTitle";
-import Countdown from "../../../../public/components/shared/Countdown";
 import SharedContent1 from "../../../../public/components/shared/SharedContent1";
 import SharedImage from "../../../../public/components/shared/SharedImage";
 import RatingItem from "../../../../public/components/rating/ratingItem";
-import LandingServiceSection from "../../../../public/components/services/LandingServiceSection";
-import LandingTestemonialSection from "../../../../public/components/testemonial/LandingTestemonialSection";
+import LandingServiceSection from "../../../../public/components/landing/LandingServiceSection";
+import LandingTestemonialSection from "../../../../public/components/landing/LandingTestemonialSection";
+import LandingIntroSection from "../../../../public/components/landing/LandingIntroSection";
 
 const NationaDoctorsDay = async () => {
   const date = new Date("2024-08-23T00:00:00.000Z")
@@ -73,7 +72,7 @@ const NationaDoctorsDay = async () => {
   ).then((res) => res.json())
   return (
     <main className="pageMain">
-      <section className="nationaDoctorsDay_intro wrapper mb-5 pt-0">
+      {/* <section className="nationaDoctorsDay_intro wrapper mb-5 pt-0">
         <div className="container">
           <div className="row align-items-center justify-content-center">
             <div className="col-lg-3 ">
@@ -110,7 +109,8 @@ const NationaDoctorsDay = async () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
+      <LandingIntroSection dateInfo={date}/>
 
       <section className="nationaDoctorsDay_history wrapper pt-0">
         <div className="container">

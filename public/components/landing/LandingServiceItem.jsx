@@ -1,5 +1,5 @@
 import Image from "next/image";
-const LandingServices = ({img , name , desc}) => {
+const LandingServiceItem = ({img , name , desc}) => {
   return (
     <div className="nationaDoctorsDay_service_item">
       <div className="d-flex align-items-end justify-content-center mb-4">
@@ -16,4 +16,4 @@ const LandingServices = ({img , name , desc}) => {
   )
 }
 
-export default LandingServices;
+export default LandingServiceItem;

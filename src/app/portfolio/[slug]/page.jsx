@@ -1,5 +1,6 @@
 import '@/app/styles/styles.scss'
 import { reqUrl } from '@/app/config'
+import Image from 'next/image'
 import PortfolioTitle from '../../../../public/components/portfolio/portfolioTitle'
 export const ignoredUrls = [
     'هومن-عشقی',
@@ -94,9 +95,10 @@ const PortfolioSingle = async ({ params }) => {
                     />
                 </div>
             </section>
+            
             <section className="portfolio_content">
                 <div className="container">
-                    <div className="row align-items-center justify-content-center">
+                    <div className="row justify-content-center">
                         {/* map through the fetched data and render each item */}
                         {portfolioContent.map((item, index) => {
                             // determine the type of the resource for the current item
@@ -106,7 +108,7 @@ const PortfolioSingle = async ({ params }) => {
                                 <>
                                     {/* conditional rendering based on the inferred resource type */}
                                     {resourceType === 'video' && (
-                                        <div className="col-lg-4 mb-4" key={index}>
+                                        <div className="col-lg-4 col-md-6 mb-4" key={index}>
                                             <video className="portfolio_content_video" controls>
                                                 <source src={item.medi} type="video/mp4" />
                                                 Your browser does not support the video tag.
@@ -114,7 +116,7 @@ const PortfolioSingle = async ({ params }) => {
 
                                         </div>
                                     )}
-                                    {resourceType === 'picture' && <div className="col-lg-8 mb-4" key={index}><img className="portfolio_content_pic" src={item.medi} alt="Picture" /></div>}
+                                    {resourceType === 'picture' && <div className="col-lg-4 col-md-6 mb-4" key={index}><Image width={840} height={582} className="portfolio_content_pic" src={item.medi} alt="Picture" /></div>}
                                 </>
                             )
                         })}

@@ -1,5 +1,5 @@
 "use client";
-import TestemonialContent from "./testemonialContent";
+import TestemonialContent from "../testemonial/testemonialContent";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper";
 import "swiper/scss/navigation";
