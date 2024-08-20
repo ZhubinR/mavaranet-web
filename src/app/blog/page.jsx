@@ -54,7 +54,7 @@ const BlogArchive = async () => {
       </section>
 
       <div className="container">
-        <div className="row align-items-center justify-content-center">
+        <div className="row align-items-center justify-content-center pt-4">
           {blogPostsWithCategories.map((post) => (
             <div key={post.id} className="col-lg-4 col-md-6 mb-4">
               <BlogItem

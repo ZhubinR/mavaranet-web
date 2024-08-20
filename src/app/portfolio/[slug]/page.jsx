@@ -72,20 +72,29 @@ const PortfolioSingle = async ({ params }) => {
 
   // function for recognizing the format of the returned url
   const getResourceType = (url) => {
-    if (url.endsWith(".mp4") || url.endsWith(".webm")) {
+    if (/\.(mp4|webm)$/.test(url)) {
       return "video";
-    } else if (
-      url.endsWith(".jpg") ||
-      url.endsWith(".jpeg") ||
-      url.endsWith(".png") ||
-      url.endsWith(".webp")
-    ) {
+    } else if (/\.(jpg|jpeg|png|webp)$/.test(url)) {
       return "picture";
     } else {
-      // default to 'picture' if the type cannot be determined
       return "picture";
     }
   };
+  // const getResourceType = (url) => {
+  //   if (url.endsWith(".mp4") || url.endsWith(".webm")) {
+  //     return "video";
+  //   } else if (
+  //     url.endsWith(".jpg") ||
+  //     url.endsWith(".jpeg") ||
+  //     url.endsWith(".png") ||
+  //     url.endsWith(".webp")
+  //   ) {
+  //     return "picture";
+  //   } else {
+  //     // default to 'picture' if the type cannot be determined
+  //     return "picture";
+  //   }
+  // };
   return (
     <main>
       <section className="portfolio_hero mb-4">
@@ -103,7 +112,7 @@ const PortfolioSingle = async ({ params }) => {
         <div className="container">
           <div className="row justify-content-center">
             {/* map through the fetched data and render each item */}
-            {portfolioContent.map((item, index) => {
+            {portfolioContent.map((item) => {
               // determine the type of the resource for the current item
               const resourceType = getResourceType(item.medi);
 
@@ -111,7 +120,7 @@ const PortfolioSingle = async ({ params }) => {
                 <>
                   {/* conditional rendering based on the inferred resource type */}
                   {resourceType === "video" && (
-                    <div className="col-lg-4 col-md-6 mb-4" key={index}>
+                    <div className="col-lg-4 col-md-6 mb-4" key={item.index + 1}>
                       <video className="portfolio_content_video" controls>
                         <source src={item.medi} type="video/mp4" />
                         Your browser does not support the video tag.
@@ -119,7 +128,7 @@ const PortfolioSingle = async ({ params }) => {
                     </div>
                   )}
                   {resourceType === "picture" && (
-                    <div className="col-lg-4 col-md-6 mb-4" key={index}>
+                    <div className="col-lg-4 col-md-6 mb-4" key={item.index + 1}>
                       <Image
                         width={840}
                         height={582}

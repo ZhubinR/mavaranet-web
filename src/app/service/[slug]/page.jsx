@@ -13,71 +13,71 @@ export const ignoredUrls = [
   'کلینیک-مهرافروز'
 ]
 
-// export async function generateStaticParams() {
+export async function generateStaticParams() {
 
-//   const services = await fetch(`${reqUrl}/services?_fields=slug&per_page=100`).then((res) => res.json());
+  const services = await fetch(`${reqUrl}/services?_fields=slug&per_page=100`).then((res) => res.json());
 
-//   if (!services) {
-//       console.error('Failed to fetch service data');
-//       return []; // Return an empty array to avoid build errors
-//   }
+  if (!services) {
+      console.error('Failed to fetch service data');
+      return []; // Return an empty array to avoid build errors
+  }
 
-//   // Filter out invalid or ignored services
-//   const validServices = services.filter(service =>
-//       service && service.slug && !ignoredUrls.includes(encodeURIComponent(service.slug))
-//   );
+  // Filter out invalid or ignored services
+  const validServices = services.filter(service =>
+      service && service.slug && !ignoredUrls.includes(encodeURIComponent(service.slug))
+  );
 
-//   return validServices.map((service) => ({
-//       slug: decodeURIComponent(service.slug),
-//   }));
-// }
+  return validServices.map((service) => ({
+      slug: decodeURIComponent(service.slug),
+  }));
+}
 
-// export async function generateMetadata({ params }) {
-//   // fetch data
-//   const seoServices = await fetch(
-//     `${reqUrl}/services?acf_format=standard&slug=${params.slug}&_fields=yoast_head_json`
-//   ).then((res) => res.json());
-//   const seoService = seoServices[0];
+export async function generateMetadata({ params }) {
+  // fetch data
+  const seoServices = await fetch(
+    `${reqUrl}/services?acf_format=standard&slug=${params.slug}&_fields=yoast_head_json`
+  ).then((res) => res.json());
+  const seoService = seoServices[0];
 
-//   // optionally access and extend (rather than replace) parent metadata
+  // optionally access and extend (rather than replace) parent metadata
 
-//   return {
-//     title: seoService.yoast_head_json.title,
-//     description: seoService.yoast_head_json.description,
-//     openGraph: {
-//       title: seoService.yoast_head_json.og_title,
-//       description: seoService.yoast_head_json.og_description,
-//       // images: [
-//       //   {
-//       //     url: seoService.yoast_head_json.og_image.url, 
-//       //   },
-//       // ],
-//       url: `https://mavaranet.net/Service/${params.slug}`,
-//       locale: seoService.yoast_head_json.og_locale,
-//       type: seoService.yoast_head_json.og_type,
-//       siteName: seoService.yoast_head_json.og_site_name,
-//       twitter: {
-//         card: "summary_large_image",
-//       },
-//     },
-//   };
-// }
+  return {
+    title: seoService.yoast_head_json.title,
+    description: seoService.yoast_head_json.description,
+    openGraph: {
+      title: seoService.yoast_head_json.og_title,
+      description: seoService.yoast_head_json.og_description,
+      // images: [
+      //   {
+      //     url: seoService.yoast_head_json.og_image.url, 
+      //   },
+      // ],
+      url: `https://mavaranet.net/Service/${params.slug}`,
+      locale: seoService.yoast_head_json.og_locale,
+      type: seoService.yoast_head_json.og_type,
+      siteName: seoService.yoast_head_json.og_site_name,
+      twitter: {
+        card: "summary_large_image",
+      },
+    },
+  };
+}
 
-const serviceSingle = async () => {
-  // const { slug } = params;
-  // const Preq = await fetch(
-  //   `${reqUrl}/portfolios?acf_format=standard&_fields=slug,id,title,acf.portfolio_thumbnail&per_page=100`
-  // );
-  // const portfolios = await Preq.json();
+const serviceSingle = async ({ params }) => {
+  const { slug } = params;
+  const Preq = await fetch(
+    `${reqUrl}/portfolios?acf_format=standard&_fields=slug,id,title,acf.portfolio_thumbnail&per_page=100`
+  );
+  const portfolios = await Preq.json();
 
-  // const serviceData = await fetch(`${reqUrl}/services?acf_format=standard&slug=${slug}&_fields=slug,id,title,acf`, {
-  //   next: { revalidate: 604800 },
-  // }).then((res) => res.json());
-  // const service = serviceData[0];
+  const serviceData = await fetch(`${reqUrl}/services?acf_format=standard&slug=${slug}&_fields=slug,id,title,acf`, {
+    next: { revalidate: 604800 },
+  }).then((res) => res.json());
+  const service = serviceData[0];
 
   return (
     <main>
-      {/* <section className="service_intro wrapper">
+      <section className="service_intro wrapper">
         <SharedServiceTitle
           title={service.acf.title}
           tagline={service.acf.tagline}
@@ -266,7 +266,7 @@ const serviceSingle = async () => {
             <Button text={`مشاهده بیشتر`} slug={`/portfolio`} />
           </div>
         </div>
-      </section> */}
+      </section>
     </main>
   );
 };

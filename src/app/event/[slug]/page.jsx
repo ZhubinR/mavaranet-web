@@ -39,14 +39,6 @@ export async function generateMetadata({ params }) {
     openGraph: {
       title: seoEvent.yoast_head_json.og_title,
       description: seoEvent.yoast_head_json.og_description,
-      // images: [
-      //     {
-      //         url: seoEvent.yoast_head_json.og_image.url, // Must be an absolute URL
-      //         // width: seoEvent.yoast_head_json.og_image.width,
-      //         // height: seoEvent.yoast_head_json.og_image.height,
-      //     },
-      // ],
-      // url: `https://mavaranet.net/event/${params.slug}`,
       locale: seoEvent.yoast_head_json.og_locale,
       type: seoEvent.yoast_head_json.og_type,
       siteName: seoEvent.yoast_head_json.og_site_name,
@@ -69,7 +61,6 @@ const eventSingle = async ({ params }) => {
   return (
     <>
       <SharedEventSingle
-        // imageUrl={eventPost.acf.thumbnail_img}
         title={eventPost.acf.title}
         desc={eventPost.acf.description}
         date={eventPost.acf.date}

@@ -75,7 +75,90 @@ const nextConfig = {
               },
         ]
     },
-
+    async redirects() {
+        return [
+          {
+            source: '/wp-json',
+            destination: '/',
+            permanent: true,
+          },
+          {
+            source: '/portfolios/test01',
+            destination: '/',
+            permanent: true,
+          },
+          {
+            source: '/service/%D8%B3%D8%A6%D9%88-%D8%B3%D8%A7%DB%8C%D8%AA',
+            destination: '/',
+            permanent: true,
+          },
+          {
+            source: '/testimonial/%D9%87%D9%88%D9%85%D9%86-%D8%B9%D8%B4%D9%82%DB%8C',
+            destination: '/',
+            permanent: true,
+          },
+          {
+            source: '/categories/dental',
+            destination: '/',
+            permanent: true,
+          },
+          {
+            source: '/portfolios/pouya-lab',
+            destination: '/',
+            permanent: true,
+          },
+          {
+            source: '/team',
+            destination: '/',
+            permanent: true,
+          },
+          {
+            source: '/wp-content/uploads/2023/06/img-mavaranet.webp',
+            destination: '/',
+            permanent: true,
+          },
+          {
+            source: '/wp-content/uploads/2021/09/hendesi-darmane-varis.webp',
+            destination: '/',
+            permanent: true,
+          },
+          {
+            source: '/mavaranet',
+            destination: '/',
+            permanent: true,
+          },
+          {
+            source: '/author/mavaranet',
+            destination: '/',
+            permanent: true,
+          },
+          {
+            source: '/careers',
+            destination: '/',
+            permanent: true,
+          },
+          {
+            source: '/comments/feed',
+            destination: '/',
+            permanent: true,
+          },
+          {
+            source: '/wp-content/uploads/2022/06/%D8%A7%D9%85%D9%86%DB%8C%D9%88%D8%B3%D9%86%D8%AA%D8%B2.webp',
+            destination: '/',
+            permanent: true,
+          },
+          {
+            source: '/portfolio/%D9%87%D9%88%D9%85%D9%86-%D8%B9%D8%B4%D9%82%DB%8C',
+            destination: '/',
+            permanent: true,
+          },
+          {
+            source: '/portfolio/%DA%A9%D9%84%DB%8C%D9%86%DB%8C%DA%A9-%D9%85%D9%87%D8%B1%D8%A7%D9%81%D8%B1%D9%88%D8%B2',
+            destination: '/',
+            permanent: true,
+          },
+        ];
+      },
 }
 
 module.exports = nextConfig

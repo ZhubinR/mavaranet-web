@@ -1,6 +1,3 @@
-// "use client";
-// import { useState, useEffect } from "react";
-
 import { reqUrl } from "../config";
 import InsidePageTitle from "../../../public/components/shared/SharedPageTitle";
 import EventItem from "../../../public/components/events/EventItem";
@@ -10,22 +7,6 @@ import Overlay from "../../../public/components/layouts/Overlay";
 const EventArchive = async () => {
   const req = await fetch(`${reqUrl}/events?acf_format=standard&per_page=100`,{ next: { revalidate: 3200 } })
   const eventReq = await req.json();
-  // const [EventData, setEventData] = useState([]);
-
-  // useEffect(() => {
-  //   GetData();
-  // }, []);
-
-  // const GetData = async () => {
-  //   try {
-  //     const req = await fetch(`${reqUrl}/events?acf_format=standard&per_page=100`,{ next: { revalidate: 3200 } })
-  //     const eventReq = await req.json();
-      
-  //     setEventData(eventReq);
-  //   } catch (error) {
-  //     console.error("Error fetching eventData:", error);
-  //   }
-  // };
 
   return (
     <main className="pageMain">
