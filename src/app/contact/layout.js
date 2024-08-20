@@ -24,12 +24,13 @@ export const metadata = {
 
 const Layout = ({ children }) => {
   return (
-    <body>
+    <>
       <PagesHeader />
       <HeaderMenu />
+
       {children}
       <Footer />
-    </body>
+    </>
   );
 };
 

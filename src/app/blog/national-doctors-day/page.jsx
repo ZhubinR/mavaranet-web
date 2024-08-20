@@ -140,15 +140,22 @@ const NationaDoctorsDay = async () => {
       {/* <section className="nationaDoctorsDay_video">
         <div className="container">
           <div className="row align-items-center justify-content-center">
-            <div className="col-lg-3"></div>
+            
             <div className="col-lg-6">
               <div className="nationaDoctorsDay_video_vid">
                 <video className="video" autoPlay width="556" height="336">
-                  <source src="/videos/about.webm" type="video/webm" />
+                  <source src="/videos/dr-day-1.webm" type="video/webm" />
                 </video>
               </div>
             </div>
-            <div className="col-lg-3"></div>
+            <div className="col-lg-6">
+              <div className="nationaDoctorsDay_video_vid">
+                <video className="video" autoPlay width="556" height="336">
+                  <source src="/videos/dr-day-2.webm" type="video/webm" />
+                </video>
+              </div>
+            </div>
+           
           </div>
         </div>
       </section> */}

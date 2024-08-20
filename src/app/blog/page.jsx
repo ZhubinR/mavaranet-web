@@ -6,7 +6,6 @@ import Overlay from "../../../public/components/layouts/Overlay";
 import { reqUrl } from "../config";
 
 const BlogArchive = async () => {
-
   const req = await fetch(`${reqUrl}/posts?acf_format=standard&per_page=100`, {
     next: { revalidate: 604800 },
   });
@@ -55,6 +54,17 @@ const BlogArchive = async () => {
 
       <div className="container">
         <div className="row align-items-center justify-content-center pt-4">
+          <div key={61985} className="col-lg-4 col-md-6 mb-4">
+            <BlogItem
+              slug={`/blog/national-doctors-day`}
+              imageUrl={`/images/natinal-dr-thumbnail.webp`}
+              title={`روز پزشک مبارک`}
+              description={`روز پزشک که مصادف با اول شهریور ماه و سالروز تولد بوعلی سینا، بزرگ‌ترین پزشک و دانشمند ایرانی است، فرصتی است برای تجلیل از خدمات ارزنده‌ی پزشکان و تقدیر از تلاش‌های بی‌وقفه‌ی آنان در راستای حفظ و ارتقاء سلامت جامعه.`}
+              updatedAt={`1403/05/24`}
+              readingTime={`8 دقیقه`}
+              tag={`سایر`}
+            />
+          </div>
           {blogPostsWithCategories.map((post) => (
             <div key={post.id} className="col-lg-4 col-md-6 mb-4">
               <BlogItem

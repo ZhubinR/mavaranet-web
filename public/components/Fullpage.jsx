@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 
 const Fullpage = ({ children, footer }) => {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
+  const [fullpageInitialized, setFullpageInitialized] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -18,7 +19,7 @@ const Fullpage = ({ children, footer }) => {
   }, []);
 
   useEffect(() => {
-    if (!isSmallScreen) {
+    if (!isSmallScreen && !fullpageInitialized) {
       const initializeFullpage = async () => {
         const fullpage = (await import('fullpage.js')).default;
         new fullpage('#fullpage', {
@@ -44,15 +45,19 @@ const Fullpage = ({ children, footer }) => {
           navigationPosition: 'bottom',
           showActiveTooltip: true,
         });
+        setFullpageInitialized(true);
       };
       initializeFullpage();
     }
+  }, [isSmallScreen]);
+
+  useEffect(() => {
     return () => {
-      if (typeof window !== 'undefined' && window.fp_destroy) {
-        window.fp_destroy();
+      if (typeof window !== 'undefined' && window.fullpage_api) {
+        window.fullpage_api.destroy('all');
       }
     };
-  }, [isSmallScreen]);
+  }, []);
 
   return (
     <div id={isSmallScreen ? '' : 'fullpage'}>
@@ -61,13 +66,9 @@ const Fullpage = ({ children, footer }) => {
       <div className={` ${isSmallScreen? 'd-block' : 'd-none'}`}>
         {footer}
       </div>
-        
       )}
     </div>
   );
 };
 
 export default Fullpage;
-      
-      
-      

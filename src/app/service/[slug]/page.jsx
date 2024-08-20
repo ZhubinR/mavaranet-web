@@ -74,6 +74,7 @@ const serviceSingle = async ({ params }) => {
     next: { revalidate: 604800 },
   }).then((res) => res.json());
   const service = serviceData[0];
+  console.log(service.acf.team)
 
   return (
     <main>
@@ -219,7 +220,7 @@ const serviceSingle = async ({ params }) => {
             </div>
             <div className="col-xxl-8 col-xl-7 col-lg-6">
               <div className="row p-0">
-                {service.acf.team.map((team) => (
+                {/* {service.acf.team.map((team) => (
                   <div key={team.index} className="col-xxl-2 col-xl-3 col-sm-4 col-6">
                     <div className="service_team_staff">
                       <Image
@@ -235,7 +236,7 @@ const serviceSingle = async ({ params }) => {
                       </div>
                     </div>
                   </div>
-                ))}
+                ))} */}
               </div>
             </div>
           </div>
