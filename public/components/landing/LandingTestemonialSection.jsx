@@ -9,8 +9,8 @@ const LandingTestemonialSection = ({ data }) => {
   // const testimonials = await getData()
 
   return (
-    <section className="section testemonial wrapper pb-0 nationaDoctorsDay_testemonial">
-      <div className="container px-4 px-lg-5">
+    <section className="section testemonial wrapper nationaDoctorsDay_testemonial">
+      <div className="container my-0 px-4 px-lg-5">
       <div className="titleWrapper mb-4">
             <h3 className="title">
               <span>نظرات پزشکان</span>

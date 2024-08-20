@@ -6655,6 +6655,34 @@ fp-nav ul,
       }
     }
   }
+  &_video {
+    margin-top: -4rem;
+    .shared_serviceTitle {
+      padding-top: 1.5rem;
+      margin-bottom: 1.5rem;
+      &::before,
+      &::after {
+        display: none;
+      }
+      h1 {
+        text-shadow: $text_shadow;
+      }
+      p {
+        font-weight: 500;
+        margin-bottom: 0;
+      }
+    }
+    &_vid {
+      video {
+        object-position: center;
+        width: 100%;
+        min-height: 100%;
+        border-radius: 0.75rem;
+        overflow: hidden;
+        object-fit: cover;
+      }
+    }
+  }
   &_service {
     margin-top: -12rem;
     .titleWrapper {
@@ -6746,6 +6774,11 @@ fp-nav ul,
   }
   &_rating ,
   &_testemonial {
+    &.section {
+      width: unset;
+      height: unset;
+      
+    }
     .titleWrapper {
       display: flex;
       align-items: center;
@@ -6880,6 +6913,7 @@ fp-nav ul,
         }
       }
     }
+    
   }
 
   @media (max-width: 992px) {
@@ -6935,15 +6969,20 @@ fp-nav ul,
   }
   @media (max-width: 700px) {
     &_history {
+      background-size: inherit;
       &_img {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         img {
           max-width: 360px;
         }
       }
       .titleWrapper {
         .mainTitle {
-          right: 57%;
+          right: 0;
           top: -19px;
+          font-size: 1.5em;
         }
       }
     }
@@ -6968,6 +7007,13 @@ fp-nav ul,
         }
         .navi {
           scale: .9;
+        }
+      }
+    }
+    &_video {
+      &_vid {
+        video {
+          max-height: 270px;
         }
       }
     }

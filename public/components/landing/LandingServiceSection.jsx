@@ -46,7 +46,7 @@ const LandingServiceSection = ({services}) => {
                 slidesPerView: 3,
               },
               1600: {
-                slidesPerView: 4,
+                slidesPerView: 3.5,
               },
             }}
           >

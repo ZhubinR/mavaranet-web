@@ -6,6 +6,7 @@ import RatingItem from "../../../../public/components/rating/ratingItem";
 import LandingServiceSection from "../../../../public/components/landing/LandingServiceSection";
 import LandingTestemonialSection from "../../../../public/components/landing/LandingTestemonialSection";
 import LandingIntroSection from "../../../../public/components/landing/LandingIntroSection";
+import SharedServiceTitle from "../../../../public/components/shared/SharedServiceTitle";
 
 const NationaDoctorsDay = async () => {
   const date = new Date("2024-08-23T00:00:00.000Z")
@@ -112,7 +113,7 @@ const NationaDoctorsDay = async () => {
       </section> */}
       <LandingIntroSection dateInfo={date}/>
 
-      <section className="nationaDoctorsDay_history wrapper pt-0">
+      <section className="nationaDoctorsDay_history wrapper pb-0">
         <div className="container">
           <div className="row align-items-center justify-content-center">
             <div className="col-lg-4 col-md-6">
@@ -137,20 +138,24 @@ const NationaDoctorsDay = async () => {
         </div>
       </section>
 
-      {/* <section className="nationaDoctorsDay_video">
+      <section className="nationaDoctorsDay_video wrapper">
         <div className="container">
+          <SharedServiceTitle
+            title={`روز پزشک مبارک `}
+            eng={`Happy doctor's day`}
+          />
           <div className="row align-items-center justify-content-center">
             
-            <div className="col-lg-6">
+            <div className="col-lg-6 mb-3 mb-lg-0">
               <div className="nationaDoctorsDay_video_vid">
-                <video className="video" autoPlay width="556" height="336">
+                <video className="video" controls width="556" height="336">
                   <source src="/videos/dr-day-1.webm" type="video/webm" />
                 </video>
               </div>
             </div>
             <div className="col-lg-6">
               <div className="nationaDoctorsDay_video_vid">
-                <video className="video" autoPlay width="556" height="336">
+                <video className="video" controls width="556" height="336">
                   <source src="/videos/dr-day-2.webm" type="video/webm" />
                 </video>
               </div>
@@ -158,7 +163,7 @@ const NationaDoctorsDay = async () => {
            
           </div>
         </div>
-      </section> */}
+      </section>
 
       <section className="nationaDoctorsDay_about wrapper">
         <div className="container">
@@ -193,8 +198,8 @@ const NationaDoctorsDay = async () => {
         <Image
           className="rating-bg"
           src={`/images/globe-rating.png`}
-          width={800}
-          height={800}
+          width={720}
+          height={720}
           loading="lazy"
           alt="rating bg"
         />
