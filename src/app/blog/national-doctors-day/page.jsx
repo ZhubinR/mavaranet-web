@@ -8,6 +8,30 @@ import LandingTestemonialSection from "../../../../public/components/landing/Lan
 import LandingIntroSection from "../../../../public/components/landing/LandingIntroSection";
 import SharedServiceTitle from "../../../../public/components/shared/SharedServiceTitle";
 
+export async function generateMetadata({ }) {
+
+  // o
+  return {
+    title: `روز پزشک`,
+    description: `روز پزشک را به تمامی پزشکان گرانقدر که با تلاش‌های بی‌وقفه خود سلامت جامعه را تضمین می‌کنند، تبریک می‌گوییم. از طرف شرکت ماورانت، برایتان سلامتی و موفقیت آرزو داریم.`,
+    // openGraph: {
+    //   title: seoPortfolio.yoast_head_json.og_title,
+    //   description: seoPortfolio.yoast_head_json.og_description,
+    //   images: [
+    //     {
+    //       url: seoPortfolio.acf.portfolio_thumbnail,
+    //     },
+    //   ],
+    //   url: `https://mavaranet.net/portfolio/${seoPortfolio.slug}`,
+    //   locale: seoPortfolio.yoast_head_json.og_locale,
+    //   type: seoPortfolio.yoast_head_json.og_type,
+    //   siteName: seoPortfolio.yoast_head_json.og_site_name,
+    //   twitter: {
+    //     card: "summary_large_image",
+    //   },
+    // },
+  };
+}
 const NationaDoctorsDay = async () => {
   const date = new Date("2024-08-23T00:00:00.000Z")
   const services = [
@@ -68,9 +92,13 @@ const NationaDoctorsDay = async () => {
       imageUrl: "/images/axe.svg",
     },
   ]
+
   const testemonial = await fetch(
     `${reqUrl}/user_testimonial?acf_format=standard`, { keepalive: true }
   ).then((res) => res.json())
+
+ 
+
   return (
     <main className="pageMain">
       {/* <section className="nationaDoctorsDay_intro wrapper mb-5 pt-0">
@@ -145,7 +173,6 @@ const NationaDoctorsDay = async () => {
             eng={`Happy doctor's day`}
           />
           <div className="row align-items-center justify-content-center">
-            
             <div className="col-lg-6 mb-3 mb-lg-0">
               <div className="nationaDoctorsDay_video_vid">
                 <video className="video" controls width="556" height="336">
@@ -160,7 +187,6 @@ const NationaDoctorsDay = async () => {
                 </video>
               </div>
             </div>
-           
           </div>
         </div>
       </section>

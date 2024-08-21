@@ -26,14 +26,13 @@ const Countdown = ({ date }) => {
 
   return (
     <div className='countDown d-flex align-items-center justify-content-between'>
-      <div className='countDown_box'> <p>{timeLeft.days}</p> <span>روز</span></div>
+      <div className='countDown_box'> <p>{timeLeft.seconds}</p><span>ثانیه</span></div>
+      <span>:</span>
+      <div className='countDown_box'> <p>{timeLeft.minutes}</p><span>دقیقه</span></div>
       <span>:</span>
       <div className='countDown_box'> <p>{timeLeft.hours}</p><span>ساعت</span></div>
       <span>:</span>
-
-      <div className='countDown_box'> <p>{timeLeft.minutes}</p><span>دقیقه</span></div>
-      <span>:</span>
-      <div className='countDown_box'> <p>{timeLeft.seconds}</p><span>ثانیه</span></div>
+      <div className='countDown_box'> <p>{timeLeft.days}</p> <span>روز</span></div>
     </div>
   );
 };

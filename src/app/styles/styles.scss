@@ -4816,17 +4816,19 @@ fp-nav ul,
   }
 
   &_content {
-    &_video,
-    &_pic {
-      width: 100%;
-      border-radius: 0.75rem;
-      overflow: hidden;
-    }
-    &_pic {
-      width: 100%;
-      object-fit: cover;
-      height: 100%;
-    }
+   
+      img , video {
+        width: 100%;
+        border-radius: 0.75rem;
+        overflow: hidden;
+      }
+    
+      img {
+        width: 100%;
+        object-fit: cover;
+        height: 100%;
+      }
+    
 
     .cont {
       display: flex;

@@ -12,6 +12,7 @@
     "@fullpage/react-fullpage": "^0.1.42",
     "@liara/cli": "^7.0.6",
     "bootstrap": "^5.3.2",
+    "fslightbox-react": "^1.7.6",
     "fullpage.js": "^4.0.20",
     "jalali-moment": "^3.3.11",
     "next": "^14.2.5",
@@ -24,6 +25,7 @@
     "swr": "^2.2.5"
   },
   "devDependencies": {
+    "@types/fslightbox-react": "^1.7.7",
     "@types/fullpage.js": "^2.9.6",
     "@types/react": "^18.3.3",
     "eslint": "^8",
