@@ -1,19 +1,17 @@
 "use client";
-import Fslightbox from "fslightbox-react";
+
 import { useState } from "react";
 import Image from "next/image";
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
 
 const PortfolioPageContent = ({ data }) => {
-  const [lightboxController, setLightboxController] = useState({
-    toggler: false,
-    slide: 1,
-  });
+  const [open, setOpen] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const openLightboxOnSlide = (index) => {
-    setLightboxController({
-      toggler: !lightboxController.toggler,
-      slide: index + 1,
-    });
+    setCurrentIndex(index);
+    setOpen(true);
   };
 
   const getResourceType = (url) => {
@@ -26,6 +24,15 @@ const PortfolioPageContent = ({ data }) => {
     }
   };
 
+  const slides = data
+    .filter((item) => getResourceType(item.medi) === "picture")
+    .map((item) => {
+      return {
+        type: "picture",
+        src: item.medi,
+      };
+    });
+
   return (
     <section className="portfolio_content">
       <div className="container">
@@ -34,40 +41,36 @@ const PortfolioPageContent = ({ data }) => {
             const resourceType = getResourceType(item.medi);
 
             return (
-              <>
-                {resourceType === "video" && (
-                  <div className="col-lg-4 col-md-6 mb-4" key={item.id}>
-                    <video
-                      className="portfolio_content_video"
-                      controls
-                      onClick={() => openLightboxOnSlide(index)}
-                    >
+              <div className="col-lg-4 col-md-6 mb-4" key={item.id}>
+                {resourceType === "video" ? (
+                  <div>
+                    <video width="100%" height="100%" controls>
                       <source src={item.medi} type="video/mp4" />
-                      Your browser does not support the video tag.
                     </video>
                   </div>
+                ) : (
+                  <Image
+                    src={item.medi}
+                    alt="Picture"
+                    width={840}
+                    height={582}
+                    onClick={() => openLightboxOnSlide(index)}
+                  />
                 )}
-                {resourceType === "picture" && (
-                  <div className="col-lg-4 col-md-6 mb-4" key={item.id}>
-                    <Image
-                      src={item.medi}
-                      alt="Picture"
-                      width={840}
-                      height={582}
-                      onClick={() => openLightboxOnSlide(index)}
-                    />
-                  </div>
-                )}
-              </>
+              </div>
             );
           })}
         </div>
       </div>
-      <Fslightbox
-        toggler={lightboxController.toggler}
-        sources={data.map((item) => item.medi)}
-        slide={lightboxController.slide}
-        type={data.map((item) => getResourceType(item.medi))}
+
+      <Lightbox
+        open={open}
+        close={() => setOpen(false)}
+        index={currentIndex}
+        slides={slides.map((slide, index) => ({
+          src: slide.src,
+          key: index,
+        }))}
       />
     </section>
   );

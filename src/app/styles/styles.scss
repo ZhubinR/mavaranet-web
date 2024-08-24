@@ -853,6 +853,19 @@ fp-nav ul,
   border: 0;
 }
 
+.yarl__portal {
+  visibility: hidden;
+  &.yarl__portal_open {
+    opacity: 1;
+    visibility: visible;
+    
+  }
+}
+.yarl__no_scroll {
+  overflow: visible !important;
+  padding-left: 0 !important;
+}
+
 .swiper-pagination {
   padding: 1rem 0;
 

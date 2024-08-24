@@ -74,7 +74,6 @@ const serviceSingle = async ({ params }) => {
     next: { revalidate: 604800 },
   }).then((res) => res.json());
   const service = serviceData[0];
-  console.log(service.acf.team)
 
   return (
     <main>
