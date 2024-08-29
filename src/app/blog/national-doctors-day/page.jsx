@@ -14,22 +14,22 @@ export async function generateMetadata({ }) {
   return {
     title: `روز پزشک`,
     description: `روز پزشک را به تمامی پزشکان گرانقدر که با تلاش‌های بی‌وقفه خود سلامت جامعه را تضمین می‌کنند، تبریک می‌گوییم. از طرف شرکت ماورانت، برایتان سلامتی و موفقیت آرزو داریم.`,
-    // openGraph: {
-    //   title: seoPortfolio.yoast_head_json.og_title,
-    //   description: seoPortfolio.yoast_head_json.og_description,
-    //   images: [
-    //     {
-    //       url: seoPortfolio.acf.portfolio_thumbnail,
-    //     },
-    //   ],
-    //   url: `https://mavaranet.net/portfolio/${seoPortfolio.slug}`,
-    //   locale: seoPortfolio.yoast_head_json.og_locale,
-    //   type: seoPortfolio.yoast_head_json.og_type,
-    //   siteName: seoPortfolio.yoast_head_json.og_site_name,
-    //   twitter: {
-    //     card: "summary_large_image",
-    //   },
-    // },
+    openGraph: {
+      title: `روز پزشک`,
+      description: `روز پزشک را به تمامی پزشکان گرانقدر که با تلاش‌های بی‌وقفه خود سلامت جامعه را تضمین می‌کنند، تبریک می‌گوییم. از طرف شرکت ماورانت، برایتان سلامتی و موفقیت آرزو داریم.`,
+      // images: [
+      //   {
+      //     url: seoPortfolio.acf.portfolio_thumbnail,
+      //   },
+      // ],
+      // url: `https://mavaranet.net/portfolio/${seoPortfolio.slug}`,
+      // locale: seoPortfolio.yoast_head_json.og_locale,
+      // type: seoPortfolio.yoast_head_json.og_type,
+      // siteName: seoPortfolio.yoast_head_json.og_site_name,
+      // twitter: {
+      //   card: "summary_large_image",
+      // },
+    },
   };
 }
 const NationaDoctorsDay = async () => {

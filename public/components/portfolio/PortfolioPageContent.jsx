@@ -44,7 +44,7 @@ const PortfolioPageContent = ({ data }) => {
               <div className="col-lg-4 col-md-6 mb-4" key={item.id}>
                 {resourceType === "video" ? (
                   <div>
-                    <video width="100%" height="100%" controls>
+                    <video width="100%" height="100%" loading="lazy" controls>
                       <source src={item.medi} type="video/mp4" />
                     </video>
                   </div>
