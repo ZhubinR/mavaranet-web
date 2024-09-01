@@ -66,7 +66,7 @@ const PortfolioSingle = async ({ params }) => {
   console.log(slug);
   // fetching api datas for page content
   const req = await fetch(
-    `${reqUrl}/portfolios?acf_format=standard&slug=${slug}`
+    `${reqUrl}/portfolios?acf_format=standard&slug=${slug}`, {keepalive: true}
   );
   const portfolios = await req.json();
   const portfolio = portfolios[0];

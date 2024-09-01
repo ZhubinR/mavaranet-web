@@ -4,7 +4,7 @@ const ServiceSection = ({ data }) => {
   return (
     <section className="section services wrapper">
       <div className="container-flouid">
-        <div className="row justify-content-center align-items-center pb-5">
+        <div className="row justify-content-center align-items-center pb-5 mx-lg-5">
           {data.map((service) => (
             <div className="col-xl-3 col-lg-4 col-sm-6" key={service.id}>
               <ServiceItem
@@ -18,6 +18,6 @@ const ServiceSection = ({ data }) => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 export default ServiceSection;

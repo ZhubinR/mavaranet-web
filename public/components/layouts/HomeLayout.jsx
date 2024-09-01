@@ -1,4 +1,4 @@
-import "@/app/styles/globals.scss";
+// import "@/app/styles/globals.scss";
 import LayoutStatics from "./LayoutStatics";
 
 export const metadata = {
