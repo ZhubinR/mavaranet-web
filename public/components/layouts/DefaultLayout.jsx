@@ -1,4 +1,4 @@
-import '@/app/styles/globals.scss'
+// import '@/app/styles/globals.scss'
 import '@/app/styles/styles.scss'
 import PagesHeader from './PagesHeader'
 import HeaderMenu from './HeaderMenu'

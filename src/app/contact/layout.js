@@ -1,4 +1,4 @@
-import "@/app/styles/globals.scss";
+// import "@/app/styles/globals.scss";
 import "@/app/styles/styles.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 

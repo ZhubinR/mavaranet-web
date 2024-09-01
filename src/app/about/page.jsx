@@ -1,8 +1,6 @@
 
-import DefaultLayout from "../../../public/components/layouts/DefaultLayout"
 import RatingItem from "../../../public/components/rating/ratingItem"
-import SharedContent from "../../../public/components/shared/SharedContent"
-import '@/app/styles/styles.scss'
+// import '@/app/styles/styles.scss'
 import Image from "next/image"
 import SharedSectionTitle from "../../../public/components/shared/SharedSectionTitle"
 import Managers from "../../../public/components/about/managers"
