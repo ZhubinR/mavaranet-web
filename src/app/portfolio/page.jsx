@@ -106,6 +106,15 @@ const PortfolioArchive = () => {
           >
             تدوین
           </button>
+
+          <button
+            className={`filter-btn ${
+              selectedCategory === "سوشال مدیا" ? "active" : ""
+            }`}
+            onClick={() => Filter("سوشال مدیا")}
+          >
+            سوشال مدیا
+          </button>
         </div>
 
         <div className="row align-item-center justify-content-center mb-4">

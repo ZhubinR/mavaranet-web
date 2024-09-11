@@ -1,3 +1,4 @@
+import React from "react";
 import ServiceDetailItem from "../../../../public/components/services/serviceDetailItem";
 import PortfolioArchiveItem from "../../../../public/components/portfolio/portfolioArchiveItem";
 import { reqUrl } from "../../config";
@@ -8,27 +9,32 @@ import SharedContent1 from "../../../../public/components/shared/SharedContent1"
 import Button from "../../../../public/components/layouts/Button";
 import Image from "next/image";
 import ServiceOptionBox from "../../../../public/components/services/serviceOptionBox";
-export const ignoredUrls = [
-  'هومن-عشقی',
-  'کلینیک-مهرافروز'
-]
+import PortfolioSection from "../../../../public/components/portfolio/portfolioSection";
+import ServiceSharedPortfolio from "../../../../public/components/services/serviceSharedPortfolio";
+import Accordion from "../../../../public/components/layouts/Accordion";
+import ServiceFaq from "../../../../public/components/services/serviceFaq";
+export const ignoredUrls = ["هومن-عشقی", "کلینیک-مهرافروز"];
 
 export async function generateStaticParams() {
-
-  const services = await fetch(`${reqUrl}/services?_fields=slug&per_page=100`).then((res) => res.json());
+  const services = await fetch(
+    `${reqUrl}/services?_fields=slug&per_page=100`
+  ).then((res) => res.json());
 
   if (!services) {
-      console.error('Failed to fetch service data');
-      return []; // Return an empty array to avoid build errors
+    console.error("Failed to fetch service data");
+    return []; // Return an empty array to avoid build errors
   }
 
   // Filter out invalid or ignored services
-  const validServices = services.filter(service =>
-      service && service.slug && !ignoredUrls.includes(encodeURIComponent(service.slug))
+  const validServices = services.filter(
+    (service) =>
+      service &&
+      service.slug &&
+      !ignoredUrls.includes(encodeURIComponent(service.slug))
   );
 
   return validServices.map((service) => ({
-      slug: decodeURIComponent(service.slug),
+    slug: decodeURIComponent(service.slug),
   }));
 }
 
@@ -49,7 +55,7 @@ export async function generateMetadata({ params }) {
       description: seoService.yoast_head_json.og_description,
       // images: [
       //   {
-      //     url: seoService.yoast_head_json.og_image.url, 
+      //     url: seoService.yoast_head_json.og_image.url,
       //   },
       // ],
       url: `https://mavaranet.net/Service/${params.slug}`,
@@ -68,132 +74,107 @@ const serviceSingle = async ({ params }) => {
   const Preq = await fetch(
     `${reqUrl}/portfolios?acf_format=standard&_fields=slug,id,title,acf.portfolio_thumbnail&per_page=100`
   );
+
   const portfolios = await Preq.json();
 
-  const serviceData = await fetch(`${reqUrl}/services?acf_format=standard&slug=${slug}&_fields=slug,id,title,acf`, {
-    next: { revalidate: 604800 },
-  }).then((res) => res.json());
+  const serviceData = await fetch(
+    `${reqUrl}/services?acf_format=standard&slug=${slug}&_fields=slug,id,title,acf`,
+    {
+      next: { revalidate: 604800 },
+    }
+  ).then((res) => res.json());
+
   const service = serviceData[0];
+
+  const faq = service.acf.faq
+
+  
 
   return (
     <main>
       <section className="service_intro wrapper">
         <SharedServiceTitle
           title={service.acf.title}
-          tagline={service.acf.tagline}
           eng={service.acf.title_eng}
         />
       </section>
 
-      <section className="service_description wrapper pt-0">
+      <section className="service_character wrapper">
         <div className="container">
-          <div className="row justify-content-center align-items-center wrapper">
-            <div className="col-md-7">
-              <SharedContent1 desc={service.acf.description} />
-            </div>
-            <div className="col-md-5 d-flex align-items-center justify-content-center">
+          <div className="row align-items-center justify-content-center">
+            <div className="col-lg-6">
               <SharedImage
                 imageUrl={service.acf.image}
-                alt={service.acf.title}
+                alt={service.title.rendered}
               />
             </div>
-          </div>
-          <div className="row justify-content-center">
-            <div className="col-xl-6 mb-4">
-              <ServiceDetailItem
-                imageUrl={`/images/services/numb1.svg`}
-                title={service.acf.mytitle1}
-                desc={service.acf.desc1}
-              />
-            </div>
-            <div className="col-xl-6 mb-4">
-              <ServiceDetailItem
-                imageUrl={`/images/services/numb2.svg`}
-                title={service.acf.mytitle2}
-                desc={service.acf.desc2}
-              />
-            </div>
-            <div className="col-12 mb-4">
-              <ServiceDetailItem
-                imageUrl={`/images/services/numb3.svg`}
-                title={service.acf.mytitle3}
-                desc={service.acf.desc3}
-              />
-            </div>
-            <div className="col-xl-4 col-lg-6 mb-4">
-              <ServiceDetailItem
-                imageUrl={`/images/services/numb4.svg`}
-                title={service.acf.mytitle4}
-                desc={service.acf.desc4}
-              />
-            </div>
-            <div className="col-xl-4 col-lg-6 mb-4">
-              <ServiceDetailItem
-                imageUrl={`/images/services/numb5.svg`}
-                title={service.acf.mytitle5}
-                desc={service.acf.desc5}
-              />
-            </div>
-            <div className="col-xl-4 col-lg-6 mb-4">
-              <ServiceDetailItem
-                imageUrl={`/images/services/numb6.svg`}
-                title={service.acf.mytitle6}
-                desc={service.acf.desc6}
+            <div className="col-lg-6">
+              <SharedContent1
+                title={service.acf.maintitle}
+                desc={service.acf.description}
               />
             </div>
           </div>
         </div>
       </section>
 
-      <section className="service_options wrapper">
-        <div className="container">
-          <SharedServiceTitle
-            title={`ویژگی های ${service.acf.title} در ماورانت`}
-            eng={`WEB DESIGN FEATURES`}
-          />
-          <div className="row align-items-center justify-content-center">
-            <div className="col-lg-4 mb-5 mb-lg-0">
-              <div className="service_options_box">
-                <ServiceOptionBox
-                  imageUrl={service.acf.icon_1}
-                  text={service.acf.special_1}
-                />
-                <ServiceOptionBox
-                  imageUrl={service.acf.icon_2}
-                  text={service.acf.special_2}
-                />
-                <ServiceOptionBox
-                  imageUrl={service.acf.icon_3}
-                  text={service.acf.special_3}
-                />
-              </div>
-            </div>
-            <div className="col-lg-4 mb-5 mb-lg-0">
-              <SharedImage
-                imageUrl={service.acf.special_img}
-                alt={service.acf.title}
+      {service.acf.sections.map((item, index) => {
+        if (index === 1) {
+          return (
+            <React.Fragment key={index}>
+              <section
+                key={`${index}-section`}
+                className={`service_content  py-4 `}
+              >
+                <div className="container">
+                  <div
+                    className={`${
+                      index % 2 === 0 ? "flex-row" : "flex-row-reverse"
+                    } row align-items-center justify-content-center `}
+                  >
+                    <div className="col-lg-6">
+                      <SharedContent1 title={item.title} desc={item.desc} />
+                      <Accordion item={item} />
+                    </div>
+                    <div className="col-lg-6">
+                      <SharedImage imageUrl={item.pic} alt={item.title} />
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <ServiceSharedPortfolio
+                data={portfolios}
+                titleData={service}
+                key={`${index}-portfolio`}
               />
-            </div>
-            <div className="col-lg-4">
-              <div className="service_options_box">
-                <ServiceOptionBox
-                  imageUrl={service.acf.icon_4}
-                  text={service.acf.special_4}
-                />
-                <ServiceOptionBox
-                  imageUrl={service.acf.icon_5}
-                  text={service.acf.special_5}
-                />
-                <ServiceOptionBox
-                  imageUrl={service.acf.icon_6}
-                  text={service.acf.special_6}
-                />
+            </React.Fragment>
+          );
+        } else {
+          return (
+            <section key={index} className={`service_content py-4 `}>
+              <div className="container">
+                <div
+                  className={`${
+                    index % 2 === 0 ? "flex-row" : "flex-row-reverse"
+                  } row align-items-center justify-content-center `}
+                >
+                  <div className="col-lg-6">
+                    <SharedContent1 title={item.title} desc={item.desc} />
+                    <Accordion item={item} />
+                  </div>
+                  <div className="col-lg-6">
+                    <SharedImage imageUrl={item.pic} alt={item.title} />
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
+            </section>
+          );
+        }
+      })}
 
+      <ServiceFaq
+        data={faq}
+      />
       <section className="service_team wrapper">
         <div className="container">
           <SharedServiceTitle
@@ -201,69 +182,44 @@ const serviceSingle = async ({ params }) => {
             eng={`our staff`}
           />
           <div className="row justify-content-center align-items-center">
-            <div className="col-xxl-4 col-xl-5 col-lg-6">
-              <div className="service_team_manager">
-                <Image
-                  src={service.acf.manager_img}
-                  width={224}
-                  height={332}
-                  alt={service.acf.manager_name}
-                  loading="lazy"	
-                />
-                <div className="text">
-                  <span className="name">{service.acf.manager_name}</span>
-                  <span className="jobTitle">{service.acf.manage_job}</span>
-                  <p>{service.acf.manager_massage}</p>
+            <div className="row p-0">
+              <div className="col-xxl-4 col-xl-5 col-lg-6">
+                <div className="service_team_manager">
+                  <Image
+                    src={service.acf.manager_img}
+                    width={224}
+                    height={332}
+                    alt={service.acf.manager_name}
+                    loading="lazy"
+                  />
+                  <div className="text">
+                    <span className="name">{service.acf.manager_name}</span>
+                    <span className="jobTitle">{service.acf.manage_job}</span>
+                    <p>{service.acf.manager_massage}</p>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="col-xxl-8 col-xl-7 col-lg-6">
-              <div className="row p-0">
-                {/* {service.acf.team.map((team) => (
-                  <div key={team.index} className="col-xxl-2 col-xl-3 col-sm-4 col-6">
-                    <div className="service_team_staff">
-                      <Image
-                        src={team.person_img}
-                        width={224}
-                        height={200}
-                        alt={team.name}
-                        loading="lazy"	
-                      />
-                      <div className="text">
-                        <span className="name">{team.name}</span>
-                        <span className="jobTitle">{team.title}</span>
-                      </div>
+              {service.acf.team.map((team) => (
+                <div
+                  key={team.index}
+                  className="col-xxl-2 col-xl-3 col-sm-4 col-6"
+                >
+                  <div className="service_team_staff">
+                    <Image
+                      src={team.person_img}
+                      width={224}
+                      height={200}
+                      alt={team.name}
+                      loading="lazy"
+                    />
+                    <div className="text">
+                      <span className="name">{team.name}</span>
+                      <span className="jobTitle">{team.title}</span>
                     </div>
                   </div>
-                ))} */}
-              </div>
+                </div>
+              ))}
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="shared_otherPortfolio service wrapper">
-        <div className="container">
-          <SharedServiceTitle
-            title={`نمونه کار های طراحی سایت`}
-            eng={`portfolio`}
-          />
-          <div className="row align-items-center justify-content-center">
-            {portfolios.slice(0, 3).map((portfolioArchive) => (
-              <div
-                key={portfolioArchive.id}
-                className="col-lg-4 col-md-6 mb-4"
-              >
-                <PortfolioArchiveItem
-                  slug={`/portfolio/${portfolioArchive.slug}`}
-                  imageUrl={portfolioArchive.acf.portfolio_thumbnail}
-                  name={portfolioArchive.title.rendered}
-                />
-              </div>
-            ))}
-          </div>
-          <div className="mt-4 d-flex align-items-center justify-content-center">
-            <Button text={`مشاهده بیشتر`} slug={`/portfolio`} />
           </div>
         </div>
       </section>
