@@ -1,8 +1,9 @@
 import Image from "next/image"
-import Button from "../layouts/Button";
+import Link from "next/link";
 
 const ServiceItem = ({ imageUrl , title , desc , slug}) => {
     return (
+      <Link href={`service/${slug}`}>
         <div className="service-item">
                 <Image
                   src={imageUrl}
@@ -17,6 +18,7 @@ const ServiceItem = ({ imageUrl , title , desc , slug}) => {
                   {/* <Button text={`مشاهده`} slug={`service/${slug}`} /> */}
                 </div>
               </div>
+      </Link>
     )
 }
 

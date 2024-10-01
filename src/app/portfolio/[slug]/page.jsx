@@ -43,7 +43,7 @@ export async function generateMetadata({ params }) {
     title: seoPortfolio.yoast_head_json.title,
     description: seoPortfolio.yoast_head_json.description,
     openGraph: {
-      title: seoPortfolio.yoast_head_json.og_title,
+      title: `${seoPortfolio.yoast_head_json.og_title} - ماورانت`,
       description: seoPortfolio.yoast_head_json.og_description,
       images: [
         {

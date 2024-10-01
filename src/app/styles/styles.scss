@@ -4656,9 +4656,7 @@ fp-nav ul,
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    position: relative;
-    z-index: 2;
+    justify-content: center;   
     .title {
       font-size: 1.75em;
       margin-bottom: 0.5rem;
@@ -4692,38 +4690,6 @@ fp-nav ul,
       text-align: center;
     }
 
-    &::before {
-      content: "";
-      position: absolute;
-      left: -120%;
-      top: 0;
-      bottom: 0;
-      width: 272px;
-      margin: auto;
-      height: 2px;
-      background: linear-gradient(
-        90deg,
-        rgba(255, 255, 255, 0) 0%,
-        #fff 47.92%,
-        rgba(255, 255, 255, 0) 100%
-      );
-    }
-    &::after {
-      content: "";
-      position: absolute;
-      right: -120%;
-      top: 0;
-      bottom: 0;
-      margin: auto;
-      width: 272px;
-      height: 2px;
-      background: linear-gradient(
-        90deg,
-        rgba(255, 255, 255, 0) 0%,
-        #fff 47.92%,
-        rgba(255, 255, 255, 0) 100%
-      );
-    }
   }
 
   &_otherPortfolio {
@@ -4921,15 +4887,6 @@ fp-nav ul,
       z-index: 3;
       margin-bottom: 0;
     }
-
-    @media (max-width: 992px) {
-      .shared_serviceTitle {
-        &::before,
-        &::after {
-          display: none;
-        }
-      }
-    }
   }
   &_character {
     background: rgba($white_color, $alpha: 0.02);
@@ -5063,7 +5020,7 @@ fp-nav ul,
       margin-bottom: 1rem;
     }
     .faq {
-      max-height: 55px;
+      max-height: 85px;
       overflow: hidden;
       margin-bottom: 1.25rem;
       transition: all .5s ease-in;
@@ -5231,10 +5188,42 @@ fp-nav ul,
       }
     }
   }
+  &_feature {
+    &_item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem .5rem;
+      border: 1px solid rgba($white_color, $alpha: .1);
+      background: rgba($white_color, $alpha: .05);
+      border-radius: 1rem;
+      gap: 1rem;
+      .line {
+        display: flex;
+        width: 100%;
+        height: 1px;
+        background: linear-gradient(
+          to right,
+          #ffffff00 0%,
+          #ffffff01 50%,
+          #ffffff00 100%
+        );
+      }
+      p {
+        font-size: .9em;
+        font-weight: 500;
+        margin-bottom:0 ;
+      }
+    }
+  }
   &.shared_otherPortfolio {
     position: relative;
     overflow: visible;
     z-index: 1;
+    .container {
+      overflow: hidden !important;
+    }
     img.bg {
       position: absolute;
       top: 0;
@@ -6670,10 +6659,6 @@ fp-nav ul,
     .shared_serviceTitle {
       align-items: flex-start;
       margin-bottom: 0;
-      &::before,
-      &::after {
-        display: none;
-      }
       h1,
       p,
       span {
@@ -6781,10 +6766,6 @@ fp-nav ul,
     .shared_serviceTitle {
       padding-top: 1.5rem;
       margin-bottom: 1.5rem;
-      &::before,
-      &::after {
-        display: none;
-      }
       h1 {
         text-shadow: $text_shadow;
       }

@@ -1,18 +1,14 @@
 import React from "react";
-import ServiceDetailItem from "../../../../public/components/services/serviceDetailItem";
-import PortfolioArchiveItem from "../../../../public/components/portfolio/portfolioArchiveItem";
+import ServiceFeature from "../../../../public/components/services/serviceFeature";
 import { reqUrl } from "../../config";
 import "@/app/styles/styles.scss";
 import SharedServiceTitle from "../../../../public/components/shared/SharedServiceTitle";
 import SharedImage from "../../../../public/components/shared/SharedImage";
 import SharedContent1 from "../../../../public/components/shared/SharedContent1";
-import Button from "../../../../public/components/layouts/Button";
-import Image from "next/image";
-import ServiceOptionBox from "../../../../public/components/services/serviceOptionBox";
-import PortfolioSection from "../../../../public/components/portfolio/portfolioSection";
 import ServiceSharedPortfolio from "../../../../public/components/services/serviceSharedPortfolio";
 import Accordion from "../../../../public/components/layouts/Accordion";
 import ServiceFaq from "../../../../public/components/services/serviceFaq";
+import ServiceTeamSection from "../../../../public/components/services/serviceTeamSection";
 export const ignoredUrls = ["هومن-عشقی", "کلینیک-مهرافروز"];
 
 export async function generateStaticParams() {
@@ -51,7 +47,7 @@ export async function generateMetadata({ params }) {
     title: seoService.yoast_head_json.title,
     description: seoService.yoast_head_json.description,
     openGraph: {
-      title: seoService.yoast_head_json.og_title,
+      title: `${seoService.yoast_head_json.og_title} - ماورانت`,
       description: seoService.yoast_head_json.og_description,
       // images: [
       //   {
@@ -72,7 +68,7 @@ export async function generateMetadata({ params }) {
 const serviceSingle = async ({ params }) => {
   const { slug } = params;
   const Preq = await fetch(
-    `${reqUrl}/portfolios?acf_format=standard&_fields=slug,id,title,acf.portfolio_thumbnail&per_page=100`
+    `${reqUrl}/portfolios?acf_format=standard&_fields=slug,id,title,acf.portfolio_thumbnail,acf.catergory&per_page=100`
   );
 
   const portfolios = await Preq.json();
@@ -86,9 +82,12 @@ const serviceSingle = async ({ params }) => {
 
   const service = serviceData[0];
 
-  const faq = service.acf.faq
-
-  
+  const faq = service.acf.faq;
+  // Filter the portfolios based on the current page title
+  const portfolioData = portfolios.filter(
+    (portfolioShow) => service.title.rendered === portfolioShow.acf.catergory.name
+  );
+  const team = service.acf.team
 
   return (
     <main>
@@ -118,6 +117,8 @@ const serviceSingle = async ({ params }) => {
         </div>
       </section>
 
+      {service.acf.box.lenght > 0 && <ServiceFeature data={service}/>}
+
       {service.acf.sections.map((item, index) => {
         if (index === 1) {
           return (
@@ -142,11 +143,13 @@ const serviceSingle = async ({ params }) => {
                   </div>
                 </div>
               </section>
-              <ServiceSharedPortfolio
-                data={portfolios}
-                titleData={service}
-                key={`${index}-portfolio`}
-              />
+              {index === 1 && portfolioData.length > 0 && (
+                <ServiceSharedPortfolio
+                  data={portfolioData}
+                  titleData={service}
+                  key={`${index}-portfolio`}
+                />
+              )}
             </React.Fragment>
           );
         } else {
@@ -172,57 +175,10 @@ const serviceSingle = async ({ params }) => {
         }
       })}
 
-      <ServiceFaq
-        data={faq}
-      />
-      <section className="service_team wrapper">
-        <div className="container">
-          <SharedServiceTitle
-            title={`متخصصین ما در ${service.acf.title}`}
-            eng={`our staff`}
-          />
-          <div className="row justify-content-center align-items-center">
-            <div className="row p-0">
-              <div className="col-xxl-4 col-xl-5 col-lg-6">
-                <div className="service_team_manager">
-                  <Image
-                    src={service.acf.manager_img}
-                    width={224}
-                    height={332}
-                    alt={service.acf.manager_name}
-                    loading="lazy"
-                  />
-                  <div className="text">
-                    <span className="name">{service.acf.manager_name}</span>
-                    <span className="jobTitle">{service.acf.manage_job}</span>
-                    <p>{service.acf.manager_massage}</p>
-                  </div>
-                </div>
-              </div>
-              {service.acf.team.map((team) => (
-                <div
-                  key={team.index}
-                  className="col-xxl-2 col-xl-3 col-sm-4 col-6"
-                >
-                  <div className="service_team_staff">
-                    <Image
-                      src={team.person_img}
-                      width={224}
-                      height={200}
-                      alt={team.name}
-                      loading="lazy"
-                    />
-                    <div className="text">
-                      <span className="name">{team.name}</span>
-                      <span className="jobTitle">{team.title}</span>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      {faq.length > 0 && <ServiceFaq data={faq} />}
+
+      {team.length > 0 && <ServiceTeamSection data={service}/>}
+      
     </main>
   );
 };

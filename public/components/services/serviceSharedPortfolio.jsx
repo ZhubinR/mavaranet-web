@@ -1,6 +1,7 @@
 import SharedServiceTitle from "../shared/SharedServiceTitle";
 import PortfolioArchiveItem from "../portfolio/portfolioArchiveItem";
 import Image from "next/image";
+import Button from "../layouts/Button";
 
 const ServiceSharedPortfolio = ({ data, titleData }) => {
   return (
@@ -27,6 +28,12 @@ const ServiceSharedPortfolio = ({ data, titleData }) => {
               />
             </div>
           ))}
+        </div>
+        <div className="d-flex align-items-center justify-content-center">
+          <Button
+            text={`مشاهده همه`}
+            slug={`/portfolio`}
+          />
         </div>
       </div>
     </section>

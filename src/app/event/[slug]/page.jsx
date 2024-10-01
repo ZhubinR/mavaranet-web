@@ -37,7 +37,7 @@ export async function generateMetadata({ params }) {
     title: seoEvent.yoast_head_json.title,
     description: seoEvent.yoast_head_json.description,
     openGraph: {
-      title: seoEvent.yoast_head_json.og_title,
+      title: `${seoEvent.yoast_head_json.og_title} - ماورانت`,
       description: seoEvent.yoast_head_json.og_description,
       locale: seoEvent.yoast_head_json.og_locale,
       type: seoEvent.yoast_head_json.og_type,

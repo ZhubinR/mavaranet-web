@@ -47,6 +47,14 @@ const fetchPosts = async () => {
   return res.json();
 };
 
+const fetchServices = async () => {
+  const res = await fetch(`${reqUrl}/services?_fields=slug,date&per_page=100`);
+  if (!res.ok) {
+    throw new Error('Failed to fetch posts');
+  }
+  return res.json();
+};
+
 const fetchPortfolio = async () => {
   const res = await fetch(`${reqUrl}/portfolios?_fields=slug,date&per_page=100`);
   if (!res.ok) {
@@ -63,7 +71,6 @@ const fetchEvent = async () => {
 };
 
 export default async function sitemap() {
-  const urls = [];
   const blogs = await fetchPosts()
   const portfolios = await fetchPortfolio()
   const events = await fetchEvent()
@@ -109,6 +116,12 @@ export default async function sitemap() {
     ...portfolios.map(portfolio => ({
       url: `https://mavaranet.net/portfolio/${portfolio.slug}`,
       lastModified: new Date(portfolio.date).toISOString(),
+      changeFrequency: 'weekly',
+      priority: 0.25,
+    })),
+    ...services.map(service => ({
+      url: `https://mavaranet.net/service/${service.slug}`,
+      lastModified: new Date(service.date).toISOString(),
       changeFrequency: 'weekly',
       priority: 0.25,
     })),
