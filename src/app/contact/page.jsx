@@ -2,6 +2,24 @@ import ContactBoxItem from "../../../public/components/contact/ContactBoxItem";
 import GoogleMap from "../../../public/components/contact/GoogleMap";
 import InsidePageTitle from "../../../public/components/shared/SharedPageTitle";
 
+export const metadata = {
+  // optionally access and extend (rather than replace) parent metadata
+  title: `تماس ما  - ماورانت`,
+  description: `ماورانت، اولین آژانس برندینگ پزشکی در ایران - ماورانت`,
+  openGraph: {
+      title: `تماس ما  - ماورانت`,
+      description: `ماورانت، اولین آژانس برندینگ پزشکی در ایران - ماورانت`,
+
+      url: `https://mavaranet.net/content`,
+      locale: `fa_IR`,
+      type: `article`,
+      siteName: `ماورانت`,
+      twitter: {
+          card: 'summary_large_image',
+      },
+  },
+}
+
 const Contact = () => {
   return (
     

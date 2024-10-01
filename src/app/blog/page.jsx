@@ -7,12 +7,12 @@ import { reqUrl } from "../config";
 
 const BlogArchive = async () => {
   const req = await fetch(`${reqUrl}/posts?acf_format=standard&per_page=100`, {
-    next: { revalidate: 604800 },
+    next: { revalidate: 60 },
   });
   const blogReq = await req.json();
 
   const cateReq = await fetch(`${reqUrl}/categories`, {
-    next: { revalidate: 604800 },
+    next: { revalidate: 60 },
   });
   const category = await cateReq.json();
 

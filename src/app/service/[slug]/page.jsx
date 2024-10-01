@@ -44,7 +44,7 @@ export async function generateMetadata({ params }) {
   // optionally access and extend (rather than replace) parent metadata
 
   return {
-    title: seoService.yoast_head_json.title,
+    title: `${seoService.yoast_head_json.title} - ماورانت`,
     description: seoService.yoast_head_json.description,
     openGraph: {
       title: `${seoService.yoast_head_json.og_title} - ماورانت`,
@@ -76,7 +76,7 @@ const serviceSingle = async ({ params }) => {
   const serviceData = await fetch(
     `${reqUrl}/services?acf_format=standard&slug=${slug}&_fields=slug,id,title,acf`,
     {
-      next: { revalidate: 604800 },
+      next: { revalidate: 60 },
     }
   ).then((res) => res.json());
 
@@ -117,7 +117,7 @@ const serviceSingle = async ({ params }) => {
         </div>
       </section>
 
-      {service.acf.box.lenght > 0 && <ServiceFeature data={service}/>}
+      {service.acf.box.length > 0 && <ServiceFeature data={service}/>}
 
       {service.acf.sections.map((item, index) => {
         if (index === 1) {

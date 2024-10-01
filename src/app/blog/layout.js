@@ -10,10 +10,10 @@ export async function generateMetadata() {
   // optionally access and extend (rather than replace) parent metadata
 
   return {
-    title: `اخبار و مقالات ماورانت`,
+    title: `اخبار و مقالات ماورانت  - ماورانت`,
     description: `وبلاگ ما به عنوان یک منبع برجسته اطلاعاتی در زمینه تبلیغات و برندینگ کسب و کارهای مختلف شناخته می‌شود.`,
     openGraph: {
-      title: `اخبار و مقالات ماورانت`,
+      title: `اخبار و مقالات ماورانت  - ماورانت`,
       description: `وبلاگ ما به عنوان یک منبع برجسته اطلاعاتی در زمینه تبلیغات و برندینگ کسب و کارهای مختلف شناخته می‌شود.`,
       url: `https://mavaranet.net/blog/`,
       locale: `fa_IR`,

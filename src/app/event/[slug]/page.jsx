@@ -34,7 +34,7 @@ export async function generateMetadata({ params }) {
   const seoEvent = seoEvents[0];
 
   return {
-    title: seoEvent.yoast_head_json.title,
+    title: `${seoEvent.yoast_head_json.title} - ماورانت`,
     description: seoEvent.yoast_head_json.description,
     openGraph: {
       title: `${seoEvent.yoast_head_json.og_title} - ماورانت`,

@@ -7,10 +7,10 @@ import '@/app/styles/styles.css'
 // }
 export const metadata = {
   // optionally access and extend (rather than replace) parent metadata
-  title: `آژانس برندینگ ماورانت - ماورانت`,
+  title: `آژانس برندینگ ماورانت`,
   description: `اولین آژانس برندینگ پزشکی در خاورمیانه.`,
   openGraph: {
-    title: `آژانس برندینگ ماورانت - ماورانت`,
+    title: `آژانس برندینگ ماورانت`,
     description: `اولین آژانس برندینگ پزشکی در خاورمیانه.`,
 
     url: `https://mavaranet.net/`,

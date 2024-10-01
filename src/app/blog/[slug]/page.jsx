@@ -41,10 +41,10 @@ export async function generateMetadata({ params }) {
   // optionally access and extend (rather than replace) parent metadata
 
   return {
-    title: seoBlog.yoast_head_json.title,
+    title: `${seoBlog.yoast_head_json.title}`,
     description: seoBlog.yoast_head_json.description,
     openGraph: {
-      title: seoBlog.yoast_head_json.og_title,
+      title: `${seoBlog.yoast_head_json.og_title} - ماورانت`,
       description: seoBlog.yoast_head_json.og_description,
       images: [
         {
@@ -69,7 +69,7 @@ const blogSingle = async ({ params }) => {
   const { slug } = params;
   const req = await fetch(
     `${reqUrl}/posts?acf_format=standard&slug=${slug}&_fields=title,content,id,acf,categories,date`,
-    { next: { revalidate: 604800 } })
+    { next: { revalidate: 60 } })
   const blogPosts = await req.json()
   const blogPost = blogPosts[0]
 

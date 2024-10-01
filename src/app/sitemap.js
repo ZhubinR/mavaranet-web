@@ -74,6 +74,7 @@ export default async function sitemap() {
   const blogs = await fetchPosts()
   const portfolios = await fetchPortfolio()
   const events = await fetchEvent()
+  const services = await fetchServices()
 
 
   return [

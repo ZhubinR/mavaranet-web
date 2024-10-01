@@ -6,7 +6,7 @@ const ServiceSection = ({ data }) => {
       <div className="container-flouid">
         <div className="row justify-content-center align-items-center pb-5 mx-lg-5">
           {data.map((service) => (
-            <div className="col-xl-3 col-lg-4 col-sm-6" key={service.id}>
+            <div className="col-xxl-3 col-xl-4 col-sm-6" key={service.id}>
               <ServiceItem
                 imageUrl={service.acf.image}
                 title={service.acf.title}

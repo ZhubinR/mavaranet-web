@@ -40,7 +40,7 @@ export async function generateMetadata({ params }) {
   // optionally access and extend (rather than replace) parent metadata
 
   return {
-    title: seoPortfolio.yoast_head_json.title,
+    title: `${seoPortfolio.yoast_head_json.title} - ماورانت`,
     description: seoPortfolio.yoast_head_json.description,
     openGraph: {
       title: `${seoPortfolio.yoast_head_json.og_title} - ماورانت`,

@@ -20,7 +20,7 @@ const PortfolioArchive = () => {
     try {
       const res = await fetch(
         `${reqUrl}/portfolios?acf_format=standard&_fields=id,title,slug,acf&per_page=100`,
-        { next: { revalidate: 604800 } }
+        { next: { revalidate: 60 } }
       );
       const portfoliosRes = await res.json();
       setPortfolioData(portfoliosRes);

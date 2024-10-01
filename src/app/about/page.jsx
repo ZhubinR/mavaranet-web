@@ -10,12 +10,11 @@ import SharedImage from "../../../public/components/shared/SharedImage"
 
 export const metadata = {
     // optionally access and extend (rather than replace) parent metadata
-    title: `درباره ما`,
-    description: `ماورانت، اولین آژانس برندینگ پزشکی در ایران`,
+    title: `درباره ما  - ماورانت`,
+    description: `ماورانت، اولین آژانس برندینگ پزشکی در ایران - ماورانت`,
     openGraph: {
-        title: `درباره ما`,
-        description: `ماورانت، اولین آژانس برندینگ پزشکی در ایران`,
-
+        title: `درباره ما  - ماورانت`,
+        description: `ماورانت، اولین آژانس برندینگ پزشکی در ایران - ماورانت`,
         url: `https://mavaranet.net/about`,
         locale: `fa_IR`,
         type: `article`,
