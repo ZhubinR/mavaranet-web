@@ -1,4 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import '@/app/styles/styles.css'
 
 // export const metadata = {
@@ -44,6 +45,7 @@ export default function RootLayout({ children }) {
     <html lang="fa" dir="rtl">
       <body>
       {children}
+      <SpeedInsights />
       </body>
     </html>
   )}

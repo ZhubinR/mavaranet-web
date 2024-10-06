@@ -13,7 +13,7 @@ export const ignoredUrls = ["هومن-عشقی", "کلینیک-مهرافروز"
 
 export async function generateStaticParams() {
   const services = await fetch(
-    `${reqUrl}/services?_fields=slug&per_page=100`
+    `${reqUrl}/services?_fields=slug&per_page=100`,{next: { revalidate: 60 }}
   ).then((res) => res.json());
 
   if (!services) {
@@ -37,7 +37,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }) {
   // fetch data
   const seoServices = await fetch(
-    `${reqUrl}/services?acf_format=standard&slug=${params.slug}&_fields=yoast_head_json`
+    `${reqUrl}/services?acf_format=standard&slug=${params.slug}&_fields=yoast_head_json`,{next: { revalidate: 60 }}
   ).then((res) => res.json());
   const seoService = seoServices[0];
 
@@ -68,7 +68,7 @@ export async function generateMetadata({ params }) {
 const serviceSingle = async ({ params }) => {
   const { slug } = params;
   const Preq = await fetch(
-    `${reqUrl}/portfolios?acf_format=standard&_fields=slug,id,title,acf.portfolio_thumbnail,acf.catergory&per_page=100`
+    `${reqUrl}/portfolios?acf_format=standard&_fields=slug,id,title,acf.portfolio_thumbnail,acf.catergory&per_page=100`,{next: { revalidate: 60 }}
   );
 
   const portfolios = await Preq.json();
