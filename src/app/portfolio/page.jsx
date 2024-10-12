@@ -82,9 +82,9 @@ const PortfolioArchive = () => {
 
           <button
             className={`filter-btn ${
-              selectedCategory === "گرافیک" ? "active" : ""
+              selectedCategory === "طراحی گرافیک" ? "active" : ""
             }`}
-            onClick={() => Filter("گرافیک")}
+            onClick={() => Filter("طراحی گرافیک")}
           >
             گرافیک
           </button>
@@ -105,6 +105,14 @@ const PortfolioArchive = () => {
             onClick={() => Filter("تدوین")}
           >
             تدوین
+          </button>
+          <button
+            className={`filter-btn ${
+              selectedCategory === "عکاسی و فیلمبرداری" ? "active" : ""
+            }`}
+            onClick={() => Filter("عکاسی و فیلمبرداری")}
+          >
+            عکاسی و فیلمبرداری
           </button>
 
           <button
