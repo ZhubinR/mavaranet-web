@@ -22,7 +22,7 @@ import EventSection from "../../public/components/events/EventSection";
 export default async function Home() {
 
   const data1 = await fetch(
-    `${reqUrl}/user_testimonial?acf_format=standard`, {next: { revalidate: 60 }} 
+    `${reqUrl}/user_testimonial?acf_format=standard`, {next: { revalidate: 60 } ,} 
   ).then((res) => res.json());
 
   const data2 = await fetch(
