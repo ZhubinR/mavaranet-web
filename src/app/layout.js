@@ -1,6 +1,14 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css'
 import '@/app/styles/styles.css'
+import { Agent, setGlobalDispatcher } from 'undici';
 
+// Create a new Agent with the desired options
+const agent = new Agent({
+  connect: {
+    timeout: 60_000, // Set the connection timeout to 60 seconds
+  },
+});
+setGlobalDispatcher(agent);
 // export const metadata = {
 //   title: 'آژانس برندینگ ماورانت',
 //   description: 'اولین آژانس برندینگ پزشکی در خاورمیانه',
