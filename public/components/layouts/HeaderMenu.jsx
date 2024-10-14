@@ -76,6 +76,19 @@ const HeaderMenu = () => {
 
                         <li>
                             <Link
+                                href='/service'
+                            >
+                                <Image
+                                    className='ms-4'
+                                    src={`../images/menu/service.svg`}
+                                    width={20}
+                                    height={20}
+                                    alt='service icon'
+                                />
+                                خدمات
+                            </Link>
+                        <li>
+                            <Link
                                 href='/portfolio'
                             >
                                 <Image
