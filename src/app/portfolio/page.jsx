@@ -106,14 +106,15 @@ const PortfolioArchive = () => {
           >
             تدوین
           </button>
-          <button
+          
+          {/* <button
             className={`filter-btn ${
               selectedCategory === "عکاسی و فیلمبرداری" ? "active" : ""
             }`}
             onClick={() => Filter("عکاسی و فیلمبرداری")}
           >
             عکاسی و فیلمبرداری
-          </button>
+          </button> */}
 
           <button
             className={`filter-btn ${

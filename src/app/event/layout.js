@@ -9,7 +9,7 @@ import Footer from "../../../public/components/layouts/Footer";
 export async function generateMetadata() {
   // optionally access and extend (rather than replace) parent metadata
   return {
-    title: `رویداد های ماورانت  - ماورانت`,
+    title: `رویداد های ماورانت`,
     description: `ایونت‌ ها و کنگره ‌های شرکت ماورانت با هدف تقویت دانش و مهارت‌ های شما در زمینه برندینگ و بازاریابی شکل می‌گیرند و به شما امکان می‌دهند تا با آخرین روند تبلیغاتی و نوآوری‌ در صنعت آشنا شوید.`,
     openGraph: {
       title: `رویداد های ماورانت - ماورانت`,
