@@ -44,17 +44,17 @@ export async function generateMetadata({ params }) {
   // optionally access and extend (rather than replace) parent metadata
 
   return {
-    title: `${seoService.yoast_head_json.title} - ماورانت`,
+    title: `${seoService.yoast_head_json.title}`,
     description: seoService.yoast_head_json.description,
     openGraph: {
-      title: `${seoService.yoast_head_json.og_title} - ماورانت`,
+      title: `${seoService.yoast_head_json.og_title}`,
       description: seoService.yoast_head_json.og_description,
       // images: [
       //   {
       //     url: seoService.yoast_head_json.og_image.url,
       //   },
       // ],
-      url: `https://mavaranet.net/Service/${params.slug}`,
+      url: `https://mavaranet.net/service/${params.slug}`,
       locale: seoService.yoast_head_json.og_locale,
       type: seoService.yoast_head_json.og_type,
       siteName: seoService.yoast_head_json.og_site_name,
