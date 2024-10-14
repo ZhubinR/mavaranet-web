@@ -104,6 +104,11 @@ const Footer = () => {
                             </li>
 
                             <li>
+                                <Link href={`/service`}>
+                                    خدمات
+                                </Link>
+                            </li>
+                            <li>
                                 <Link href={`/portfolio`}>
                                     نمونه کار ها
                                 </Link>
