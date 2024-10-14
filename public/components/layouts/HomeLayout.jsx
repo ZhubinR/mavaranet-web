@@ -33,10 +33,10 @@ export const metadata = {
 };
 const HomeLayout = ({ children }) => {
   return (
-    <body>
+    <>
       <LayoutStatics />
       {children}
-    </body>
+    </>
   );
 };
 

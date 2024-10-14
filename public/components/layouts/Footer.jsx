@@ -65,15 +65,6 @@ const Footer = () => {
                                     />
                                 </Link>
 
-                                <Link href={`https://www.youtube.com/mavaranet`} rel="nofollow noopener noreferrer" target="_blank">
-                                    <Image
-                                        src={`/images/contact/footeryoutube.svg`}
-                                        width={20}
-                                        height={20}
-                                        alt="Youtube"
-                                    />
-                                </Link>
-
                             </div>
                         </div>
                     </div>

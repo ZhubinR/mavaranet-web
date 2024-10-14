@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Faq from "../layouts/Faq";
-import SharedServiceTitle from "../shared/SharedServiceTitle";
+import SharedServiceTitle1 from "../shared/SharedServiceTitle1";
 
 const ServiceFaq = ({ data }) => {
 
@@ -18,7 +18,7 @@ const ServiceFaq = ({ data }) => {
         alt="bg"
       />
       <div className="container">
-        <SharedServiceTitle
+        <SharedServiceTitle1
           title={`سوالات متداول`}
           eng={`FAQs`}
         />

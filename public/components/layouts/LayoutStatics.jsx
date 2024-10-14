@@ -218,18 +218,6 @@ const LayoutStatics = () => {
                             </Link>
                         </li>
 
-                        <li>
-                            <Link
-                                href={`https://www.youtube.com/mavaranet`}
-                            >
-                                <Image
-                                    src={`../images/contact/youtube.svg`}
-                                    width={24}
-                                    height={24}
-                                    alt='Youtube'
-                                />
-                            </Link>
-                        </li>
                     </ul>
                 </div>
             </aside>

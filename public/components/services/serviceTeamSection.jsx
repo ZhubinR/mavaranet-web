@@ -1,11 +1,11 @@
-import SharedServiceTitle from "../shared/SharedServiceTitle";
+import SharedServiceTitle1 from "../shared/SharedServiceTitle1";
 import Image from "next/image";
 
 const ServiceTeamSection = ({data}) => {
   return (
     <section className="service_team wrapper">
       <div className="container">
-        <SharedServiceTitle
+        <SharedServiceTitle1
           title={`متخصصین ما در ${data.acf.title}`}
           eng={`our staff`}
         />

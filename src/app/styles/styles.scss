@@ -7005,7 +7005,7 @@ fp-nav ul,
   @media (max-width: 1400px) {
     &_intro {
       .shared_serviceTitle {
-        h1 {
+        h1, h3 {
           font-size: 2em;
         }
         span {
@@ -7057,6 +7057,7 @@ fp-nav ul,
       }
       .shared_serviceTitle {
         h1,
+        h3,
         span,
         p {
           text-align: center;

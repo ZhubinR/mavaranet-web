@@ -40,11 +40,7 @@ const PagesHeader = () => {
                                         درباره ما
                                     </Link>
                                 </li>
-                                {/* <li>
-                                    <Link href={`/contact`}>
-                                        تماس با ما
-                                    </Link>
-                                </li> */}
+                               
                                 <li>
                                     <Link href={`/blog`}>
                                         مقالات
