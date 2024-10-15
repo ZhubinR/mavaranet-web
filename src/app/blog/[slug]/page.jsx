@@ -64,7 +64,7 @@ export async function generateMetadata({ params }) {
   };
 }
 
-const blogSingle = async ({ params }) => {
+const BlogSingle = async ({ params }) => {
 
   const { slug } = params;
   const req = await fetch(
@@ -138,4 +138,4 @@ const blogSingle = async ({ params }) => {
   );
 }
 
-export default blogSingle;
+export default BlogSingle;

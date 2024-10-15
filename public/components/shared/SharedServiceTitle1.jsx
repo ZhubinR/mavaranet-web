@@ -1,4 +1,4 @@
-const SharedServiceTitle = ({title, tagline, eng}) => {
+const SharedServiceTitle1 = ({title, tagline, eng}) => {
     return (
         <div className="shared_serviceTitle">
             <span>{eng.toUpperCase()}</span>
@@ -10,4 +10,4 @@ const SharedServiceTitle = ({title, tagline, eng}) => {
     )
 }
 
-export default SharedServiceTitle
+export default SharedServiceTitle1

@@ -22,31 +22,31 @@ import EventSection from "../../public/components/events/EventSection";
 export default async function Home() {
 
   const data1 = await fetch(
-    `${reqUrl}/user_testimonial?acf_format=standard`, {next: { revalidate: 60 } ,} 
+    `${reqUrl}/user_testimonial?acf_format=standard`, {next: { revalidate: 3600 } ,} 
   ).then((res) => res.json());
 
   const data2 = await fetch(
-    `${reqUrl}/portfolios?acf_format=standard&_fields=slug,id,title,acf.portfolio_thumbnail&per_page=100`, {next: { revalidate: 60 }}
+    `${reqUrl}/portfolios?acf_format=standard&_fields=slug,id,title,acf.portfolio_thumbnail&per_page=100`, {next: { revalidate: 3600 }}
   ).then((res) => res.json());
 
   const filteredData = data2.filter((item) => item.slug !== 'nilfouroush-clinic');
 
   const data3 = await fetch(
-    `${reqUrl}/posts?acf_format=standard&_fields=slug,title,acf,date,id,categories`, {next: { revalidate: 60 }}
+    `${reqUrl}/posts?acf_format=standard&_fields=slug,title,acf,date,id,categories`, {next: { revalidate: 3600 }}
   ).then((res) => res.json());
 
-  const data4 = await fetch(`${reqUrl}/categories`, {next: { revalidate: 60 }}).then((res) => res.json());
+  const data4 = await fetch(`${reqUrl}/categories`, {next: { revalidate: 3600 }}).then((res) => res.json());
 
   const data5 = await fetch(
-    `${reqUrl}/customers?acf_format=standard&per_page=100`, {next: { revalidate: 60 }}
+    `${reqUrl}/customers?acf_format=standard&per_page=100`, {next: { revalidate: 3600 }}
   ).then((res) => res.json());
 
   const data6 = await fetch(
-    `${reqUrl}/events?acf_format=standard&_fields=slug,id,acf.title,acf.date,acf.location,acf.thumbnail_img`, {next: { revalidate: 60 }}
+    `${reqUrl}/events?acf_format=standard&_fields=slug,id,acf.title,acf.date,acf.location,acf.thumbnail_img`, {next: { revalidate: 3600 }}
   ).then((res) => res.json());
 
   const data7 = await fetch(
-    `${reqUrl}/services?acf_format=standard&_fields=slug,id,acf.title,acf.image,acf.description`, {next: { revalidate: 60 }}
+    `${reqUrl}/services?acf_format=standard&_fields=slug,id,acf.title,acf.image,acf.description`, {next: { revalidate: 3600 }}
   ).then((res) => res.json());
 
   const blogPostsWithCategories = data3.map((post) => {

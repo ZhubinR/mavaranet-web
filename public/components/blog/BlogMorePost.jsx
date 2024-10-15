@@ -1,7 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
 
-const blogMorePost = ({ slug, imageUrl, title, desc, date }) => {
+const BlogMorePost = ({ slug, imageUrl, title, desc, date }) => {
     return (
         <>
             <Link href={slug} className="blogSingle_morePostItem">
@@ -26,4 +26,4 @@ const blogMorePost = ({ slug, imageUrl, title, desc, date }) => {
     )
 }
 
-export default blogMorePost
+export default BlogMorePost
