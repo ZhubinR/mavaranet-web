@@ -5347,7 +5347,7 @@ fp-nav ul,
   &_content {
     background-color: #01121c;
     border-radius: 1.5rem;
-    padding: 2rem 1rem;
+    padding: 2rem 9rem;
     margin: 2rem 0;
     padding-bottom: 1rem;
     margin-bottom: 4rem;
@@ -5373,6 +5373,14 @@ fp-nav ul,
 
     a {
       color: #e1b453;
+    }
+    ul {
+      list-style: disc;
+      margin-right: 1.5rem;
+    }
+
+    p {
+      line-height: 2;
     }
 
     p,
@@ -5403,7 +5411,10 @@ fp-nav ul,
       object-position: center;
       border-radius: 0.5rem;
     }
+    @media (max-width: 1200px) {
+      padding: 0.5rem 0.75rem !important;
 
+    }
     @media (max-width: 576px) {
       padding: 0.5rem 0.75rem !important;
 
