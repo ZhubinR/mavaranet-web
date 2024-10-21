@@ -1,31 +1,18 @@
-"use client";
-import { useEffect, useRef } from "react";
+import Image from "next/image";
 import AboutContent from "./aboutContent";
 const AboutSection = () => {
-  const videoRef = useRef(null);
 
-  useEffect(() => {
-    const videoElement = videoRef.current;
-    videoElement.play();
-    videoElement.addEventListener("ended", () => {
-      videoElement.currentTime = 0;
-      videoElement.play();
-    });
-  }, []);
+
   return (
     <section className="section about wrapper">
-      <video
+      <Image
         id="aboutVideo"
+        width={900}
+        height={600}
         className="aboutVideo"
-        ref={videoRef}
+        src={`/images/about.webp`}
         style={{ mixBlendMode: "lighten" }}
-        autoPlay
-        muted
-        loop
-        playsInline
-      >
-        <source src="/videos/about.webm" type="video/webm" />
-      </video>
+      />
       <div className="container">
         <div className="row">
           <div className="col-lg-6">

@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '@/app/styles/styles.css'
 import { Agent, setGlobalDispatcher } from 'undici';
-
+import Head from 'next/head';
 // Create a new Agent with the desired options
 const agent = new Agent({
   connect: {
@@ -50,6 +50,9 @@ export default function RootLayout({ children }) {
   
   return (
     <html lang="fa" dir="rtl">
+      <Head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      </Head>
       <body>
       {children}
      

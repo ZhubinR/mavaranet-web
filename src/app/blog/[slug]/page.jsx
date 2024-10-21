@@ -69,7 +69,7 @@ const BlogSingle = async ({ params }) => {
   const { slug } = params;
   const req = await fetch(
     `${reqUrl}/posts?acf_format=standard&slug=${slug}&_fields=title,content,id,acf,categories,date`,
-    { next: { revalidate: 60 } })
+    { next: { revalidate: 3600 } })
   const blogPosts = await req.json()
   const blogPost = blogPosts[0]
 
