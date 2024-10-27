@@ -10,6 +10,7 @@ const AboutSection = () => {
         width={900}
         height={600}
         className="aboutVideo"
+        alt="video image"
         src={`/images/about.webp`}
         style={{ mixBlendMode: "lighten" }}
       />

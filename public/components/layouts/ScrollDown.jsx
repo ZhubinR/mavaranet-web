@@ -1,6 +1,6 @@
-const ScrollDown = () => {
+const ScrollDown = ({onClick}) => {
     return (
-        <div className="scroll-down">
+        <div className="scroll-down"  onClick={onClick}>
             <span></span>
             <span></span>
             <span></span>

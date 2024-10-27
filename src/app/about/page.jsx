@@ -191,7 +191,7 @@ const About = () => {
                                     <Managers
                                         imageUrl={`/images/managers/fereshteMirzaie.jpg`}
                                         name={`فرشته میرزایی`}
-                                        job={`مدیر بخش ماوراطب`}
+                                        job={`مدیر بخش`}
 
                                     />
 

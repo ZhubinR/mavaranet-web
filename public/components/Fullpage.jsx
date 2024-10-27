@@ -36,20 +36,33 @@ const Fullpage = ({ children, footer }) => {
           touchSensitivity: 10,
           fitToSectionDelay: 300,
           licenseKey: 'gplv3-license',
-          credits: false,
           css3: true,
           navigation: true,
-          // responsiveHeight: 480,
+          scrollingSpeed: 600, // Default scrolling speed
           controlArrows: false,
           menu: '#menu',
           navigationPosition: 'bottom',
           showActiveTooltip: true,
+          // Detect the section and update scrollingSpeed
+          afterLoad: (origin, destination, direction) => {
+            if (destination.index === 0) { // Target section (section 1)
+              fullpage_api.setScrollingSpeed(3000); // Custom speed for this section
+            }
+          },
+          onLeave: (origin, destination, direction) => {
+            if (origin.index === 0 || destination.index === 0) {
+              fullpage_api.setScrollingSpeed(3000); // Custom speed when leaving/returning to target section
+            } else {
+              fullpage_api.setScrollingSpeed(600); // Default speed for other sections
+            }
+          }
         });
         setFullpageInitialized(true);
       };
       initializeFullpage();
     }
   }, [isSmallScreen]);
+  
 
   useEffect(() => {
     return () => {
