@@ -1222,7 +1222,7 @@ fp-nav ul,
 
   &.services {
     // background: url(../../../public/images/sky-background-3.webp) center no-repeat;
-    background-size: cover;
+    background-size: cover ;
     position: relative;
     overflow: hidden !important;
     .service-item {
@@ -3988,6 +3988,8 @@ fp-nav ul,
     &.services {
       background: url(../../../public/images/sky-background-3.webp) center
         no-repeat;
+    background-size: cover !important;
+
       .myWrapper {
         transform: none;
         opacity: 1;
