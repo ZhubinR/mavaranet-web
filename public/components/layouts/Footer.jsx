@@ -133,12 +133,12 @@ const Footer = () => {
               </p>
             </div>
             <a
-              referrerpolicy="origin"
+              referrerPolicy="origin"
               target="_blank"
               href="https://trustseal.enamad.ir/?id=225877&Code=KAH2GFfnX9N368H6QrZZ"
             >
               <img
-                referrerpolicy="origin"
+                referrerPolicy="origin"
                 src="https://trustseal.enamad.ir/logo.aspx?id=225877&Code=KAH2GFfnX9N368H6QrZZ"
                 alt=""
                 code="KAH2GFfnX9N368H6QrZZ"

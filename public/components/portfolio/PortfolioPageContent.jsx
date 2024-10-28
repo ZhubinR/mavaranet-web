@@ -5,7 +5,7 @@ import Image from "next/image";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 
-const PortfolioPageContent = ({ data }) => {
+const PortfolioPageContent = ({ data, videoData }) => {
   const [open, setOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -37,18 +37,10 @@ const PortfolioPageContent = ({ data }) => {
     <section className="portfolio_content">
       <div className="container">
         <div className="row justify-content-center">
-          {data.map((item, index) => {
-            const resourceType = getResourceType(item.medi);
-
-            return (
-              <div className="col-lg-4 col-md-6 mb-4" key={item.id}>
-                {resourceType === "video" ? (
-                  <div>
-                    <video width="100%" height="100%" loading="lazy" controls>
-                      <source src={item.medi} type="video/mp4" />
-                    </video>
-                  </div>
-                ) : (
+          {data.length > 0 &&
+            data.map((item, index) => {
+              return (
+                <div className="col-lg-4 col-md-6 mb-4" key={index}>
                   <Image
                     src={item.medi}
                     alt="Picture"
@@ -56,10 +48,25 @@ const PortfolioPageContent = ({ data }) => {
                     height={582}
                     onClick={() => openLightboxOnSlide(index)}
                   />
-                )}
-              </div>
-            );
-          })}
+                </div>
+              );
+            })}
+          {videoData.length > 0 &&
+            videoData.map((item, index) => {
+              return (
+                <div className="col-lg-4 col-md-6 mb-4" key={index}>
+                  <video
+                    width="100%"
+                    height="100%"
+                    loading="lazy"
+                    controls
+                    poster={item.cover}
+                  >
+                    <source src={item.video} type="video/mp4" />
+                  </video>
+                </div>
+              );
+            })}
         </div>
       </div>
 
