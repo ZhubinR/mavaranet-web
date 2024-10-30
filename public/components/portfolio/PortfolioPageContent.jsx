@@ -15,8 +15,6 @@ const PortfolioPageContent = ({ portfolio }) => {
   };
   const images = portfolio?.acf?.files || [];
   const videos = portfolio?.acf?.videos || [];
-  console.log(videos)
-
 
   return (
     <section className="portfolio_content">
@@ -44,8 +42,16 @@ const PortfolioPageContent = ({ portfolio }) => {
                     width="100%"
                     height="100%"
                     loading="lazy"
+                    preload="none"
                     controls
                     poster={item.cover}
+                    onClick={(e) => {
+                      if (e.target) {
+                        e.target.play();
+                      } else {
+                        e.target.pause();
+                      }
+                    }}
                   >
                     <source src={item.video} type="video/webm" />
                   </video>

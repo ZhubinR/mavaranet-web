@@ -70,33 +70,7 @@ const PortfolioSingle = async ({ params }) => {
   );
   const portfolios = await req.json();
   const portfolio = portfolios[0];
-  console.log(portfolio);
 
-
-  // const getResourceType = (url) => {
-  //   if (/\.(mp4|webm)$/.test(url)) {
-  //     return "video";
-  //   } else if (/\.(jpg|jpeg|png|webp)$/.test(url)) {
-  //     return "picture";
-  //   } else {
-  //     return "picture";
-  //   }
-  // };
-  // const getResourceType = (url) => {
-  //   if (url.endsWith(".mp4") || url.endsWith(".webm")) {
-  //     return "video";
-  //   } else if (
-  //     url.endsWith(".jpg") ||
-  //     url.endsWith(".jpeg") ||
-  //     url.endsWith(".png") ||
-  //     url.endsWith(".webp")
-  //   ) {
-  //     return "picture";
-  //   } else {
-  //     // default to 'picture' if the type cannot be determined
-  //     return "picture";
-  //   }
-  // };
   return (
     <main>
       <section className="portfolio_hero mb-4">
