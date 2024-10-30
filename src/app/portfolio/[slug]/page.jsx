@@ -70,8 +70,8 @@ const PortfolioSingle = async ({ params }) => {
   );
   const portfolios = await req.json();
   const portfolio = portfolios[0];
-  const portfolioContent = portfolio.acf.files;
-  const portfolioVideoContent = portfolio.acf.videos;
+  console.log(portfolio);
+
 
   // const getResourceType = (url) => {
   //   if (/\.(mp4|webm)$/.test(url)) {
@@ -110,7 +110,7 @@ const PortfolioSingle = async ({ params }) => {
         </div>
       </section>
 
-      <PortfolioPageContent data={portfolioContent} videoData={portfolioVideoContent}/>
+      <PortfolioPageContent portfolio={portfolio} />
     </main>
   );
 };

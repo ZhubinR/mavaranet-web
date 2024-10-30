@@ -5,7 +5,7 @@ import Image from "next/image";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 
-const PortfolioPageContent = ({ data, videoData }) => {
+const PortfolioPageContent = ({ portfolio }) => {
   const [open, setOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -13,32 +13,17 @@ const PortfolioPageContent = ({ data, videoData }) => {
     setCurrentIndex(index);
     setOpen(true);
   };
+  const images = portfolio?.acf?.files || [];
+  const videos = portfolio?.acf?.videos || [];
+  console.log(videos)
 
-  const getResourceType = (url) => {
-    if (/\.(mp4|webm)$/.test(url)) {
-      return "video";
-    } else if (/\.(jpg|jpeg|png|webp)$/.test(url)) {
-      return "picture";
-    } else {
-      return "picture";
-    }
-  };
-
-  const slides = data
-    .filter((item) => getResourceType(item.medi) === "picture")
-    .map((item) => {
-      return {
-        type: "picture",
-        src: item.medi,
-      };
-    });
 
   return (
     <section className="portfolio_content">
       <div className="container">
         <div className="row justify-content-center">
-          {data.length > 0 &&
-            data.map((item, index) => {
+          {images.length > 0 &&
+            images.map((item, index) => {
               return (
                 <div className="col-lg-4 col-md-6 mb-4" key={index}>
                   <Image
@@ -51,8 +36,8 @@ const PortfolioPageContent = ({ data, videoData }) => {
                 </div>
               );
             })}
-          {videoData.length > 0 &&
-            videoData.map((item, index) => {
+          {videos.length > 0 &&
+            videos.map((item, index) => {
               return (
                 <div className="col-lg-4 col-md-6 mb-4" key={index}>
                   <video
@@ -62,7 +47,7 @@ const PortfolioPageContent = ({ data, videoData }) => {
                     controls
                     poster={item.cover}
                   >
-                    <source src={item.video} type="video/mp4" />
+                    <source src={item.video} type="video/webm" />
                   </video>
                 </div>
               );
@@ -74,10 +59,7 @@ const PortfolioPageContent = ({ data, videoData }) => {
         open={open}
         close={() => setOpen(false)}
         index={currentIndex}
-        slides={slides.map((slide, index) => ({
-          src: slide.src,
-          key: index,
-        }))}
+        
       />
     </section>
   );
