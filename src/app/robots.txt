@@ -4,3 +4,4 @@ Disallow: /?
 Disallow: /?et_core_page_resource
 Disallow: /portfolio/test01
 Disallow: /wp-admin/
+Disallow: /blog/medical-website-design

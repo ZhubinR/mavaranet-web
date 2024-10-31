@@ -177,6 +177,12 @@ const nextConfig = {
         destination: "/",
         permanent: true,
       },
+      {
+        source:
+          "/blog/medical-website-design",
+        destination: "/blog",
+        permanent: true,
+      },
     ];
   },
 };
