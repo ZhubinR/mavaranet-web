@@ -185,7 +185,18 @@ const LayoutStatics = () => {
                 درباره ما
               </Link>
             </li>
-
+            <li>
+              <Link href={`/service/محتوا-و-سئو-پزشکی`}>
+                <Image
+                  className="ms-4"
+                  src={`../images/menu/service.svg`}
+                  width={20}
+                  height={20}
+                  alt="service icon"
+                />
+                محتوا و سئو پزشکی
+              </Link>
+            </li>
             {/* <li>
                             <Link
                                 href='/contact'

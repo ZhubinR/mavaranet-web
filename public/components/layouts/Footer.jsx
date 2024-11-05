@@ -121,6 +121,10 @@ const Footer = () => {
               <li>
                 <Link href={`/blog`}>مقالات</Link>
               </li>
+              <li>
+                <Link href={`/service/محتوا-و-سئو-پزشکی`}>محتوا و سئو پزشکی
+                </Link>
+              </li>
             </ul>
           </div>
 
