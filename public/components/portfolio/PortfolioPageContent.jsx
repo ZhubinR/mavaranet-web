@@ -16,6 +16,8 @@ const PortfolioPageContent = ({ portfolio }) => {
   const images = portfolio?.acf?.files || [];
   const videos = portfolio?.acf?.videos || [];
 
+  const slides = images.map((item) => ({ src: item.medi }));
+
   return (
     <section className="portfolio_content">
       <div className="container">
@@ -65,7 +67,7 @@ const PortfolioPageContent = ({ portfolio }) => {
         open={open}
         close={() => setOpen(false)}
         index={currentIndex}
-        
+        slides={slides}
       />
     </section>
   );
