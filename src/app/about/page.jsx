@@ -23,6 +23,9 @@ export const metadata = {
             card: 'summary_large_image',
         },
     },
+    alternates: {
+        canonical: `https://mavaranet.net/about`,
+      },
 }
 
 const About = () => {

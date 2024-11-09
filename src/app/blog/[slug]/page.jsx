@@ -61,6 +61,9 @@ export async function generateMetadata({ params }) {
         card: "summary_large_image",
       },
     },
+    alternates: {
+      canonical: `https://mavaranet.net/blog/${params.slug}`,
+    },
   };
 }
 

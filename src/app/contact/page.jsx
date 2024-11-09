@@ -18,6 +18,9 @@ export const metadata = {
           card: 'summary_large_image',
       },
   },
+  alternates: {
+    canonical: 'https://mavaranet.net/contact/',
+  },
 }
 
 const Contact = () => {

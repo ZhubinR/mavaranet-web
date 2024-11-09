@@ -21,6 +21,9 @@ export async function generateMetadata() {
       twitter: {
         card: "summary_large_image",
       },
+      alternates: {
+        canonical: 'https://mavaranet.net/event/',
+      },
     },
     robots: {
       index: true,

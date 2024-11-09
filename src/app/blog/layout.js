@@ -22,6 +22,9 @@ export async function generateMetadata() {
         card: "summary_large_image",
       },
     },
+    alternates: {
+      canonical: 'https://mavaranet.net/blog/',
+    },
     robots: {
       index: true,
       follow: true,

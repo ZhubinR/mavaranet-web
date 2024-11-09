@@ -7,6 +7,7 @@ import HeaderMenu from "../../../public/components/layouts/HeaderMenu";
 import Footer from "../../../public/components/layouts/Footer";
 
 export const metadata = {
+  
   robots: {
     index: true,
     follow: true,

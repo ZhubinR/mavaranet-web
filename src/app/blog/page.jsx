@@ -5,6 +5,7 @@ import moment from "jalali-moment";
 import Overlay from "../../../public/components/layouts/Overlay";
 import { reqUrl } from "../config";
 
+
 const BlogArchive = async () => {
   const req = await fetch(`${reqUrl}/posts?acf_format=standard&per_page=100`, {
     next: { revalidate: 60 },

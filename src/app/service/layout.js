@@ -7,6 +7,9 @@ import HeaderMenu from "../../../public/components/layouts/HeaderMenu";
 import Footer from "../../../public/components/layouts/Footer";
 
 export const metadata = {
+  alternates: {
+    canonical: 'https://mavaranet.net/service/',
+  },
   robots: {
     index: true,
     follow: true,
