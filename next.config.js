@@ -183,6 +183,18 @@ const nextConfig = {
         destination: "/blog",
         permanent: true,
       },
+      {
+        source:
+          "/blog/medical-website-seo",
+        destination: "/service/سئو-سایت-پزشکی",
+        permanent: true,
+      },
+      {
+        source:
+          "/service/محتوا-و-سئو-پزشکی",
+        destination: "/service/سئو-سایت-پزشکی",
+        permanent: true,
+      },
     ];
   },
 };
