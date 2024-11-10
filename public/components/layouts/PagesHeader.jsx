@@ -39,7 +39,7 @@ const PagesHeader = () => {
                 <Link href={`/event`}>رویدادها</Link>
               </li>
               <li>
-                <Link href={`/service/محتوا-و-سئو-پزشکی`}>
+                <Link href={`/service/سئو-سایت-پزشکی`}>
                  
                   محتوا و سئو پزشکی
                 </Link>

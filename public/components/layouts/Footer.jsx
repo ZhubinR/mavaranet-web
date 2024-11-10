@@ -122,7 +122,7 @@ const Footer = () => {
                 <Link href={`/blog`}>مقالات</Link>
               </li>
               <li>
-                <Link href={`/service/محتوا-و-سئو-پزشکی`}>محتوا و سئو پزشکی
+                <Link href={`/service/سئو-سایت-پزشکی`}>محتوا و سئو پزشکی
                 </Link>
               </li>
             </ul>

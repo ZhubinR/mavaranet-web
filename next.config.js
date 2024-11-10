@@ -184,15 +184,13 @@ const nextConfig = {
         permanent: true,
       },
       {
-        source:
-          "/blog/medical-website-seo",
+        source: "/blog/medical-website-seo",
         destination: "/service/سئو-سایت-پزشکی",
         permanent: true,
       },
       {
-        source:
-          "/service/محتوا-و-سئو-پزشکی",
-        destination: "/service/سئو-سایت-پزشکی",
+        source: '/service/' + encodeURIComponent('محتوا-و-سئو-پزشکی'),
+        destination: '/service/' + encodeURIComponent('سئو-سایت-پزشکی'),
         permanent: true,
       },
     ];

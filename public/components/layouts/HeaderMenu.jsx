@@ -175,7 +175,7 @@ const HeaderMenu = () => {
               </Link>
             </li>
             <li>
-              <Link href={`/service/محتوا-و-سئو-پزشکی`}>
+              <Link href={`/service/سئو-سایت-پزشکی`}>
                 <Image
                   className="ms-4"
                   src={`../images/menu/service.svg`}
