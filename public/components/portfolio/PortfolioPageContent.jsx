@@ -19,7 +19,7 @@ const PortfolioPageContent = ({ portfolio }) => {
   const slides = images.map((item) => ({ src: item.medi }));
 
   return (
-    <section className="portfolio_content">
+    <section className="portfolio_content mb-4">
       <div className="container">
         <div className="row justify-content-center">
           {images.length > 0 &&

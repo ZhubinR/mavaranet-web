@@ -188,9 +188,25 @@ const nextConfig = {
         destination: "/service/سئو-سایت-پزشکی",
         permanent: true,
       },
+      
       {
         source: '/service/' + encodeURIComponent('محتوا-و-سئو-پزشکی'),
         destination: '/service/' + encodeURIComponent('سئو-سایت-پزشکی'),
+        permanent: true,
+      },
+      {
+        source: '/blog/' + encodeURIComponent('چرا-استفاده-از-سوشال-مدیا-برای-پزشکان-ض'),
+        destination: '/blog/' + encodeURIComponent('چرا-استفاده-از-سوشال-مدیا-برای-پزشکان'),
+        permanent: true,
+      },
+      {
+        source: '/blog/' + encodeURIComponent('marketing-necessity-for-doctors')  ,
+        destination: '/service/' + encodeURIComponent('دیجیتال-مارکتینگ-پزشکی') ,
+        permanent: true,
+      },
+      {
+        source: '/blog/' + encodeURIComponent('آژانس-مارکتینگ-پزشکی'),
+        destination: '/service/' + encodeURIComponent(' دیجیتال-مارکتینگ-پزشکی'),
         permanent: true,
       },
     ];

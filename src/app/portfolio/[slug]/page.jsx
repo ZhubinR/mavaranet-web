@@ -88,6 +88,10 @@ const PortfolioSingle = async ({ params }) => {
       </section>
 
       <PortfolioPageContent portfolio={portfolio} />
+
+      <p className="portfolio_description">
+        { portfolio.acf.portfolio_description}
+      </p>
     </main>
   );
 };

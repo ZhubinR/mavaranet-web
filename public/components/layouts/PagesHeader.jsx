@@ -38,12 +38,12 @@ const PagesHeader = () => {
               <li>
                 <Link href={`/event`}>رویدادها</Link>
               </li>
-              <li>
+              {/* <li>
                 <Link href={`/service/سئو-سایت-پزشکی`}>
                  
                   محتوا و سئو پزشکی
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </nav>
           <Button text={`ارتباط با ما`} slug={`/contact`} />

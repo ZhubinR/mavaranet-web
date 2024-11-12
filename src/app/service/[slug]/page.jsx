@@ -128,7 +128,7 @@ const serviceSingle = async ({ params }) => {
             <React.Fragment key={index}>
               <section
                 key={`${index}-section`}
-                className={`service_content  py-4 `}
+                className={`service_content py-4`}
               >
                 <div className="container">
                   <div

@@ -105,12 +105,6 @@ const Footer = () => {
                 <Link href={`/portfolio`}>نمونه کار ها</Link>
               </li>
 
-              {/* <li>
-                                <Link href={`/team`}>
-                                    تیم ما
-                                </Link>
-                            </li> */}
-
               <li>
                 <Link href={`/about`}>درباره ما</Link>
               </li>
@@ -121,10 +115,10 @@ const Footer = () => {
               <li>
                 <Link href={`/blog`}>مقالات</Link>
               </li>
-              <li>
+              {/* <li>
                 <Link href={`/service/سئو-سایت-پزشکی`}>محتوا و سئو پزشکی
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </div>
 

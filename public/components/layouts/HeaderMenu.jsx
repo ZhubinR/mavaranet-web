@@ -174,7 +174,7 @@ const HeaderMenu = () => {
                 رویدادها
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link href={`/service/سئو-سایت-پزشکی`}>
                 <Image
                   className="ms-4"
@@ -185,7 +185,7 @@ const HeaderMenu = () => {
                 />
                 محتوا و سئو پزشکی
               </Link>
-            </li>
+            </li> */}
           </ul>
         </div>
 
