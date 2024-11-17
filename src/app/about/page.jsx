@@ -181,15 +181,7 @@ const About = () => {
                                     />
 
                                 </div>
-                                <div className="col-xl-2 col-lg-3 col-md-4 col-6 mb-4">
-                                    <Managers
-                                        imageUrl={`/images/managers/tabrizi.jpg`}
-                                        name={`نسترن تبریزی`}
-                                        job={`مدیر مالی و امور قراردادها`}
-
-                                    />
-
-                                </div>
+                                
                                 <div className="col-xl-2 col-lg-3 col-md-4 col-6 mb-4">
                                     <Managers
                                         imageUrl={`/images/managers/fereshteMirzaie.jpg`}
@@ -236,7 +228,7 @@ const About = () => {
 
                                 </div>
                                 
-                                <div className="col-xl-2 col-lg-3 col-md-4 col-6 mb-4">
+                                {/* <div className="col-xl-2 col-lg-3 col-md-4 col-6 mb-4">
                                     <Managers
                                         imageUrl={`/images/managers/mousavi.jpg`}
                                         name={`سپیده موسوی`}
@@ -244,8 +236,16 @@ const About = () => {
 
                                     />
 
-                                </div>
+                                </div> */}
+                                <div className="col-xl-2 col-lg-3 col-md-4 col-6 mb-4">
+                                    <Managers
+                                        imageUrl={`/images/managers/tabrizi.jpg`}
+                                        name={`نسترن تبریزی`}
+                                        job={`مدیر مالی و امور قراردادها`}
 
+                                    />
+
+                                </div>
 
                             </div>
                         </div>

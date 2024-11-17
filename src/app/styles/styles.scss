@@ -5413,7 +5413,7 @@ fp-nav ul,
     h2 {
       color: $white_color;
       font-weight: 500 !important;
-      font-size: 1.75em;
+      font-size: 1.6em;
       margin-bottom: 1rem;
     }
 
@@ -5423,8 +5423,14 @@ fp-nav ul,
     h6 {
       color: $white_color;
       font-weight: 500;
-      font-size: 1.6em;
+      font-size: 1.45em;
       margin-bottom: 1rem;
+    }
+    h4 {
+      font-size: 1.2em;
+    }
+    h5 {
+      font-size: 1.15em;
     }
 
     a {

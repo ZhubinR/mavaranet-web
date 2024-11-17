@@ -3,6 +3,7 @@ import { reqUrl } from "@/app/config";
 // import Image from "next/image";
 import PortfolioTitle from "../../../../public/components/portfolio/portfolioTitle";
 import PortfolioPageContent from "../../../../public/components/portfolio/PortfolioPageContent";
+import HtmlRenderComponent from "../../../../public/components/layouts/HtmlRenderComponent";
 export const ignoredUrls = ["هومن-عشقی", "کلینیک-مهرافروز"];
 // import FsLightbox from "fslightbox-react";
 
@@ -89,9 +90,7 @@ const PortfolioSingle = async ({ params }) => {
 
       <PortfolioPageContent portfolio={portfolio} />
 
-      <p className="portfolio_description">
-        { portfolio.acf.portfolio_description}
-      </p>
+      <HtmlRenderComponent htmlContent={portfolio.content.rendered}/>
     </main>
   );
 };
