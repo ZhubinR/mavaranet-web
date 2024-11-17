@@ -70,7 +70,8 @@ const PortfolioSingle = async ({ params }) => {
   console.log(slug);
   // fetching api datas for page content
   const req = await fetch(
-    `${reqUrl}/portfolios?acf_format=standard&slug=${slug}`, {keepalive: true}
+    `${reqUrl}/portfolios?acf_format=standard&slug=${slug}`,
+    { keepalive: true }
   );
   const portfolios = await req.json();
   const portfolio = portfolios[0];
@@ -90,7 +91,11 @@ const PortfolioSingle = async ({ params }) => {
 
       <PortfolioPageContent portfolio={portfolio} />
 
-      <HtmlRenderComponent htmlContent={portfolio.content.rendered}/>
+      {portfolio.content.rendered.length > 0 && (
+        <div className="container">
+          <HtmlRenderComponent htmlContent={portfolio.content.rendered} />
+        </div>
+      )}
     </main>
   );
 };
