@@ -57,6 +57,7 @@ const eventSingle = async ({ params }) => {
 
   const req = await fetch(
     `${reqUrl}/events?acf_format=standard&slug=${slug}&_fields=acf`
+    ,{next: { revalidate: 60 }}
   );
   const eventPosts = await req.json();
   const eventPost = eventPosts[0];
