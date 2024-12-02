@@ -1233,6 +1233,7 @@ fp-nav ul,
       align-items: flex-end;
       img {
         width: 45%;
+        min-width: 188px;
         height: 100%;
       }
       .content {
@@ -1370,6 +1371,7 @@ fp-nav ul,
       .service-item {
         img {
           width: 40%;
+          min-width: 165px;
         }
         .content {
           margin-bottom: 6.5%;
