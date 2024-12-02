@@ -1053,6 +1053,7 @@ fp-nav ul,
 }
 .section.services .service-item img {
   width: 45%;
+  min-width: 188px;
   height: 100%;
 }
 .section.services .service-item .content {
@@ -1188,6 +1189,7 @@ fp-nav ul,
 @media (max-width: 480px) {
   .section.services .service-item img {
     width: 40%;
+    min-width: 165px;
   }
   .section.services .service-item .content {
     margin-bottom: 6.5%;
