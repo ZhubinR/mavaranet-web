@@ -1,7 +1,7 @@
-import 'bootstrap/dist/css/bootstrap.min.css'
-import '@/app/styles/styles.css'
-import { Agent, setGlobalDispatcher } from 'undici';
-import Head from 'next/head';
+import "bootstrap/dist/css/bootstrap.min.css";
+import "@/app/styles/styles.css";
+import { Agent, setGlobalDispatcher } from "undici";
+import Head from "next/head";
 // Create a new Agent with the desired options
 const agent = new Agent({
   connect: {
@@ -9,12 +9,8 @@ const agent = new Agent({
   },
 });
 setGlobalDispatcher(agent);
-// export const metadata = {
-//   title: 'آژانس برندینگ ماورانت',
-//   description: 'اولین آژانس برندینگ پزشکی در خاورمیانه',
-// }
+
 export const metadata = {
-  // optionally access and extend (rather than replace) parent metadata
   title: `آژانس برندینگ ماورانت`,
   description: `اولین آژانس برندینگ پزشکی در خاورمیانه.`,
   openGraph: {
@@ -26,11 +22,11 @@ export const metadata = {
     type: `article`,
     siteName: `ماورانت`,
     twitter: {
-      card: 'summary_large_image',
+      card: "summary_large_image",
     },
   },
   alternates: {
-    canonical: 'https://mavaranet.net/',
+    canonical: "https://mavaranet.net/",
   },
   robots: {
     index: true,
@@ -40,25 +36,31 @@ export const metadata = {
       index: true,
       follow: false,
       noimageindex: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
-  }
-}
+  },
+};
 export const viewport = {
-  themeColor: '#e1b453',
-}
+  themeColor: "#e1b453",
+};
 export default function RootLayout({ children }) {
-  
   return (
     <html lang="fa" dir="rtl">
       <Head>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css"
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer"
+        />
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-MKE6NQNJWR"
+        ></script>
       </Head>
-      <body>
-      {children}
-     
-      </body>
+      <body>{children}</body>
     </html>
-  )}
+  );
+}
