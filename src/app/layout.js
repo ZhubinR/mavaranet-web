@@ -49,27 +49,19 @@ export const viewport = {
 export default function RootLayout({ children }) {
   return (
     <html lang="fa" dir="rtl">
-      <Head>
+      <head>
         <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css"
           crossorigin="anonymous"
           referrerpolicy="no-referrer"
         />
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-D7LDCKY9MV"
-        ></script>
-        {/* <script>
-          window.dataLayer = window.dataLayer || []; function gtag()
-          {dataLayer.push(arguments)}
-          gtag('js', new Date()); 
-          
-          gtag('config', 'G-D7LDCKY9MV');
-        </script> */}
-        <GoogleAnalytics gaId="G-D7LDCKY9MV" />
-      </Head>
-      <body>{children}</body>
+        
+      </head>
+      <body>
+        {children}
+          <GoogleAnalytics gaId="G-D7LDCKY9MV" />
+        </body>
     </html>
   );
 }
