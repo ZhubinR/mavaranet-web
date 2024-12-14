@@ -1,6 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "@/app/styles/styles.css";
 import { Agent, setGlobalDispatcher } from "undici";
+import { GoogleAnalytics } from '@next/third-parties/google'
 import Head from "next/head";
 // Create a new Agent with the desired options
 const agent = new Agent({
@@ -59,13 +60,14 @@ export default function RootLayout({ children }) {
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-D7LDCKY9MV"
         ></script>
-        <script>
+        {/* <script>
           window.dataLayer = window.dataLayer || []; function gtag()
           {dataLayer.push(arguments)}
           gtag('js', new Date()); 
           
           gtag('config', 'G-D7LDCKY9MV');
-        </script>
+        </script> */}
+        <GoogleAnalytics gaId="G-D7LDCKY9MV" />
       </Head>
       <body>{children}</body>
     </html>
