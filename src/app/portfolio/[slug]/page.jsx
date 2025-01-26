@@ -33,8 +33,9 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }) {
   // fetch data for meta data
+  const { slug } = await params;
   const seoPortfolios = await fetch(
-    `${reqUrl}/portfolios?acf_format=standard&slug=${params.slug}`
+    `${reqUrl}/portfolios?acf_format=standard&slug=${slug}`
   ).then((res) => res.json());
   const seoPortfolio = seoPortfolios[0];
 
@@ -60,7 +61,7 @@ export async function generateMetadata({ params }) {
       },
     },
     alternates: {
-      canonical: `https://mavaranet.net/portfolio/${params.slug}`,
+      canonical: `https://mavaranet.net/portfolio/${slug}`,
     },
   };
 }
