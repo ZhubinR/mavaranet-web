@@ -53,8 +53,8 @@ export default function RootLayout({ children }) {
         <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css"
-          crossorigin="anonymous"
-          referrerpolicy="no-referrer"
+          crossOrigin="anonymous"
+          referrerPolicy="no-referrer"
         />
         
       </head>

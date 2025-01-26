@@ -95,10 +95,8 @@ const BlogSingle = async ({ params }) => {
   );
   const allData = await dataReq.json();
 
-  // Filter out the current post from related posts
   const filteredData = allData.filter((post) => post.slug !== slug);
 
-  // Take the first three related posts after filtering
   const threeData = filteredData.slice(0, 3);
 
   const gregorianDate = blogPost.date;

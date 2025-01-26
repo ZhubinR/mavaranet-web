@@ -66,8 +66,8 @@ export async function generateMetadata({ params }) {
 }
 
 const PortfolioSingle = async ({ params }) => {
-  const { slug } = params;
-  console.log(slug);
+  const { slug } = await params;
+ 
   // fetching api datas for page content
   const req = await fetch(
     `${reqUrl}/portfolios?acf_format=standard&slug=${slug}` ,
