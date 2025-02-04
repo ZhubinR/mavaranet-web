@@ -88,16 +88,19 @@ const BlogSingle = async ({ params }) => {
   blogPost.categoriesData = categoryData;
 
   // Fetch related posts
-  const dataReq = await fetch(
-    `${reqUrl}/posts?acf_format=standard&categories=${blogPost.categoriesData
-      .map((category) => category.id)
-      .join(", ")}&_fields=id,slug,acf.thumbnail_url,acf.desc,title,date`
-  );
-  const allData = await dataReq.json();
+  // Fetch related posts
+const dataReq = await fetch(
+  `${reqUrl}/posts?acf_format=standard&categories=${blogPost.categoriesData
+    .map((category) => category.id)
+    .join(", ")}&_fields=id,slug,acf.thumbnail_url,acf.desc,title,date`
+);
+const allData = await dataReq.json();
 
-  const filteredData = allData.filter((post) => post.slug !== slug);
+// Filter out the current post by comparing IDs instead of slugs
+const filteredData = allData.filter((post) => post.id !== blogPost.id);
 
-  const threeData = filteredData.slice(0, 3);
+// Get the last three related posts
+const threeData = filteredData.slice(0, 3);
 
   const gregorianDate = blogPost.date;
   const jalaliDate = moment(gregorianDate, "YYYY-MM-DDTHH:mm:ss")

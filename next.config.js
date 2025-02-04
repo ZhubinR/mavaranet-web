@@ -179,6 +179,47 @@ const nextConfig = {
       },
       {
         source:
+          "/portfolio/%D8%B7%D8%B1%D8%A7%D8%AD%DB%8C-%D9%87%D8%A7%DB%8C-%D9%BE%D8%B3%D8%AA-%D9%88-%D8%A7%D8%B3%D8%AA%D9%88%D8%B1%DB%8C-%D8%A7%DB%8C%D9%86%D8%B3%D8%AA%D8%A7%DA%AF%D8%B1%D8%A7%D9%85",
+        destination: "/portfolio/%d8%b7%d8%b1%d8%a7%d8%ad%db%8c-%d9%be%d8%b3%d8%aa-%d9%88-%d8%a7%d8%b3%d8%aa%d9%88%d8%b1%db%8c-%d9%be%d8%b2%d8%b4%da%a9%db%8c",
+        permanent: true,
+      },
+      {
+        source:"/portfolio/%D9%86%D9%85%D9%88%D9%86%D9%87-%D8%B7%D8%B1%D8%A7%D8%AD%DB%8C-%D9%87%D8%A7%DB%8C-%D9%84%D9%88%DA%AF%D9%88%DB%8C-%D9%BE%D8%B2%D8%B4%DA%A9",
+        destination: "/portfolio/%d8%b7%d8%b1%d8%a7%d8%ad%db%8c-%d9%84%d9%88%da%af%d9%88%db%8c-%d9%be%d8%b2%d8%b4%da%a9%db%8c",
+        permanent: true,
+      },
+      {
+        source:"/portfolio/%D9%86%D9%85%D9%88%D9%86%D9%87-%D8%AC%D9%84%D9%88%D9%87%D9%87%D8%A7%DB%8C-%D8%A8%D8%B5%D8%B1%DB%8C-vfx",
+        destination: "/portfolio/%d9%86%d9%85%d9%88%d9%86%d9%87-%d8%ac%d9%84%d9%88%d9%87-%d9%87%d8%a7%db%8c-%d8%a8%d8%b5%d8%b1%db%8c-%d9%be%d8%b2%d8%b4%da%a9%db%8c",
+        permanent: true,
+      },
+      {
+        source:"/portfolio/%D9%BE%D8%B1-%D8%A8%D8%A7%D8%B2%D8%AF%DB%8C%D8%AF-%D8%AA%D8%B1%DB%8C%D9%86-%D9%88%DB%8C%D8%AF%DB%8C%D9%88%D9%87%D8%A7%DB%8C-%D8%A7%DB%8C%D9%86%D8%B3%D8%AA%D8%A7%DA%AF%D8%B1%D8%A7%D9%85",
+        destination: "/portfolio/%d9%be%d8%b1-%d8%a8%d8%a7%d8%b2%d8%af%db%8c%d8%af-%d8%aa%d8%b1%db%8c%d9%86-%d9%88%db%8c%d8%af%db%8c%d9%88%d9%87%d8%a7%db%8c-%d9%be%d8%b2%d8%b4%da%a9%db%8c-%d8%a7%db%8c%d9%86%d8%b3%d8%aa%d8%a7%da%af",
+        permanent: true,
+      },
+      {
+        source:"/portfolio/%D9%86%D9%85%D9%88%D9%86%D9%87-%D8%B7%D8%B1%D8%A7%D8%AD%DB%8C-%D9%87%D8%A7%DB%8C-%DA%A9%D8%A7%D8%B1%D8%AA-%D9%88%DB%8C%D8%B2%DB%8C%D8%AA-%D9%88-%D8%B3%D8%AA-%D8%A7%D8%AF%D8%A7%D8%B1%DB%8C",
+        destination: "/portfolio/%d9%86%d9%85%d9%88%d9%86%d9%87-%d8%b7%d8%b1%d8%a7%d8%ad%db%8c-%da%a9%d8%a7%d8%b1%d8%aa-%d9%88%db%8c%d8%b2%db%8c%d8%aa-%d9%88-%d8%b3%d8%aa-%d8%a7%d8%af%d8%a7%d8%b1%db%8c-%d9%be%d8%b2%d8%b4%da%a9%db%8c",
+        permanent: true,
+      },
+      {
+        source:"/portfolio/%D8%B3%D8%A6%D9%88-%D8%B3%D8%A7%DB%8C%D8%AA-%D9%87%D8%A7%DB%8C-%DA%A9%D9%84%DB%8C%D9%86%DB%8C%DA%A9",
+        destination: "/portfolio/%d8%b3%d8%a6%d9%88-%d8%b3%d8%a7%db%8c%d8%aa-%da%a9%d9%84%db%8c%d9%86%db%8c%da%a9",
+        permanent: true,
+      },
+      {
+        source:"/portfolio/%D9%86%D9%85%D9%88%D9%86%D9%87-%D8%A7%D9%86%DB%8C%D9%85%DB%8C%D8%B4%D9%86-%D9%87%D8%A7%DB%8C-%D9%BE%D8%B2%D8%B4%DA%A9%DB%8C",
+        destination: "/portfolio/%d8%a7%d9%86%db%8c%d9%85%db%8c%d8%b4%d9%86-%d9%be%d8%b2%d8%b4%da%a9%db%8c",
+        permanent: true,
+      },
+      {
+        source:"/portfolio/%D9%86%D9%85%D9%88%D9%86%D9%87-%D8%AA%DB%8C%D8%B2%D8%B1-%D9%87%D8%A7%DB%8C-%D8%AA%D8%A8%D9%84%DB%8C%D8%BA%D8%A7%D8%AA%DB%8C-%D9%BE%D8%B2%D8%B4%DA%A9%DB%8C",
+        destination: "/portfolio/%d9%86%d9%85%d9%88%d9%86%d9%87-%d8%aa%db%8c%d8%b2%d8%b1-%d8%aa%d8%a8%d9%84%db%8c%d8%ba%d8%a7%d8%aa%db%8c-%d9%be%d8%b2%d8%b4%da%a9%db%8c",
+        permanent: true,
+      },
+      {
+        source:
           "/blog/medical-website-design",
         destination: "/blog",
         permanent: true,
