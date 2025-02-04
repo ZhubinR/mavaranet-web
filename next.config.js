@@ -219,6 +219,11 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source:"/portfolio/سئو-سایت-های-گوش،-حلق-و-بینی",
+        destination: "/portfolio/نمونه-سئو-سایت-گوش-حلق-و-بینی",
+        permanent: true,
+      },
+      {
         source:
           "/blog/medical-website-design",
         destination: "/blog",
